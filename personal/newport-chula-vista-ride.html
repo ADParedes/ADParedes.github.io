@@ -318,6 +318,31 @@
             font-size: 0.85rem;
         }
 
+        .edition-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .edition-current {
+            background: var(--color-accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .edition-future {
+            background: var(--color-bg);
+            color: var(--color-muted);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px dashed var(--color-muted);
+        }
+
         @media print {
             body { padding: 0; }
             .card { box-shadow: none; border: 1px solid #e2e8f0; }
@@ -326,6 +351,42 @@
         @media (max-width: 600px) {
             .stop-header { flex-direction: column; }
             .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Year Badge */
+        .year-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        /* Slogan */
+        .slogan {
+            font-style: italic;
+            color: var(--color-accent);
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Intro Story */
+        .intro-story {
+            margin-bottom: 2rem;
+        }
+
+        .intro-story .card p {
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .intro-story .card p:last-child {
+            margin-bottom: 0;
         }
 
         /* Map Styles */
@@ -398,10 +459,30 @@
 </head>
 <body>
     <div class="container">
+        <div class="year-badge">2025 INAUGURAL</div>
         <header>
-            <h1>Newport Beach → Chula Vista</h1>
-            <p class="subtitle">Century Ride Guide | Team A (Bikers) & Team B (Support)</p>
+            <h1>The Long Ride Home</h1>
+            <p class="subtitle">Newport Beach → Chula Vista Century</p>
+            <p class="slogan">"Started as a bad idea. Now it's tradition."</p>
         </header>
+
+        <section class="intro-story">
+            <h2><span class="icon">📖</span> The Origin Story</h2>
+            <div class="card">
+                <p><strong>In 2008</strong>, a college kid named Andre looked at a map and thought: <em>"I bet I could bike home from school."</em></p>
+                <p>He could not.</p>
+                <p>But the idea stuck. And now, almost two decades later, we're making it official. <strong>The Long Ride Home</strong> is 105 miles of coastal California beauty, questionable life choices, and the kind of bonding that only happens when your legs are screaming and your chamois is soaked.</p>
+                <p style="margin-top: 1rem;"><strong>⚠️ Fair warning:</strong></p>
+                <ul style="margin-left: 1.25rem; margin-top: 0.5rem;">
+                    <li>Your butt will go numb. This is normal.</li>
+                    <li>You will want to quit. <strong>No quitting.</strong></li>
+                    <li>You will question your life choices around mile 70.</li>
+                    <li>Team B is there for water, snacks, and emotional support.</li>
+                    <li>This is not for the weak. But you're not weak. <em>Right?</em></li>
+                </ul>
+                <p style="margin-top: 1rem; font-style: italic; color: var(--color-muted);">Welcome to the inaugural ride. Let's make history (and regret nothing).</p>
+            </div>
+        </section>
 
         <div class="stats">
             <div class="stat">
@@ -763,7 +844,12 @@
         </section>
 
         <footer>
-            <p>Safe riding! 🚴</p>
+            <div class="edition-nav">
+                <span class="edition-current">2025</span>
+                <span class="edition-future">2026</span>
+            </div>
+            <p>The Long Ride Home | Est. 2025</p>
+            <p style="font-size: 0.75rem; margin-top: 0.5rem;">Safe riding! 🚴</p>
         </footer>
     </div>
 
@@ -844,13 +930,13 @@
             dashArray: '10, 10'
         }).addTo(map);
 
-        // Add mile markers along the route at 20-mile intervals
+        // Add mile markers at real landmark locations
         const mileMarkers = [
-            { mile: 20, lat: 33.4900, lng: -117.7300 },
-            { mile: 40, lat: 33.3600, lng: -117.5600 },
-            { mile: 60, lat: 33.2097, lng: -117.3961 },
-            { mile: 80, lat: 33.0100, lng: -117.2800 },
-            { mile: 100, lat: 32.7200, lng: -117.1500 }
+            { name: "Aliso Beach", mile: 22, lat: 33.5100, lng: -117.7550 },
+            { name: "San Clemente Pier", mile: 38, lat: 33.4178, lng: -117.6219 },
+            { name: "Oceanside Pier", mile: 62, lat: 33.1937, lng: -117.3795 },
+            { name: "Moonlight Beach", mile: 78, lat: 33.0369, lng: -117.2919 },
+            { name: "Mission Beach", mile: 98, lat: 32.7700, lng: -117.2520 }
         ];
 
         mileMarkers.forEach(m => {
@@ -862,14 +948,15 @@
                         color: white;
                         padding: 4px 8px;
                         border-radius: 12px;
-                        font-size: 11px;
+                        font-size: 10px;
                         font-weight: 600;
                         font-family: -apple-system, sans-serif;
                         white-space: nowrap;
                         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-                    ">${m.mile} mi</div>`,
-                    iconSize: [50, 20],
-                    iconAnchor: [25, 10]
+                        text-align: center;
+                    "><div>${m.name}</div><div style='opacity:0.8;font-size:9px;'>~${m.mile} mi</div></div>`,
+                    iconSize: [80, 35],
+                    iconAnchor: [40, 17]
                 })
             }).addTo(map);
         });
