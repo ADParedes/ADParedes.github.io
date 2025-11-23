@@ -350,34 +350,38 @@ section li {
 }
 
 /* Publications */
-.publications-summary {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+.publication-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-border);
 }
 
-.publications-summary p {
+.publication-item:last-child {
+    border-bottom: none;
     margin-bottom: 0;
-    font-size: 1rem;
+    padding-bottom: 0;
 }
 
-.publications-summary a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+.publication-item h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--color-text);
+    line-height: 1.4;
+}
+
+.publication-item .publication-meta {
+    font-size: 0.85rem;
     color: var(--color-accent);
-    text-decoration: none;
     font-weight: 500;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--color-accent);
-    border-radius: 6px;
-    transition: background 0.2s, color 0.2s;
+    margin-bottom: 0.25rem;
 }
 
-.publications-summary a:hover {
-    background: var(--color-accent);
-    color: white;
+.publication-item .publication-authors {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+    line-height: 1.4;
 }
 
 /* Social Links */
