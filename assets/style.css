@@ -384,6 +384,20 @@ section li {
     line-height: 1.4;
 }
 
+.publication-item .pub-role {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: rgba(13, 148, 136, 0.1);
+    color: var(--color-accent-dark);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
 /* Social Links */
 .social-links {
     display: flex;
