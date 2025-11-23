@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
     <title>Newport Beach to Chula Vista Bike Ride Guide</title>
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -614,164 +613,342 @@
             font-weight: 600;
             margin-top: 0.25rem;
         }
+
+        /* Hero Quote */
+        .hero-quote {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .hero-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--color-accent);
+        }
+
+        .hero-quote p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--color-text);
+            margin: 0;
+        }
+
+        .hero-signature {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+            font-weight: 500;
+        }
+
+        /* Section Intro */
+        .section-intro {
+            color: var(--color-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .subsection-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: var(--color-text);
+        }
+
+        /* Plan Steps */
+        .plan-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .plan-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--color-card);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .plan-number {
+            width: 28px;
+            height: 28px;
+            background: var(--color-accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        /* Gear List */
+        .gear-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gear-category {
+            background: var(--color-card);
+            padding: 1.25rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .gear-category h4 {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .gear-category ul {
+            list-style: none;
+            font-size: 0.9rem;
+        }
+
+        .gear-category li {
+            padding: 0.35rem 0;
+            color: var(--color-text);
+        }
+
+        /* Support Grid */
+        .support-grid {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .support-stop {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--color-card);
+            border-radius: 8px;
+            border-left: 3px solid transparent;
+        }
+
+        .support-stop.highlight {
+            border-left-color: var(--color-accent);
+            background: var(--color-accent-light);
+        }
+
+        .support-stop.finish {
+            border-left-color: var(--color-team-b);
+            background: var(--color-team-b-light);
+        }
+
+        .support-time {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            min-width: 60px;
+        }
+
+        .support-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .support-info strong {
+            font-size: 0.95rem;
+        }
+
+        .support-info span {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--color-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+        }
+
+        .faq-item p {
+            color: var(--color-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item ul {
+            margin-left: 1.25rem;
+            color: var(--color-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-item li {
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .faq-option {
+            padding: 1rem;
+            background: var(--color-bg);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .faq-option.preferred {
+            background: var(--color-accent-light);
+        }
+
+        .faq-option strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .faq-option ul {
+            margin-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer update */
+        footer {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            color: var(--color-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .sticky-nav-links { gap: 1rem; }
+            .sticky-nav-links a { font-size: 0.75rem; }
+            .gear-list { grid-template-columns: 1fr 1fr; }
+            .faq-options { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
     <nav class="sticky-nav">
         <div class="sticky-nav-inner">
-            <span class="sticky-nav-title">The Long Ride Home 2025</span>
+            <span class="sticky-nav-title">The Long Ride Home</span>
             <div class="sticky-nav-links">
-                <a href="#how-it-works">How It Works</a>
+                <a href="#overview">Overview</a>
                 <a href="#route">Route</a>
                 <a href="#gear">Gear</a>
-                <a href="#message">Message</a>
+                <a href="#support">Support</a>
+                <a href="#faq">FAQ</a>
             </div>
         </div>
     </nav>
 
     <div class="container">
-        <div class="year-badge">2025 INAUGURAL</div>
+        <!-- Hero Section -->
         <header>
+            <div class="edition-nav">
+                <span class="edition-current">2025</span>
+                <span class="edition-future">2026</span>
+            </div>
             <h1>The Long Ride Home</h1>
-            <p class="subtitle">Newport Beach → Chula Vista Century</p>
+            <p class="subtitle">Newport Beach → Chula Vista</p>
             <p class="slogan">"Started as a bad idea. Now it's tradition."</p>
+
+            <div class="hero-quote">
+                <img src="../assets/profile.png" alt="Andre" class="hero-photo" onerror="this.style.display='none'">
+                <p>"There is no quitting unless a car hits you."</p>
+                <span class="hero-signature">— Andre</span>
+            </div>
         </header>
 
-        <section class="intro-story">
-            <h2><span class="icon">📖</span> The Origin Story</h2>
-            <div class="card">
-                <p><strong>In 2008</strong>, a college kid named Andre looked at a map and thought: <em>"I bet I could bike home from school."</em></p>
-                <p>He could not.</p>
-                <p>But the idea stuck. And now, almost two decades later, we're making it official. <strong>The Long Ride Home</strong> is 105 miles of coastal California beauty, questionable life choices, and the kind of bonding that only happens when your legs are screaming and your chamois is soaked.</p>
-                <p style="margin-top: 1rem;"><strong>⚠️ Fair warning:</strong></p>
-                <ul style="margin-left: 1.25rem; margin-top: 0.5rem;">
-                    <li>Your butt will go numb. This is normal.</li>
-                    <li>You will want to quit. <strong>No quitting.</strong></li>
-                    <li>You will question your life choices around mile 70.</li>
-                    <li>Team B is there for water, snacks, and emotional support.</li>
-                    <li>This is not for the weak. But you're not weak. <em>Right?</em></li>
-                </ul>
-                <p style="margin-top: 1rem; font-style: italic; color: var(--color-muted);">Welcome to the inaugural ride. Let's make history (and regret nothing).</p>
-            </div>
-        </section>
+        <!-- Overview Section -->
+        <section id="overview">
+            <h2>Overview</h2>
 
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-value">~105</div>
-                <div class="stat-label">Total Miles</div>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">105</div>
+                    <div class="stat-label">Miles</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">7:30a</div>
+                    <div class="stat-label">Start</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8:00p</div>
+                    <div class="stat-label">Finish</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">12</div>
+                    <div class="stat-label">Stops</div>
+                </div>
             </div>
-            <div class="stat">
-                <div class="stat-value">7:30 AM</div>
-                <div class="stat-label">Start Biking</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">~8:00 PM</div>
-                <div class="stat-label">Est. Finish</div>
-            </div>
-            <div class="stat">
-                <div class="stat-value">7</div>
-                <div class="stat-label">Major Stops</div>
-            </div>
-        </div>
 
-        <section id="how-it-works">
-            <h2><span class="icon">📋</span> How It Works</h2>
             <div class="card">
-                <div class="steps">
-                    <div class="step-item">
-                        <div class="step-number"></div>
-                        <div class="step-content">
-                            <h4>Bike Rental: Stay Classy Bikes</h4>
-                            <p><strong>Call (619) 297-5500</strong> and ask about delivering bikes to Newport Beach and picking up in SD/Chula Vista. They do custom negotiations—expect <strong>~$100-150 per bike</strong> including delivery both ways. Easiest option: no driving bikes back!</p>
-                            <p style="font-size: 0.85rem; color: var(--color-muted); margin-top: 0.5rem;"><em>Tentative plan—update as we approach the date.</em></p>
-                        </div>
+                <p><strong>In 2008</strong>, a college kid looked at a map and thought: "I bet I could bike home from school." He could not. But the idea stuck.</p>
+                <p>Now we're making it official. 105 miles of coastal California, questionable life choices, and the kind of bonding that only happens when your legs are screaming.</p>
+            </div>
+
+            <div class="plan-steps">
+                <div class="plan-step">
+                    <span class="plan-number">1</span>
+                    <div>
+                        <strong>5:45 AM</strong> — Leave Bonita, drive to Newport Beach
                     </div>
-                    <div class="step-item">
-                        <div class="step-number"></div>
-                        <div class="step-content">
-                            <h4>Saturday 5:45 AM: Leave Bonita</h4>
-                            <p>Load bikes on the car and hit the road. It's about 1.5 hours to Newport Beach with early morning traffic. Grab coffee on the way.</p>
-                        </div>
+                </div>
+                <div class="plan-step">
+                    <span class="plan-number">2</span>
+                    <div>
+                        <strong>7:30 AM</strong> — Start biking from Back Bay Road
                     </div>
-                    <div class="step-item">
-                        <div class="step-number"></div>
-                        <div class="step-content">
-                            <h4>7:30 AM: Start Biking from Newport</h4>
-                            <p>Wheels rolling by 7:30 AM latest. Quick bike check, fill water bottles, and we're off. The earlier we start, the better—beat the heat and finish before dark.</p>
-                        </div>
+                </div>
+                <div class="plan-step">
+                    <span class="plan-number">3</span>
+                    <div>
+                        <strong>All Day</strong> — Support vehicle meets bikers at stops
                     </div>
-                    <div class="step-item">
-                        <div class="step-number"></div>
-                        <div class="step-content">
-                            <h4>All Day: Team B Follows Along I-5</h4>
-                            <p>Support vehicle meets bikers at designated stops with water, snacks, and encouragement. Team B joins for meals and handles emergencies.</p>
-                        </div>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number"></div>
-                        <div class="step-content">
-                            <h4>~7:00 PM: Finish in Chula Vista</h4>
-                            <p>Cross the finish line at 3rd Ave & E Street. Celebrate. Return bikes. Eat everything in sight. You earned it.</p>
-                        </div>
+                </div>
+                <div class="plan-step">
+                    <span class="plan-number">4</span>
+                    <div>
+                        <strong>~8:00 PM</strong> — Finish at 3rd Ave & E St, Chula Vista
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Route Section -->
         <section id="route">
-            <h2><span class="icon">🗺️</span> Route Map</h2>
+            <h2>Route</h2>
             <div id="route-map"></div>
             <div class="map-legend">
                 <div class="map-legend-item"><span class="legend-dot start"></span> Start</div>
-                <div class="map-legend-item"><span class="legend-dot water"></span> Water Stop</div>
-                <div class="map-legend-item"><span class="legend-dot meal"></span> Meal Stop</div>
-                <div class="map-legend-item"><span class="legend-dot warning"></span> Camp Pendleton</div>
+                <div class="map-legend-item"><span class="legend-dot water"></span> Water</div>
+                <div class="map-legend-item"><span class="legend-dot meal"></span> Meal</div>
+                <div class="map-legend-item"><span class="legend-dot warning"></span> Caution</div>
                 <div class="map-legend-item"><span class="legend-dot finish"></span> Finish</div>
             </div>
-        </section>
 
-        <section>
-            <h2><span class="icon">🚗</span> Logistics</h2>
-            <div class="team-grid">
-                <div class="card team-card team-a">
-                    <h3>Team A - Bikers</h3>
-                    <ul>
-                        <li>Rent bikes in San Diego</li>
-                        <li>Drive bikes up to Newport Beach</li>
-                        <li>Start at Back Bay Road near PCH</li>
-                        <li>Bike south to Chula Vista (3rd Ave & E St)</li>
-                    </ul>
-                </div>
-                <div class="card team-card team-b">
-                    <h3>Team B - Support Vehicle</h3>
-                    <ul>
-                        <li>Drive support vehicle with supplies</li>
-                        <li>Meet Team A at designated stops</li>
-                        <li>Carry extra water, snacks, gear</li>
-                        <li>Available for emergency pickup</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="gear">
-            <h2><span class="icon">🎒</span> Essential Gear</h2>
-            <div class="card">
-                <p style="margin-bottom: 1rem; color: var(--color-muted);">Each rider needs these essentials. Everything else, Team B carries.</p>
-                <div class="gear-grid">
-                    <div class="gear-item"><span class="gear-icon">💨</span> CO2 cartridges (2-3)</div>
-                    <div class="gear-item"><span class="gear-icon">🔧</span> CO2 inflator</div>
-                    <div class="gear-item"><span class="gear-icon">🛞</span> Spare tubes (2 each)</div>
-                    <div class="gear-item"><span class="gear-icon">🚰</span> Water bottle cage + bottle</div>
-                    <div class="gear-item"><span class="gear-icon">🩳</span> Padded bike shorts</div>
-                    <div class="gear-item"><span class="gear-icon">⛑️</span> Helmet</div>
-                </div>
-                <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--color-muted);"><strong>Pro tip:</strong> Chamois cream is your friend. Trust us.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2><span class="icon">🚴</span> Team A Route & Stops</h2>
+            <h3 class="subsection-title">All Stops</h3>
 
             <div class="timeline">
                 <div class="stop">
@@ -919,159 +1096,162 @@
                             <span class="stop-time">~8:00 PM</span>
                         </div>
                     </div>
-                    <p class="stop-desc"><strong>YOU DID IT!</strong> Century ride complete. Celebrate! Load bikes, head to dinner or home.</p>
+                    <p class="stop-desc">Century complete. Celebrate!</p>
                 </div>
             </div>
         </section>
 
-        <section>
-            <h2><span class="icon">⚠️</span> Camp Pendleton Instructions</h2>
+        <!-- Gear Section -->
+        <section id="gear">
+            <h2>Gear</h2>
+            <p class="section-intro">Each rider carries these essentials. Everything else goes in the support vehicle.</p>
 
-            <div class="alert alert-warning">
-                <h4>CRITICAL: Choose Your Route</h4>
-                <p>You have two options through Camp Pendleton. Decide in advance and prepare accordingly.</p>
+            <div class="gear-list">
+                <div class="gear-category">
+                    <h4>Flat Kit</h4>
+                    <ul>
+                        <li>2-3 CO2 cartridges</li>
+                        <li>CO2 inflator</li>
+                        <li>2 spare tubes</li>
+                        <li>Tire levers</li>
+                    </ul>
+                </div>
+                <div class="gear-category">
+                    <h4>On the Bike</h4>
+                    <ul>
+                        <li>Water bottle + cage</li>
+                        <li>Phone mount (optional)</li>
+                        <li>Bike computer (optional)</li>
+                    </ul>
+                </div>
+                <div class="gear-category">
+                    <h4>Wear</h4>
+                    <ul>
+                        <li>Helmet (required)</li>
+                        <li>Padded shorts</li>
+                        <li>Sunglasses</li>
+                        <li>Sunscreen</li>
+                    </ul>
+                </div>
+                <div class="gear-category">
+                    <h4>Pro Tips</h4>
+                    <ul>
+                        <li>Chamois cream - trust us</li>
+                        <li>Electrolyte tablets</li>
+                        <li>Cash for emergencies</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Section -->
+        <section id="support">
+            <h2>Support Crew</h2>
+            <p class="section-intro">The support vehicle follows I-5, meeting riders at key stops with water, snacks, and encouragement.</p>
+
+            <div class="support-grid">
+                <div class="support-stop">
+                    <div class="support-time">8:15a</div>
+                    <div class="support-info">
+                        <strong>Crystal Cove</strong>
+                        <span>Park lot ($15) · 20 min wait</span>
+                    </div>
+                </div>
+                <div class="support-stop highlight">
+                    <div class="support-time">10:30a</div>
+                    <div class="support-info">
+                        <strong>Dana Point Harbor</strong>
+                        <span>Free parking · Brunch together</span>
+                    </div>
+                </div>
+                <div class="support-stop highlight">
+                    <div class="support-time">2:30p</div>
+                    <div class="support-info">
+                        <strong>Oceanside Harbor</strong>
+                        <span>Metered lots · Post-Pendleton snack</span>
+                    </div>
+                </div>
+                <div class="support-stop">
+                    <div class="support-time">4:30p</div>
+                    <div class="support-info">
+                        <strong>Moonlight Beach</strong>
+                        <span>Street parking · 15 min wait</span>
+                    </div>
+                </div>
+                <div class="support-stop highlight">
+                    <div class="support-time">6:00p</div>
+                    <div class="support-info">
+                        <strong>La Jolla Shores</strong>
+                        <span>Kellogg Park · Dinner together</span>
+                    </div>
+                </div>
+                <div class="support-stop finish">
+                    <div class="support-time">8:00p</div>
+                    <div class="support-info">
+                        <strong>Finish Line</strong>
+                        <span>Arrive by 7:45p to greet finishers</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <h2>FAQ</h2>
+
+            <div class="faq-item">
+                <h4>How do we get through Camp Pendleton?</h4>
+                <p>Two options:</p>
+                <div class="faq-options">
+                    <div class="faq-option preferred">
+                        <strong>Through Base (preferred)</strong>
+                        <ul>
+                            <li>Get a free cycling pass from Main Gate Visitor Center</li>
+                            <li>Bring Real ID (driver's license or passport)</li>
+                            <li>Scenic 11-mile bike-only road through San Onofre</li>
+                            <li>Check for military closures before ride day</li>
+                        </ul>
+                    </div>
+                    <div class="faq-option">
+                        <strong>I-5 Shoulder (backup)</strong>
+                        <ul>
+                            <li>Legal only when base is closed to cyclists</li>
+                            <li>8 miles on freeway shoulder</li>
+                            <li>Single file, high visibility, no stopping</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <div class="card">
-                <h3 style="color: var(--color-accent); margin-bottom: 1rem;">Option 1: Through Base (Preferred)</h3>
-                <ul style="margin-left: 1.25rem; margin-bottom: 1rem;">
-                    <li><strong>Pre-register required:</strong> Get a cycling pass from Main Gate Visitor Center (Oceanside side)</li>
-                    <li><strong>Bring Real ID</strong> - driver's license, state ID, or passport</li>
-                    <li>Pass is free, valid for 1 year</li>
-                    <li>Uses old Route 101 - scenic, 11 miles of bike-only road</li>
-                    <li>Goes through San Onofre beach area - beautiful!</li>
-                    <li><strong>Check for closures:</strong> Military ops can close the route</li>
+            <div class="faq-item">
+                <h4>What about bikes?</h4>
+                <p><strong>Stay Classy Bikes</strong> — (619) 297-5500<br>
+                They deliver to Newport Beach and pick up in Chula Vista. Expect ~$100-150 per bike including delivery both ways.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What pace should we expect?</h4>
+                <p>~15 mph average including stops. We start early to beat the heat and finish before dark. Southbound usually means tailwind.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What if someone can't finish?</h4>
+                <p>Support vehicle can pick up anyone who bonks. No shame — it's 105 miles. Make sure support crew has everyone's phone numbers.</p>
+            </div>
+
+            <div class="faq-item">
+                <h4>What should I check before ride day?</h4>
+                <ul>
+                    <li>Weather forecast (wind direction matters)</li>
+                    <li>Camp Pendleton base access status</li>
+                    <li>Bike rental confirmation</li>
+                    <li>Everyone has each other's phone numbers</li>
                 </ul>
-                <p style="font-size: 0.9rem; color: var(--color-muted);"><strong>Contact:</strong> Camp Pendleton Visitor Center at Main Gate</p>
-            </div>
-
-            <div class="card">
-                <h3 style="color: var(--color-warning); margin-bottom: 1rem;">Option 2: I-5 Freeway Shoulder</h3>
-                <ul style="margin-left: 1.25rem; margin-bottom: 1rem;">
-                    <li><strong>Legal when base is closed</strong> to cyclists</li>
-                    <li>~8 miles on I-5 shoulder from Las Pulgas to Oceanside</li>
-                    <li>Wide shoulders but <strong>watch for debris</strong></li>
-                    <li>Traffic is fast and loud - stay focused</li>
-                    <li>Single file, high visibility gear recommended</li>
-                    <li>Aliso Creek Rest Area has water/restrooms (exit and re-enter)</li>
-                    <li><strong>Do not stop on shoulder</strong> - keep moving</li>
-                </ul>
-                <p style="font-size: 0.9rem; color: var(--color-muted);"><strong>Note:</strong> If base is open, you must use base route or risk a ticket.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2><span class="icon">🚗</span> Team B - Driving Route & Wait Spots</h2>
-            <p style="margin-bottom: 1rem; color: var(--color-muted);">Team B follows I-5 South, meeting Team A at these locations. Bring chairs, snacks, and a good book!</p>
-
-            <div class="team-b-stop">
-                <h4>Stop 1: Crystal Cove State Park (~8:15 AM)</h4>
-                <p><strong>Parking:</strong> Crystal Cove State Park lot ($15) or street parking on PCH<br>
-                <strong>Wait time:</strong> ~20 min | <strong>ETA from Newport:</strong> 15 min drive</p>
-            </div>
-
-            <div class="team-b-stop">
-                <h4>Stop 2: Dana Point Harbor - BRUNCH (~10:30 AM)</h4>
-                <p><strong>Parking:</strong> Free harbor parking<br>
-                <strong>Wait time:</strong> 45 min (join for brunch!) | <strong>ETA from Crystal Cove:</strong> 25 min drive</p>
-            </div>
-
-            <div class="team-b-stop">
-                <h4>Stop 3: Oceanside Harbor - POST-PENDLETON (~2:30 PM)</h4>
-                <p><strong>Parking:</strong> Harbor lots (metered)<br>
-                <strong>Wait time:</strong> 30 min | <strong>ETA from Dana Point:</strong> 40 min drive<br>
-                <strong>Note:</strong> Team A will be through Pendleton - great place for a snack together</p>
-            </div>
-
-            <div class="team-b-stop">
-                <h4>Stop 4: Encinitas / Moonlight Beach (~4:30 PM)</h4>
-                <p><strong>Parking:</strong> Street parking or Moonlight Beach lot<br>
-                <strong>Wait time:</strong> 15 min | <strong>ETA from Oceanside:</strong> 20 min drive</p>
-            </div>
-
-            <div class="team-b-stop">
-                <h4>Stop 5: La Jolla Shores - DINNER (~6:00 PM)</h4>
-                <p><strong>Parking:</strong> Kellogg Park lot or street parking<br>
-                <strong>Wait time:</strong> 45 min (join for dinner!) | <strong>ETA from Encinitas:</strong> 25 min drive</p>
-            </div>
-
-            <div class="team-b-stop">
-                <h4>FINISH: 3rd Ave & E Street, Chula Vista (~8:00 PM)</h4>
-                <p><strong>Parking:</strong> Street parking<br>
-                <strong>ETA from La Jolla:</strong> 25 min drive<br>
-                <strong>Arrive by:</strong> 7:45 PM to greet finishers!</p>
-            </div>
-        </section>
-
-        <section>
-            <h2><span class="icon">⏱️</span> Estimated Schedule</h2>
-            <div class="card">
-                <table style="width: 100%; font-size: 0.9rem; border-collapse: collapse;">
-                    <tr style="border-bottom: 1px solid #e2e8f0;">
-                        <td style="padding: 0.5rem 0;"><strong>5:45 AM</strong></td>
-                        <td>Leave Bonita</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #e2e8f0;">
-                        <td style="padding: 0.5rem 0;"><strong>7:30 AM</strong></td>
-                        <td>Start Biking - Newport Beach</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #e2e8f0;">
-                        <td style="padding: 0.5rem 0;"><strong>10:30 AM</strong></td>
-                        <td>Brunch - Dana Point (Mile 28)</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #e2e8f0;">
-                        <td style="padding: 0.5rem 0;"><strong>12:30 PM - 2:00 PM</strong></td>
-                        <td>Camp Pendleton Section</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #e2e8f0;">
-                        <td style="padding: 0.5rem 0;"><strong>2:30 PM</strong></td>
-                        <td>Afternoon Snack - Oceanside (Mile 60)</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #e2e8f0;">
-                        <td style="padding: 0.5rem 0;"><strong>6:00 PM</strong></td>
-                        <td>Early Dinner - La Jolla (Mile 90)</td>
-                    </tr>
-                    <tr>
-                        <td style="padding: 0.5rem 0;"><strong>~8:00 PM</strong></td>
-                        <td>Finish - Chula Vista (Mile 105)</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
-
-        <section>
-            <h2><span class="icon">📝</span> Notes</h2>
-            <div class="card">
-                <ul style="margin-left: 1.25rem;">
-                    <li>Pace assumption: ~15 mph average (including stops)</li>
-                    <li>Start early to avoid afternoon heat and finish before dark</li>
-                    <li>Team B should have Team A's phone numbers</li>
-                    <li>Designate a group leader for Team A</li>
-                    <li>If someone bonks, Team B can pick them up</li>
-                    <li>Check weather forecast day before - wind direction matters!</li>
-                    <li>Southbound = usually tailwind (good!)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="message" class="message-section">
-            <h2 style="justify-content: center;"><span class="icon">💬</span> Message from Andre</h2>
-            <img src="../assets/profile.png" alt="Andre Paredes" class="message-photo" onerror="this.style.display='none';">
-            <div class="message-quote">
-                <p>You're going to think, "Okay, I'm done. I can't go any further."</p>
-                <p>But I'll be there to make sure you keep going.</p>
-                <p style="margin-bottom: 0;"><strong>There is no quitting unless a car hits you.</strong></p>
-                <div class="signature">— Andre</div>
             </div>
         </section>
 
         <footer>
-            <div class="edition-nav">
-                <span class="edition-current">2025</span>
-                <span class="edition-future">2026</span>
-            </div>
-            <p>The Long Ride Home | Est. 2025</p>
-            <p style="font-size: 0.75rem; margin-top: 0.5rem;">Safe riding! 🚴</p>
+            <p>The Long Ride Home · Est. 2025</p>
         </footer>
     </div>
 
