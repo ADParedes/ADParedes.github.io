@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
     <title>Newport Beach to Chula Vista Bike Ride Guide</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         :root {
             --color-bg: #f8fafc;
@@ -325,6 +327,73 @@
             .stop-header { flex-direction: column; }
             .stats { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* Map Styles */
+        #route-map {
+            height: 500px;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        .map-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            margin-top: 0.75rem;
+        }
+
+        .map-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .legend-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .legend-dot.start { background: #22c55e; }
+        .legend-dot.meal { background: #f59e0b; }
+        .legend-dot.water { background: #0ea5e9; }
+        .legend-dot.warning { background: #ef4444; }
+        .legend-dot.finish { background: #8b5cf6; }
+
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+        }
+
+        .popup-content {
+            font-family: var(--font);
+        }
+
+        .popup-content h4 {
+            margin: 0 0 0.25rem 0;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .popup-content p {
+            margin: 0;
+            font-size: 0.8rem;
+            color: var(--color-muted);
+        }
+
+        .popup-mile {
+            display: inline-block;
+            background: var(--color-accent-light);
+            color: var(--color-accent);
+            padding: 0.1rem 0.4rem;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
     </style>
 </head>
 <body>
@@ -352,6 +421,18 @@
                 <div class="stat-label">Major Stops</div>
             </div>
         </div>
+
+        <section>
+            <h2><span class="icon">🗺️</span> Route Map</h2>
+            <div id="route-map"></div>
+            <div class="map-legend">
+                <div class="map-legend-item"><span class="legend-dot start"></span> Start</div>
+                <div class="map-legend-item"><span class="legend-dot water"></span> Water Stop</div>
+                <div class="map-legend-item"><span class="legend-dot meal"></span> Meal Stop</div>
+                <div class="map-legend-item"><span class="legend-dot warning"></span> Camp Pendleton</div>
+                <div class="map-legend-item"><span class="legend-dot finish"></span> Finish</div>
+            </div>
+        </section>
 
         <section>
             <h2><span class="icon">🚗</span> Logistics</h2>
@@ -685,5 +766,117 @@
             <p>Safe riding! 🚴</p>
         </footer>
     </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize map centered on the route
+        const map = L.map('route-map').setView([33.15, -117.45], 9);
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Define stops with coordinates, mile markers, and types
+        const stops = [
+            { name: "START: Back Bay Road, Newport Beach", lat: 33.6189, lng: -117.9298, mile: 0, time: "6:00 AM", type: "start" },
+            { name: "Crystal Cove State Park", lat: 33.5667, lng: -117.8400, mile: 8, time: "6:45 AM", type: "water" },
+            { name: "Laguna Beach - Main Beach", lat: 33.5427, lng: -117.7854, mile: 15, time: "7:30 AM", type: "water" },
+            { name: "Dana Point Harbor", lat: 33.4606, lng: -117.6972, mile: 28, time: "9:00 AM", type: "meal", desc: "Early Lunch" },
+            { name: "San Clemente Pier", lat: 33.4178, lng: -117.6219, mile: 38, time: "10:45 AM", type: "water" },
+            { name: "Camp Pendleton (Start)", lat: 33.3800, lng: -117.5800, mile: 40, time: "11:00 AM", type: "warning" },
+            { name: "Camp Pendleton (End)", lat: 33.2400, lng: -117.4100, mile: 56, time: "12:30 PM", type: "warning" },
+            { name: "Oceanside Harbor", lat: 33.2097, lng: -117.3961, mile: 60, time: "1:00 PM", type: "meal", desc: "Afternoon Snack" },
+            { name: "Carlsbad Village", lat: 33.1581, lng: -117.3506, mile: 68, time: "2:00 PM", type: "water" },
+            { name: "Encinitas / Moonlight Beach", lat: 33.0369, lng: -117.2919, mile: 78, time: "3:00 PM", type: "water" },
+            { name: "La Jolla Shores", lat: 32.8567, lng: -117.2571, mile: 90, time: "4:30 PM", type: "meal", desc: "Early Dinner" },
+            { name: "Mission Bay / Pacific Beach", lat: 32.7872, lng: -117.2350, mile: 95, time: "5:30 PM", type: "water" },
+            { name: "FINISH: 3rd Ave & E St, Chula Vista", lat: 32.6401, lng: -117.0842, mile: 105, time: "7:00 PM", type: "finish" }
+        ];
+
+        // Color mapping for marker types
+        const colors = {
+            start: '#22c55e',
+            water: '#0ea5e9',
+            meal: '#f59e0b',
+            warning: '#ef4444',
+            finish: '#8b5cf6'
+        };
+
+        // Create custom circle markers
+        function createMarker(stop) {
+            const color = colors[stop.type];
+            const size = (stop.type === 'start' || stop.type === 'finish') ? 14 : 10;
+
+            const marker = L.circleMarker([stop.lat, stop.lng], {
+                radius: size,
+                fillColor: color,
+                color: '#fff',
+                weight: 2,
+                opacity: 1,
+                fillOpacity: 0.9
+            });
+
+            // Create popup content
+            let popupContent = `<div class="popup-content">
+                <h4>${stop.name}</h4>
+                <p>${stop.time}${stop.desc ? ' • ' + stop.desc : ''}</p>
+                <span class="popup-mile">Mile ${stop.mile}</span>
+            </div>`;
+
+            marker.bindPopup(popupContent);
+            return marker;
+        }
+
+        // Add all markers to map
+        stops.forEach(stop => {
+            createMarker(stop).addTo(map);
+        });
+
+        // Create route line (simplified - connects all points)
+        const routeCoords = stops.map(s => [s.lat, s.lng]);
+
+        L.polyline(routeCoords, {
+            color: '#0d9488',
+            weight: 4,
+            opacity: 0.7,
+            dashArray: '10, 10'
+        }).addTo(map);
+
+        // Add mile markers along the route at 20-mile intervals
+        const mileMarkers = [
+            { mile: 20, lat: 33.4900, lng: -117.7300 },
+            { mile: 40, lat: 33.3600, lng: -117.5600 },
+            { mile: 60, lat: 33.2097, lng: -117.3961 },
+            { mile: 80, lat: 33.0100, lng: -117.2800 },
+            { mile: 100, lat: 32.7200, lng: -117.1500 }
+        ];
+
+        mileMarkers.forEach(m => {
+            L.marker([m.lat, m.lng], {
+                icon: L.divIcon({
+                    className: 'mile-marker',
+                    html: `<div style="
+                        background: #1e293b;
+                        color: white;
+                        padding: 4px 8px;
+                        border-radius: 12px;
+                        font-size: 11px;
+                        font-weight: 600;
+                        font-family: -apple-system, sans-serif;
+                        white-space: nowrap;
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                    ">${m.mile} mi</div>`,
+                    iconSize: [50, 20],
+                    iconAnchor: [25, 10]
+                })
+            }).addTo(map);
+        });
+
+        // Fit map to show all markers
+        const bounds = L.latLngBounds(stops.map(s => [s.lat, s.lng]));
+        map.fitBounds(bounds, { padding: [30, 30] });
+    </script>
 </body>
 </html>
