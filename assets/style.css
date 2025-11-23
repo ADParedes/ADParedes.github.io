@@ -1,0 +1,377 @@
+/* Base Reset & Variables */
+:root {
+    --color-bg: #fafafa;
+    --color-text: #1a1a1a;
+    --color-text-muted: #666;
+    --color-accent: #2563eb;
+    --color-border: #e5e5e5;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --max-width: 720px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navigation */
+.nav {
+    border-bottom: 1px solid var(--color-border);
+    padding: 1rem 0;
+    background: #fff;
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-text);
+}
+
+/* Main Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    flex: 1;
+}
+
+/* Hero */
+.hero {
+    margin-bottom: 3rem;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+}
+
+/* Sections */
+section {
+    margin-bottom: 2.5rem;
+}
+
+section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+section p {
+    margin-bottom: 1rem;
+}
+
+section ul {
+    margin-left: 1.25rem;
+}
+
+section li {
+    margin-bottom: 0.5rem;
+}
+
+/* About */
+.about p {
+    font-size: 1.05rem;
+}
+
+/* Expertise Grid */
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.expertise-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.expertise-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+/* Work Items */
+.work-item {
+    margin-bottom: 1.5rem;
+}
+
+.work-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.work-item p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+.work-item a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.work-item a:hover {
+    text-decoration: underline;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid var(--color-border);
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+/* Resume Page */
+.resume-page {
+    max-width: 800px;
+}
+
+.resume-header {
+    margin-bottom: 2rem;
+}
+
+.resume-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.resume-contact {
+    color: var(--color-text-muted);
+}
+
+.resume-contact a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+.resume-section {
+    margin-bottom: 2rem;
+}
+
+.job {
+    margin-bottom: 2rem;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.job-header h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.job-date {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.job-title {
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.job ul {
+    margin-left: 1.25rem;
+}
+
+.job li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.skill-category h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.skill-category p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+/* Education */
+.education-item {
+    margin-bottom: 1rem;
+}
+
+.education-item h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.education-item p {
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+}
+
+/* Blog */
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.page-header p {
+    color: var(--color-text-muted);
+}
+
+.blog-list {
+    margin-top: 2rem;
+}
+
+.coming-soon {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.blog-preview {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.blog-preview time {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.blog-preview h2 {
+    font-size: 1.25rem;
+    margin: 0.5rem 0;
+    border: none;
+    padding: 0;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.blog-preview h2 a {
+    color: var(--color-text);
+    text-decoration: none;
+}
+
+.blog-preview h2 a:hover {
+    color: var(--color-accent);
+}
+
+/* Personal Pages */
+.personal-page .page-subtitle {
+    color: var(--color-text-muted);
+    font-style: italic;
+}
+
+.trip-section {
+    margin-bottom: 2rem;
+}
+
+.trip-section h2 {
+    font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .expertise-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .job-header {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 1rem;
+    }
+}
