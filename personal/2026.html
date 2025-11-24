@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Long Ride Home 2026</title>
+    <style>
+        :root {
+            --color-bg: #f8fafc;
+            --color-card: #ffffff;
+            --color-text: #1e293b;
+            --color-muted: #64748b;
+            --color-accent: #0d9488;
+            --color-accent-light: #ccfbf1;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .edition-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .edition-link {
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .edition-past {
+            background: var(--color-card);
+            color: var(--color-muted);
+            border: 1px solid #e2e8f0;
+        }
+
+        .edition-past:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+
+        .edition-current {
+            background: var(--color-accent);
+            color: white;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: var(--color-accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--color-muted);
+            margin-bottom: 2rem;
+        }
+
+        .coming-soon {
+            background: var(--color-card);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .coming-soon h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .coming-soon p {
+            color: var(--color-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--color-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="edition-nav">
+            <a href="newport-chula-vista-ride.html" class="edition-link edition-past">2025</a>
+            <span class="edition-link edition-current">2026</span>
+        </div>
+
+        <h1>The Long Ride Home</h1>
+        <p class="subtitle">Newport Beach → Chula Vista</p>
+
+        <div class="coming-soon">
+            <h2>2026 Edition</h2>
+            <p>Details coming soon. Check back as we get closer to ride day.</p>
+            <a href="newport-chula-vista-ride.html" class="back-link">← View 2025 Inaugural Ride</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>The Long Ride Home · Est. 2025</p>
+    </footer>
+</body>
+</html>
