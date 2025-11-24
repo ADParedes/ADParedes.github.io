@@ -384,6 +384,13 @@
             border-radius: 20px;
             font-size: 0.85rem;
             border: 1px dashed var(--color-muted);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .edition-future:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
         }
 
         @media print {
@@ -769,34 +776,78 @@
             color: var(--color-muted);
         }
 
-        /* FAQ */
+        /* Inaugural Badge */
+        .inaugural-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-accent) 0%, #0f766e 100%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ - Collapsible */
         .faq-item {
             background: var(--color-card);
-            padding: 1.5rem;
             border-radius: 8px;
-            margin-bottom: 1rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .faq-item h4 {
-            font-size: 1rem;
             margin-bottom: 0.75rem;
-            color: var(--color-text);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            overflow: hidden;
         }
 
-        .faq-item p {
+        .faq-item summary {
+            padding: 1.25rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--color-muted);
+            transition: transform 0.2s;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+
+        .faq-item summary:hover {
+            color: var(--color-accent);
+        }
+
+        .faq-content {
+            padding: 0 1.5rem 1.25rem;
+        }
+
+        .faq-content p {
             color: var(--color-muted);
             font-size: 0.95rem;
             margin-bottom: 0.5rem;
         }
 
-        .faq-item ul {
+        .faq-content ul {
             margin-left: 1.25rem;
             color: var(--color-muted);
             font-size: 0.95rem;
         }
 
-        .faq-item li {
+        .faq-content li {
             margin-bottom: 0.25rem;
         }
 
@@ -867,8 +918,9 @@
         <header>
             <div class="edition-nav">
                 <span class="edition-current">2025</span>
-                <span class="edition-future">2026</span>
+                <a href="2026.html" class="edition-future">2026</a>
             </div>
+            <div class="inaugural-badge">Inaugural Year</div>
             <h1>The Long Ride Home</h1>
             <p class="subtitle">Newport Beach → Chula Vista</p>
             <p class="slogan">"Started as a bad idea. Now it's tradition."</p>
@@ -904,7 +956,7 @@
             </div>
 
             <div class="card">
-                <p><strong>In 2008</strong>, a college kid looked at a map and thought: "I bet I could bike home from school." He could not. But the idea stuck.</p>
+                <p><strong>In 2008</strong>, a college kid looked at a map and thought: "I bet I could bike home from school." It took him three tries, but he made it. The idea stuck.</p>
                 <p>Now we're making it official. 105 miles of coastal California, questionable life choices, and the kind of bonding that only happens when your legs are screaming.</p>
             </div>
 
@@ -1199,55 +1251,65 @@
         <section id="faq">
             <h2>FAQ</h2>
 
-            <div class="faq-item">
-                <h4>How do we get through Camp Pendleton?</h4>
-                <p>Two options:</p>
-                <div class="faq-options">
-                    <div class="faq-option preferred">
-                        <strong>Through Base (preferred)</strong>
-                        <ul>
-                            <li>Get a free cycling pass from Main Gate Visitor Center</li>
-                            <li>Bring Real ID (driver's license or passport)</li>
-                            <li>Scenic 11-mile bike-only road through San Onofre</li>
-                            <li>Check for military closures before ride day</li>
-                        </ul>
-                    </div>
-                    <div class="faq-option">
-                        <strong>I-5 Shoulder (backup)</strong>
-                        <ul>
-                            <li>Legal only when base is closed to cyclists</li>
-                            <li>8 miles on freeway shoulder</li>
-                            <li>Single file, high visibility, no stopping</li>
-                        </ul>
+            <details class="faq-item" open>
+                <summary>How do we get through Camp Pendleton?</summary>
+                <div class="faq-content">
+                    <p>Two options:</p>
+                    <div class="faq-options">
+                        <div class="faq-option preferred">
+                            <strong>Through Base (preferred)</strong>
+                            <ul>
+                                <li>Get a free cycling pass from Main Gate Visitor Center</li>
+                                <li>Bring Real ID (driver's license or passport)</li>
+                                <li>Scenic 11-mile bike-only road through San Onofre</li>
+                                <li>Check for military closures before ride day</li>
+                            </ul>
+                        </div>
+                        <div class="faq-option">
+                            <strong>I-5 Shoulder (backup)</strong>
+                            <ul>
+                                <li>Legal only when base is closed to cyclists</li>
+                                <li>8 miles on freeway shoulder</li>
+                                <li>Single file, high visibility, no stopping</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </details>
 
-            <div class="faq-item">
-                <h4>What about bikes?</h4>
-                <p><strong>Stay Classy Bikes</strong> — (619) 297-5500<br>
-                They deliver to Newport Beach and pick up in Chula Vista. Expect ~$100-150 per bike including delivery both ways.</p>
-            </div>
+            <details class="faq-item">
+                <summary>What about bikes?</summary>
+                <div class="faq-content">
+                    <p><strong>Stay Classy Bikes</strong> — (619) 297-5500<br>
+                    They deliver to Newport Beach and pick up in Chula Vista. Expect ~$100-150 per bike including delivery both ways.</p>
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h4>What pace should we expect?</h4>
-                <p>~15 mph average including stops. We start early to beat the heat and finish before dark. Southbound usually means tailwind.</p>
-            </div>
+            <details class="faq-item">
+                <summary>What pace should we expect?</summary>
+                <div class="faq-content">
+                    <p>~15 mph average including stops. We start early to beat the heat and finish before dark. Southbound usually means tailwind.</p>
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h4>What if someone can't finish?</h4>
-                <p>Support vehicle can pick up anyone who bonks. No shame — it's 105 miles. Make sure support crew has everyone's phone numbers.</p>
-            </div>
+            <details class="faq-item">
+                <summary>What if someone can't finish?</summary>
+                <div class="faq-content">
+                    <p>Support vehicle can pick up anyone who bonks. No shame — it's 105 miles. Make sure support crew has everyone's phone numbers.</p>
+                </div>
+            </details>
 
-            <div class="faq-item">
-                <h4>What should I check before ride day?</h4>
-                <ul>
-                    <li>Weather forecast (wind direction matters)</li>
-                    <li>Camp Pendleton base access status</li>
-                    <li>Bike rental confirmation</li>
-                    <li>Everyone has each other's phone numbers</li>
-                </ul>
-            </div>
+            <details class="faq-item">
+                <summary>What should I check before ride day?</summary>
+                <div class="faq-content">
+                    <ul>
+                        <li>Weather forecast (wind direction matters)</li>
+                        <li>Camp Pendleton base access status</li>
+                        <li>Bike rental confirmation</li>
+                        <li>Everyone has each other's phone numbers</li>
+                    </ul>
+                </div>
+            </details>
         </section>
 
         <footer>
