@@ -51,7 +51,7 @@ I believe professional excellence and personal curiosity aren't separate lives t
 ## Contact
 
 - LinkedIn: [andre-daniel-paredes](https://www.linkedin.com/in/andre-daniel-paredes/)
-- Email: andredanielparedes@gmail.com
+- Contact: Please connect via LinkedIn
 
 ---
 
