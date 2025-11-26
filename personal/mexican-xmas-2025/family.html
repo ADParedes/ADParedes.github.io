@@ -456,6 +456,21 @@
             color: var(--color-green);
         }
 
+        /* Memorial styling */
+        .member-card.memorial {
+            border-top: 4px solid #a78bfa;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+        }
+
+        .bio-card.memorial {
+            border-left: 4px solid #a78bfa;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+        }
+
+        .bio-card.memorial .bio-superlative::before {
+            content: '🕊️ ';
+        }
+
         /* Footer */
         footer {
             text-align: center;
@@ -599,6 +614,12 @@
                             <div class="member-relation">Daughter</div>
                         </div>
 
+                        <div class="member-card memorial">
+                            <div class="member-photo">🕊️</div>
+                            <div class="member-name">Dani</div>
+                            <div class="member-relation">In Loving Memory</div>
+                        </div>
+
                         <!-- Tia's family -->
                         <div class="branch-group">
                             <div class="member-card diaz">
@@ -725,6 +746,16 @@
                         <div class="bio-name">Jackie</div>
                         <div class="bio-title">Jesse's Daughter</div>
                         <div class="bio-superlative">Will win any argument (she's a lawyer)</div>
+                    </div>
+                </div>
+
+                <!-- Dani - In Loving Memory -->
+                <div class="bio-card memorial">
+                    <div class="bio-photo">🕊️</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Danielle "Dani" Diaz</div>
+                        <div class="bio-title">Jesse's Daughter</div>
+                        <div class="bio-superlative">Forever in our hearts</div>
                     </div>
                 </div>
 
