@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Family | A Very Mexican Xmas 2025</title>
+    <style>
+        :root {
+            --color-bg: #fef7f0;
+            --color-card: #ffffff;
+            --color-text: #1e293b;
+            --color-muted: #64748b;
+            --color-red: #dc2626;
+            --color-red-light: #fef2f2;
+            --color-green: #16a34a;
+            --color-green-light: #f0fdf4;
+            --color-gold: #ca8a04;
+            --color-gold-light: #fefce8;
+            --color-tree: #166534;
+            --color-tree-light: #dcfce7;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+
+        /* Navigation */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--color-red);
+            z-index: 100;
+            padding: 0.75rem 1rem;
+        }
+
+        .sticky-nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sticky-nav-title {
+            font-weight: 700;
+            color: var(--color-red);
+            font-size: 0.95rem;
+        }
+
+        .sticky-nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .sticky-nav-links a {
+            color: var(--color-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .sticky-nav-links a:hover,
+        .sticky-nav-links a.active {
+            color: var(--color-green);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 1.5rem 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 1.75rem;
+            color: var(--color-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--color-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Section Headers */
+        h2 {
+            font-size: 1.35rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--color-green-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-green);
+        }
+
+        /* ========================================
+           CHRISTMAS TREE FAMILY STRUCTURE
+           ======================================== */
+
+        .tree-container {
+            position: relative;
+            padding: 2rem 0 3rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Tree background decoration */
+        .tree-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 300px solid transparent;
+            border-right: 300px solid transparent;
+            border-bottom: 500px solid var(--color-tree-light);
+            opacity: 0.3;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Tree row structure */
+        .tree-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .tree-row.star {
+            margin-bottom: 2rem;
+        }
+
+        /* Connector lines */
+        .tree-row::before {
+            content: '';
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            width: 2px;
+            height: 1rem;
+            background: var(--color-tree);
+            opacity: 0.3;
+        }
+
+        .tree-row.star::before {
+            display: none;
+        }
+
+        .tree-row.generation-2::before {
+            display: none;
+        }
+
+        /* Branch labels */
+        .branch-label {
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .branch-label span {
+            background: var(--color-tree);
+            color: white;
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .branch-label.paredes span {
+            background: var(--color-red);
+        }
+
+        .branch-label.diaz span {
+            background: var(--color-green);
+        }
+
+        /* Family member card */
+        .member-card {
+            background: var(--color-card);
+            border-radius: 16px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 140px;
+            position: relative;
+        }
+
+        .member-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .member-card.star-card {
+            width: 160px;
+            background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold) 100%);
+            border: 3px solid var(--color-gold);
+        }
+
+        .member-card.star-card::before {
+            content: '⭐';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.5rem;
+        }
+
+        .member-card.paredes {
+            border-top: 4px solid var(--color-red);
+        }
+
+        .member-card.diaz {
+            border-top: 4px solid var(--color-green);
+        }
+
+        .member-card.extended {
+            border-top: 4px solid var(--color-gold);
+        }
+
+        .member-card.couple {
+            width: 180px;
+        }
+
+        .member-card.kids {
+            width: 110px;
+            padding: 0.75rem;
+        }
+
+        /* Photo placeholder */
+        .member-photo {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            margin: 0 auto 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-card.star-card .member-photo {
+            width: 80px;
+            height: 80px;
+            border-color: var(--color-gold);
+        }
+
+        .member-card.kids .member-photo {
+            width: 50px;
+            height: 50px;
+        }
+
+        .member-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+            color: var(--color-text);
+        }
+
+        .member-card.star-card .member-name {
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .member-relation {
+            font-size: 0.7rem;
+            color: var(--color-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .member-card.star-card .member-relation {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Branch groupings */
+        .branch-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .branch-children {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .family-branches {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .family-branch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.5);
+            border-radius: 20px;
+        }
+
+        /* ========================================
+           FAMILY DIRECTORY / ORG CHART
+           ======================================== */
+
+        .directory-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px dashed var(--color-green-light);
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .bio-card {
+            background: var(--color-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            transition: transform 0.2s;
+        }
+
+        .bio-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .bio-card.paredes {
+            border-left: 4px solid var(--color-red);
+        }
+
+        .bio-card.diaz {
+            border-left: 4px solid var(--color-green);
+        }
+
+        .bio-card.extended {
+            border-left: 4px solid var(--color-gold);
+        }
+
+        .bio-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            overflow: hidden;
+        }
+
+        .bio-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bio-info {
+            flex: 1;
+        }
+
+        .bio-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .bio-title {
+            font-size: 0.8rem;
+            color: var(--color-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .bio-superlative {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+            font-style: italic;
+            padding: 0.5rem;
+            background: var(--color-bg);
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+
+        .bio-superlative::before {
+            content: '🏆 ';
+        }
+
+        /* Special badges */
+        .badge {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            margin-left: 0.5rem;
+        }
+
+        .badge.birthday {
+            background: var(--color-red-light);
+            color: var(--color-red);
+        }
+
+        .badge.host {
+            background: var(--color-green-light);
+            color: var(--color-green);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--color-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .family-branches {
+                gap: 2rem;
+            }
+            .family-branch {
+                padding: 1rem;
+            }
+            .member-card {
+                width: 120px;
+            }
+            .member-card.couple {
+                width: 150px;
+            }
+            .tree-bg {
+                border-left: 200px solid transparent;
+                border-right: 200px solid transparent;
+                border-bottom: 350px solid var(--color-tree-light);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sticky-nav-links { gap: 1rem; }
+            .sticky-nav-links a { font-size: 0.75rem; }
+            .directory-grid {
+                grid-template-columns: 1fr;
+            }
+            .tree-bg {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <div class="sticky-nav-inner">
+            <span class="sticky-nav-title">🎄 Mexican Xmas 2025</span>
+            <div class="sticky-nav-links">
+                <a href="index.html">Home</a>
+                <a href="family.html" class="active">Family</a>
+                <a href="arrivals.html">Arrivals</a>
+                <a href="schedule.html">Schedule</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>🎄 The Family Tree</h1>
+            <p>Four generations coming together for Christmas</p>
+
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+                <a href="#tree" style="padding: 0.5rem 1.25rem; background: var(--color-green); color: white; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600;">🌲 Tree</a>
+                <a href="#directory" style="padding: 0.5rem 1.25rem; background: var(--color-red); color: white; border-radius: 20px; text-decoration: none; font-size: 0.85rem; font-weight: 600;">👨‍👩‍👧‍👦 Directory</a>
+            </div>
+        </div>
+
+        <!-- CHRISTMAS TREE FAMILY STRUCTURE -->
+        <section id="tree" class="tree-container">
+            <div class="tree-bg"></div>
+
+            <!-- THE STAR: Abi (Cristina Diaz) -->
+            <div class="tree-row star">
+                <div class="member-card star-card">
+                    <div class="member-photo">👵</div>
+                    <div class="member-name">Abi</div>
+                    <div class="member-relation">Cristina Diaz</div>
+                </div>
+            </div>
+
+            <!-- GENERATION 2: The Siblings -->
+            <div class="family-branches">
+                <!-- Adriana's Branch (Paredes) -->
+                <div class="family-branch">
+                    <div class="branch-label paredes"><span>Paredes Family</span></div>
+
+                    <div class="member-card couple paredes">
+                        <div class="member-photo">👫</div>
+                        <div class="member-name">Adriana & Raul</div>
+                        <div class="member-relation">Parents</div>
+                    </div>
+
+                    <div class="branch-children">
+                        <!-- Alex's family -->
+                        <div class="branch-group">
+                            <div class="member-card paredes">
+                                <div class="member-photo">👫</div>
+                                <div class="member-name">Alex & Brooke</div>
+                                <div class="member-relation">Married</div>
+                            </div>
+                            <div class="branch-children">
+                                <div class="member-card kids paredes">
+                                    <div class="member-photo">👧</div>
+                                    <div class="member-name">Lexi</div>
+                                </div>
+                                <div class="member-card kids paredes">
+                                    <div class="member-photo">👦</div>
+                                    <div class="member-name">Elliot</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="member-card paredes">
+                            <div class="member-photo">👨</div>
+                            <div class="member-name">Andre</div>
+                            <div class="member-relation">Son</div>
+                        </div>
+
+                        <div class="member-card paredes">
+                            <div class="member-photo">👨</div>
+                            <div class="member-name">Sean</div>
+                            <div class="member-relation">Son</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Jesse's Branch (Diaz) -->
+                <div class="family-branch">
+                    <div class="branch-label diaz"><span>Diaz Family</span></div>
+
+                    <div class="member-card couple diaz">
+                        <div class="member-photo">👫</div>
+                        <div class="member-name">Jesse & Trisha</div>
+                        <div class="member-relation">🎂 Birthday Boy!</div>
+                    </div>
+
+                    <div class="branch-children">
+                        <div class="member-card diaz">
+                            <div class="member-photo">👩</div>
+                            <div class="member-name">Jackie</div>
+                            <div class="member-relation">Daughter</div>
+                        </div>
+
+                        <!-- Tia's family -->
+                        <div class="branch-group">
+                            <div class="member-card diaz">
+                                <div class="member-photo">👫</div>
+                                <div class="member-name">Tia & Nicholas</div>
+                                <div class="member-relation">Engaged</div>
+                            </div>
+                        </div>
+
+                        <!-- Katie's family -->
+                        <div class="branch-group">
+                            <div class="member-card diaz">
+                                <div class="member-photo">👩</div>
+                                <div class="member-name">Katie</div>
+                                <div class="member-relation">Daughter</div>
+                            </div>
+                            <div class="branch-children">
+                                <div class="member-card kids diaz">
+                                    <div class="member-photo">👦</div>
+                                    <div class="member-name">Beau</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="member-card diaz">
+                            <div class="member-photo">👨</div>
+                            <div class="member-name">Matt</div>
+                            <div class="member-relation">Son</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ringo's Branch (Diaz) -->
+                <div class="family-branch">
+                    <div class="branch-label diaz"><span>Diaz Family</span></div>
+
+                    <div class="member-card diaz">
+                        <div class="member-photo">👨</div>
+                        <div class="member-name">Ringo</div>
+                        <div class="member-relation">Ricardo Diaz</div>
+                    </div>
+
+                    <div class="branch-children">
+                        <div class="member-card diaz">
+                            <div class="member-photo">👨</div>
+                            <div class="member-name">Ricky</div>
+                            <div class="member-relation">Ricardo Diaz Jr.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAMILY DIRECTORY -->
+        <section id="directory" class="directory-section">
+            <h2>👨‍👩‍👧‍👦 Meet the Family</h2>
+            <p style="color: var(--color-muted); margin-bottom: 1.5rem;">The people that make this celebration special</p>
+
+            <div class="directory-grid">
+                <!-- Abi -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👵</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Abi (Cristina Diaz)</div>
+                        <div class="bio-title">Jesse's Mother</div>
+                        <div class="bio-superlative">The reason we're all here</div>
+                    </div>
+                </div>
+
+                <!-- Jesse -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Jesse <span class="badge birthday">🎂 60!</span></div>
+                        <div class="bio-title">The Birthday Boy</div>
+                        <div class="bio-superlative">Funny in a cool youngest sibling way</div>
+                    </div>
+                </div>
+
+                <!-- Trisha -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👩</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Trisha</div>
+                        <div class="bio-title">Jesse's Wife</div>
+                        <div class="bio-superlative">Heart of gold · The one keeping Jesse in line</div>
+                    </div>
+                </div>
+
+                <!-- Adriana -->
+                <div class="bio-card paredes">
+                    <div class="bio-photo">👩</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Adriana</div>
+                        <div class="bio-title">Jesse's Sister</div>
+                        <div class="bio-superlative">Mexican Hat Dance instructor</div>
+                    </div>
+                </div>
+
+                <!-- Raul -->
+                <div class="bio-card paredes">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Raul</div>
+                        <div class="bio-title">Jesse's Brother-in-Law</div>
+                        <div class="bio-superlative">The Elder · Mexican Hat Dance Instructor</div>
+                    </div>
+                </div>
+
+                <!-- Ringo -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Ricardo "Ringo" Diaz</div>
+                        <div class="bio-title">Jesse's Brother</div>
+                        <div class="bio-superlative">The Wild One</div>
+                    </div>
+                </div>
+
+                <!-- Jackie -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👩</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Jackie</div>
+                        <div class="bio-title">Jesse's Daughter</div>
+                        <div class="bio-superlative">Will win any argument (she's a lawyer)</div>
+                    </div>
+                </div>
+
+                <!-- Tia -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👩</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Tia</div>
+                        <div class="bio-title">Jesse's Daughter</div>
+                        <div class="bio-superlative">Soon to be Mrs. Nicholas!</div>
+                    </div>
+                </div>
+
+                <!-- Nicholas -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Nicholas</div>
+                        <div class="bio-title">Jesse's Future Son-in-Law</div>
+                        <div class="bio-superlative">Most likely to judge your flossing (he's a dentist)</div>
+                    </div>
+                </div>
+
+                <!-- Katie -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👩</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Katie</div>
+                        <div class="bio-title">Jesse's Daughter</div>
+                        <div class="bio-superlative">Could sell the VRBO back to the owner</div>
+                    </div>
+                </div>
+
+                <!-- Matt -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Matt</div>
+                        <div class="bio-title">Jesse's Son</div>
+                        <div class="bio-superlative">The chill one</div>
+                    </div>
+                </div>
+
+                <!-- Alex -->
+                <div class="bio-card paredes">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Alex</div>
+                        <div class="bio-title">Jesse's Nephew</div>
+                        <div class="bio-superlative">Already calculating the per-person cost</div>
+                    </div>
+                </div>
+
+                <!-- Brooke -->
+                <div class="bio-card paredes">
+                    <div class="bio-photo">👩</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Brooke</div>
+                        <div class="bio-title">Jesse's Niece-in-Law</div>
+                        <div class="bio-superlative">Power couple with Alex: double the spreadsheets</div>
+                    </div>
+                </div>
+
+                <!-- Andre -->
+                <div class="bio-card paredes">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Andre</div>
+                        <div class="bio-title">Jesse's Nephew</div>
+                        <div class="bio-superlative">El Consentido · Built this website (you're welcome)</div>
+                    </div>
+                </div>
+
+                <!-- Sean -->
+                <div class="bio-card paredes">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Sean</div>
+                        <div class="bio-title">Jesse's Nephew</div>
+                        <div class="bio-superlative">The Funny Man · Family Favorite™</div>
+                    </div>
+                </div>
+
+                <!-- Ricky -->
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👨</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Ricardo "Ricky" Diaz</div>
+                        <div class="bio-title">Jesse's Nephew</div>
+                        <div class="bio-superlative">Most likely to own a mansion · Once held a fork over a candle for 10 minutes and branded Andre. The scar remains. The cousin-ship? Also remains. For now.</div>
+                    </div>
+                </div>
+
+                <!-- THE GRANDKIDS -->
+                <div class="bio-card paredes">
+                    <div class="bio-photo">👧</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Lexi</div>
+                        <div class="bio-title">Jesse's Grand-Niece</div>
+                        <div class="bio-superlative">Gets to open a present on Christmas Eve!</div>
+                    </div>
+                </div>
+
+                <div class="bio-card paredes">
+                    <div class="bio-photo">👦</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Elliot</div>
+                        <div class="bio-title">Jesse's Grand-Nephew</div>
+                        <div class="bio-superlative">Gets to open a present on Christmas Eve!</div>
+                    </div>
+                </div>
+
+                <div class="bio-card diaz">
+                    <div class="bio-photo">👦</div>
+                    <div class="bio-info">
+                        <div class="bio-name">Beau</div>
+                        <div class="bio-title">Jesse's Grandson</div>
+                        <div class="bio-superlative">Gets to open a present on Christmas Eve!</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>🎄 A Very Mexican Xmas · December 2025</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Made with ❤️ by Andre</p>
+        </footer>
+    </div>
+</body>
+</html>

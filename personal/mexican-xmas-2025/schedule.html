@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule | A Very Mexican Xmas 2025</title>
+    <style>
+        :root {
+            --color-bg: #fef7f0;
+            --color-card: #ffffff;
+            --color-text: #1e293b;
+            --color-muted: #64748b;
+            --color-red: #dc2626;
+            --color-red-light: #fef2f2;
+            --color-green: #16a34a;
+            --color-green-light: #f0fdf4;
+            --color-gold: #ca8a04;
+            --color-gold-light: #fefce8;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding-top: 110px;
+        }
+
+        /* Top Navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e2e8f0;
+            z-index: 101;
+            padding: 0.75rem 1rem;
+        }
+
+        .top-nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-nav-title {
+            font-weight: 700;
+            color: var(--color-red);
+            font-size: 0.95rem;
+        }
+
+        .top-nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .top-nav-links a {
+            color: var(--color-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .top-nav-links a:hover,
+        .top-nav-links a.active {
+            color: var(--color-green);
+        }
+
+        /* Day Navigation (Sticky) */
+        .day-nav {
+            position: fixed;
+            top: 52px;
+            left: 0;
+            right: 0;
+            background: var(--color-card);
+            border-bottom: 3px solid var(--color-green);
+            z-index: 100;
+            padding: 0.5rem 1rem;
+            overflow-x: auto;
+        }
+
+        .day-nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+
+        .day-link {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-muted);
+            background: var(--color-bg);
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .day-link:hover {
+            background: var(--color-green-light);
+            color: var(--color-green);
+        }
+
+        .day-link.special {
+            background: var(--color-red-light);
+            color: var(--color-red);
+        }
+
+        .day-link.special:hover {
+            background: var(--color-red);
+            color: white;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 1.75rem;
+            color: var(--color-green);
+        }
+
+        .page-header p {
+            color: var(--color-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Day Section */
+        .day-section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 120px;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--color-green-light);
+        }
+
+        .day-header.special {
+            border-bottom-color: var(--color-red);
+        }
+
+        .day-date {
+            background: var(--color-green);
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .day-header.special .day-date {
+            background: var(--color-red);
+        }
+
+        .day-date .weekday {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            opacity: 0.9;
+        }
+
+        .day-date .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .day-title h2 {
+            font-size: 1.25rem;
+            color: var(--color-text);
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .day-title .subtitle {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        /* Time Blocks */
+        .time-blocks {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .time-block {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--color-green);
+        }
+
+        .time-block.morning { border-left-color: var(--color-gold); }
+        .time-block.afternoon { border-left-color: var(--color-green); }
+        .time-block.evening { border-left-color: var(--color-red); }
+        .time-block.all-day { border-left-color: var(--color-muted); }
+
+        .time-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .time-block.morning .time-label { color: var(--color-gold); }
+        .time-block.afternoon .time-label { color: var(--color-green); }
+        .time-block.evening .time-label { color: var(--color-red); }
+        .time-block.all-day .time-label { color: var(--color-muted); }
+
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .activity-list li:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .activity-text {
+            flex: 1;
+        }
+
+        .activity-text strong {
+            display: block;
+            font-size: 0.95rem;
+        }
+
+        .activity-text span {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        /* Menu Card */
+        .menu-card {
+            background: linear-gradient(135deg, var(--color-green-light) 0%, var(--color-gold-light) 100%);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1rem;
+        }
+
+        .menu-card h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-green);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .menu-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .menu-item {
+            background: rgba(255,255,255,0.7);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Special Event Highlight */
+        .special-highlight {
+            background: linear-gradient(135deg, var(--color-red-light) 0%, var(--color-gold-light) 100%);
+            border: 2px solid var(--color-red);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .special-highlight .emoji {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .special-highlight h3 {
+            color: var(--color-red);
+            font-size: 1.1rem;
+        }
+
+        .special-highlight p {
+            font-size: 0.9rem;
+            color: var(--color-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--color-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding-top: 100px; }
+            .day-nav { top: 48px; }
+            .day-link { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+            .day-section { scroll-margin-top: 110px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-inner">
+            <span class="top-nav-title">🎄 Mexican Xmas 2025</span>
+            <div class="top-nav-links">
+                <a href="index.html">Home</a>
+                <a href="family.html">Family</a>
+                <a href="arrivals.html">Arrivals</a>
+                <a href="schedule.html" class="active">Schedule</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Day Navigation -->
+    <nav class="day-nav">
+        <div class="day-nav-inner">
+            <a href="#dec-21" class="day-link">Sun 21</a>
+            <a href="#dec-22" class="day-link">Mon 22</a>
+            <a href="#dec-23" class="day-link">Tue 23</a>
+            <a href="#dec-24" class="day-link special">Wed 24 🎂</a>
+            <a href="#dec-25" class="day-link special">Thu 25 🎄</a>
+            <a href="#dec-26" class="day-link">Fri 26</a>
+            <a href="#dec-27" class="day-link">Sat 27 🍷</a>
+            <a href="#dec-28" class="day-link">Sun 28</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>📅 Week Schedule</h1>
+            <p>December 21 – 28, 2025</p>
+        </div>
+
+        <!-- Dec 21 -->
+        <section id="dec-21" class="day-section">
+            <div class="day-header">
+                <div class="day-date">
+                    <div class="weekday">Sun</div>
+                    <div class="number">21</div>
+                </div>
+                <div class="day-title">
+                    <h2>Early Arrivals</h2>
+                    <span class="subtitle">Family starts to gather</span>
+                </div>
+            </div>
+
+            <div class="time-blocks">
+                <div class="time-block all-day">
+                    <div class="time-label">All Day</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">✈️</span>
+                            <div class="activity-text">
+                                <strong>Arrivals Begin</strong>
+                                <span>Check arrivals page for flight times</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🏠</span>
+                            <div class="activity-text">
+                                <strong>Settle In</strong>
+                                <span>Get familiar with the VRBO</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dec 22 -->
+        <section id="dec-22" class="day-section">
+            <div class="day-header">
+                <div class="day-date">
+                    <div class="weekday">Mon</div>
+                    <div class="number">22</div>
+                </div>
+                <div class="day-title">
+                    <h2>Shopping Day</h2>
+                    <span class="subtitle">Ingredients & supplies</span>
+                </div>
+            </div>
+
+            <div class="time-blocks">
+                <div class="time-block all-day">
+                    <div class="time-label">All Day</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🛒</span>
+                            <div class="activity-text">
+                                <strong>Shop for Christmas</strong>
+                                <span>Jesse shops for cooking competition ingredients</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🌮</span>
+                            <div class="activity-text">
+                                <strong>Mexican Treats for Loteria Prizes</strong>
+                                <span>Tamales, green mole, tequila</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">📝</span>
+                            <div class="activity-text">
+                                <strong>Teams: Submit Your Ingredient Lists!</strong>
+                                <span>Be VERY specific about what you need</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dec 23 -->
+        <section id="dec-23" class="day-section">
+            <div class="day-header">
+                <div class="day-date">
+                    <div class="weekday">Tue</div>
+                    <div class="number">23</div>
+                </div>
+                <div class="day-title">
+                    <h2>More Arrivals</h2>
+                    <span class="subtitle">The crew assembles</span>
+                </div>
+            </div>
+
+            <div class="time-blocks">
+                <div class="time-block all-day">
+                    <div class="time-label">All Day</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">✈️</span>
+                            <div class="activity-text">
+                                <strong>Jackie, Tia, Matt Arrive</strong>
+                                <span>Maybe Beau and Katie too</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🔑</span>
+                            <div class="activity-text">
+                                <strong>VRBO Check-in</strong>
+                                <span>Everyone settles into the house</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🎄</span>
+                            <div class="activity-text">
+                                <strong>Buy the Ugly Tree</strong>
+                                <span>Tradition: find the ugliest tree at the lot</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dec 24 - THE BIG DAY -->
+        <section id="dec-24" class="day-section">
+            <div class="day-header special">
+                <div class="day-date">
+                    <div class="weekday">Wed</div>
+                    <div class="number">24</div>
+                </div>
+                <div class="day-title">
+                    <h2>Christmas Eve</h2>
+                    <span class="subtitle">Jesse's 60th Birthday!</span>
+                </div>
+            </div>
+
+            <div class="special-highlight">
+                <div class="emoji">🎂🎄</div>
+                <h3>Happy 60th Birthday, Jesse!</h3>
+                <p>The main event — a Very Mexican Christmas Eve</p>
+            </div>
+
+            <div class="time-blocks">
+                <div class="time-block morning">
+                    <div class="time-label">Morning</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🎄</span>
+                            <div class="activity-text">
+                                <strong>Decorate the Tree</strong>
+                                <span>2 strings of lights, homemade ornaments</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">✂️</span>
+                            <div class="activity-text">
+                                <strong>Make Ornaments</strong>
+                                <span>Cardboard, glitter, crayons, yarn — get crafty!</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="time-block afternoon">
+                    <div class="time-label">Afternoon</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🍳</span>
+                            <div class="activity-text">
+                                <strong>Cooking Competition!</strong>
+                                <span>Teams make their Mexican side dishes</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">💃</span>
+                            <div class="activity-text">
+                                <strong>Learn the Mexican Hat Dance</strong>
+                                <span>Taught by Auntie Adriana</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="time-block evening">
+                    <div class="time-label">Evening</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🍽️</span>
+                            <div class="activity-text">
+                                <strong>Mexican Feast</strong>
+                                <span>Tamales, pozole, ceviche, mole & more</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🎰</span>
+                            <div class="activity-text">
+                                <strong>Loteria Night</strong>
+                                <span>With pinto beans and prizes!</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🎬</span>
+                            <div class="activity-text">
+                                <strong>Watch "It's a Wonderful Life"</strong>
+                                <span>Classic Christmas movie</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🎁</span>
+                            <div class="activity-text">
+                                <strong>Kids Open a Gift</strong>
+                                <span>Elliot, Beau, and Lexi each open one</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <h4>🌮 Menu</h4>
+                <div class="menu-items">
+                    <span class="menu-item">Tamales</span>
+                    <span class="menu-item">Pozole</span>
+                    <span class="menu-item">Ceviche</span>
+                    <span class="menu-item">Mole</span>
+                    <span class="menu-item">Huevos Rancheros</span>
+                    <span class="menu-item">Guacamole</span>
+                    <span class="menu-item">Chips & Salsas</span>
+                    <span class="menu-item">Tres Leches</span>
+                    <span class="menu-item">Buñuelos</span>
+                </div>
+            </div>
+            <div class="menu-card" style="background: linear-gradient(135deg, var(--color-red-light) 0%, var(--color-gold-light) 100%); margin-top: 0.5rem;">
+                <h4 style="color: var(--color-red);">🍹 Drinks</h4>
+                <div class="menu-items">
+                    <span class="menu-item">Margaritas</span>
+                    <span class="menu-item">Ponche Navideño</span>
+                    <span class="menu-item">Mexican Beer</span>
+                    <span class="menu-item">Tequila</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dec 25 -->
+        <section id="dec-25" class="day-section">
+            <div class="day-header special">
+                <div class="day-date">
+                    <div class="weekday">Thu</div>
+                    <div class="number">25</div>
+                </div>
+                <div class="day-title">
+                    <h2>Christmas Day</h2>
+                    <span class="subtitle">Gifts, games & feasting</span>
+                </div>
+            </div>
+
+            <div class="special-highlight" style="background: linear-gradient(135deg, var(--color-green-light) 0%, var(--color-gold-light) 100%); border-color: var(--color-green);">
+                <div class="emoji">🎄🎁</div>
+                <h3 style="color: var(--color-green);">Merry Christmas!</h3>
+            </div>
+
+            <div class="time-blocks">
+                <div class="time-block morning">
+                    <div class="time-label">Morning</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🎁</span>
+                            <div class="activity-text">
+                                <strong>Secret Santa</strong>
+                                <span>$50 gift exchange</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🐘</span>
+                            <div class="activity-text">
+                                <strong>White Elephant</strong>
+                                <span>$25-30 gift swap chaos</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="time-block afternoon">
+                    <div class="time-label">Afternoon</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🎬</span>
+                            <div class="activity-text">
+                                <strong>Movies</strong>
+                                <span>Christmas movie marathon</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🎲</span>
+                            <div class="activity-text">
+                                <strong>Games</strong>
+                                <span>Mexican Train, Brisca, and more</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="time-block evening">
+                    <div class="time-label">Evening</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🥩</span>
+                            <div class="activity-text">
+                                <strong>Fancy Dinner</strong>
+                                <span>Beef Tenderloin & Lobster Tails</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="menu-card">
+                <h4>🍽️ Menu</h4>
+                <div class="menu-items">
+                    <span class="menu-item">Beef Tenderloin</span>
+                    <span class="menu-item">Lobster Tails</span>
+                    <span class="menu-item">Sides</span>
+                    <span class="menu-item">Wine</span>
+                    <span class="menu-item">Mixed Drinks</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dec 26 -->
+        <section id="dec-26" class="day-section">
+            <div class="day-header">
+                <div class="day-date">
+                    <div class="weekday">Fri</div>
+                    <div class="number">26</div>
+                </div>
+                <div class="day-title">
+                    <h2>Recovery Day</h2>
+                    <span class="subtitle">Relax & enjoy each other</span>
+                </div>
+            </div>
+
+            <div class="time-blocks">
+                <div class="time-block all-day">
+                    <div class="time-label">All Day</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">😴</span>
+                            <div class="activity-text">
+                                <strong>Sleep In</strong>
+                                <span>You've earned it</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🏖️</span>
+                            <div class="activity-text">
+                                <strong>Free Time</strong>
+                                <span>Beach, explore San Diego, or just chill</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🍕</span>
+                            <div class="activity-text">
+                                <strong>Leftovers</strong>
+                                <span>Finish off the Christmas feast</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dec 27 -->
+        <section id="dec-27" class="day-section">
+            <div class="day-header">
+                <div class="day-date">
+                    <div class="weekday">Sat</div>
+                    <div class="number">27</div>
+                </div>
+                <div class="day-title">
+                    <h2>Wine Tour</h2>
+                    <span class="subtitle">A day in wine country</span>
+                </div>
+            </div>
+
+            <div class="time-blocks">
+                <div class="time-block all-day">
+                    <div class="time-label">All Day</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🍷</span>
+                            <div class="activity-text">
+                                <strong>Wine Tour</strong>
+                                <span>Details TBD — check back for updates</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">🚐</span>
+                            <div class="activity-text">
+                                <strong>Transportation</strong>
+                                <span>Coordinate rides — no drinking and driving!</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dec 28 -->
+        <section id="dec-28" class="day-section">
+            <div class="day-header">
+                <div class="day-date">
+                    <div class="weekday">Sun</div>
+                    <div class="number">28</div>
+                </div>
+                <div class="day-title">
+                    <h2>Departure Day</h2>
+                    <span class="subtitle">Until next time!</span>
+                </div>
+            </div>
+
+            <div class="time-blocks">
+                <div class="time-block all-day">
+                    <div class="time-label">All Day</div>
+                    <ul class="activity-list">
+                        <li>
+                            <span class="activity-icon">🧹</span>
+                            <div class="activity-text">
+                                <strong>VRBO Checkout</strong>
+                                <span>Clean up and pack up</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">👋</span>
+                            <div class="activity-text">
+                                <strong>Farewells</strong>
+                                <span>Hugs, photos, and "see you next year!"</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="activity-icon">✈️</span>
+                            <div class="activity-text">
+                                <strong>Departures</strong>
+                                <span>Check arrivals page for flight times</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>🎄 A Very Mexican Xmas · December 2025</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Made with ❤️ by Andre</p>
+        </footer>
+    </div>
+</body>
+</html>
