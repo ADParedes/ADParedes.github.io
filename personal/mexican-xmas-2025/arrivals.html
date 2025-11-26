@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrivals | A Very Mexican Xmas 2025</title>
+    <style>
+        :root {
+            --color-bg: #fef7f0;
+            --color-card: #ffffff;
+            --color-text: #1e293b;
+            --color-muted: #64748b;
+            --color-red: #dc2626;
+            --color-red-light: #fef2f2;
+            --color-green: #16a34a;
+            --color-green-light: #f0fdf4;
+            --color-gold: #ca8a04;
+            --color-gold-light: #fefce8;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+
+        /* Navigation */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--color-red);
+            z-index: 100;
+            padding: 0.75rem 1rem;
+        }
+
+        .sticky-nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sticky-nav-title {
+            font-weight: 700;
+            color: var(--color-red);
+            font-size: 0.95rem;
+        }
+
+        .sticky-nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .sticky-nav-links a {
+            color: var(--color-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .sticky-nav-links a:hover,
+        .sticky-nav-links a.active {
+            color: var(--color-green);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 1.5rem 0 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 1.75rem;
+            color: var(--color-green);
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--color-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Location Card */
+        .location-card {
+            background: linear-gradient(135deg, var(--color-green-light) 0%, var(--color-gold-light) 100%);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .location-card h2 {
+            color: var(--color-green);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            border: none;
+            padding: 0;
+        }
+
+        .location-card .address {
+            font-size: 1rem;
+            color: var(--color-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .location-card .note {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        /* Section */
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--color-green-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-green);
+        }
+
+        /* Arrival Cards */
+        .arrival-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .arrival-card {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .arrival-card.paredes { border-left: 4px solid var(--color-red); }
+        .arrival-card.diaz { border-left: 4px solid var(--color-green); }
+        .arrival-card.extended { border-left: 4px solid var(--color-gold); }
+
+        .arrival-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .arrival-info .family-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .arrival-card.paredes .family-tag { background: var(--color-red-light); color: var(--color-red); }
+        .arrival-card.diaz .family-tag { background: var(--color-green-light); color: var(--color-green); }
+        .arrival-card.extended .family-tag { background: var(--color-gold-light); color: var(--color-gold); }
+
+        .flight-details {
+            display: grid;
+            gap: 0.35rem;
+            font-size: 0.9rem;
+        }
+
+        .flight-details .detail {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-muted);
+        }
+
+        .flight-details .detail-icon {
+            width: 20px;
+            text-align: center;
+        }
+
+        .flight-details .tbd {
+            color: var(--color-muted);
+            font-style: italic;
+        }
+
+        .pickup-badge {
+            background: var(--color-bg);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .pickup-badge .label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .pickup-badge .name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Summary Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat {
+            background: var(--color-card);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-green);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--color-muted);
+        }
+
+        /* Date Sections */
+        .date-section {
+            margin-bottom: 2rem;
+        }
+
+        .date-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: var(--color-card);
+            border-radius: 8px;
+            border-left: 4px solid var(--color-green);
+        }
+
+        .date-header .date-icon {
+            font-size: 1.5rem;
+        }
+
+        .date-header h3 {
+            font-size: 1rem;
+            color: var(--color-text);
+        }
+
+        .date-header .date-sub {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--color-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .arrival-card {
+                grid-template-columns: 1fr;
+            }
+            .pickup-badge {
+                justify-self: start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <div class="sticky-nav-inner">
+            <span class="sticky-nav-title">🎄 Mexican Xmas 2025</span>
+            <div class="sticky-nav-links">
+                <a href="index.html">Home</a>
+                <a href="family.html">Family</a>
+                <a href="arrivals.html" class="active">Arrivals</a>
+                <a href="schedule.html">Schedule</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>✈️ Arrivals & Departures</h1>
+            <p>Flight times and pickup coordination</p>
+        </div>
+
+        <!-- VRBO Location -->
+        <div class="location-card">
+            <h2>📍 VRBO Location</h2>
+            <p class="address">San Diego, California</p>
+            <p class="note">Full address TBD — will be shared closer to the date</p>
+        </div>
+
+        <!-- Summary -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">17</div>
+                <div class="stat-label">Total Guests</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">Dec 18</div>
+                <div class="stat-label">First Arrival</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">Dec 28</div>
+                <div class="stat-label">Checkout</div>
+            </div>
+        </div>
+
+        <!-- Arrivals -->
+        <section>
+            <h2><span class="icon">✈️</span> Arrivals</h2>
+            <p style="color: var(--color-muted); margin-bottom: 1.5rem;">Ordered by arrival date</p>
+
+            <div class="arrival-grid">
+                <!-- Andre - Dec 18 -->
+                <div class="arrival-card paredes">
+                    <div class="arrival-info">
+                        <span class="family-tag">Paredes</span>
+                        <h3>Andre</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">📅</span>
+                                <span><strong>Thu, Dec 18</strong> @ 11:00 PM</span>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">✈️</span>
+                                <span>WN1859 from Chicago</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Pickup</div>
+                        <div class="name">TBD</div>
+                    </div>
+                </div>
+
+                <!-- Jesse & Trisha - Dec 19 -->
+                <div class="arrival-card diaz">
+                    <div class="arrival-info">
+                        <span class="family-tag">Diaz</span>
+                        <h3>Jesse & Trisha</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">📅</span>
+                                <span><strong>Fri, Dec 19</strong> @ 11:30 AM</span>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">📍</span>
+                                <span>Bahamar for the weekend</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Status</div>
+                        <div class="name">🎂 Birthday Boy</div>
+                    </div>
+                </div>
+
+                <!-- Jackie - Dec 23 -->
+                <div class="arrival-card diaz">
+                    <div class="arrival-info">
+                        <span class="family-tag">Diaz</span>
+                        <h3>Jackie</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">📅</span>
+                                <span><strong>Tue, Dec 23</strong></span>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">✈️</span>
+                                <span class="tbd">Flight TBD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Pickup</div>
+                        <div class="name">TBD</div>
+                    </div>
+                </div>
+
+                <!-- Tia & Nicholas - Dec 23 -->
+                <div class="arrival-card diaz">
+                    <div class="arrival-info">
+                        <span class="family-tag">Diaz</span>
+                        <h3>Tia & Nicholas</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">📅</span>
+                                <span><strong>Tue, Dec 23</strong></span>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">✈️</span>
+                                <span class="tbd">Flight TBD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Pickup</div>
+                        <div class="name">TBD</div>
+                    </div>
+                </div>
+
+                <!-- Katie & Beau - Dec 23 -->
+                <div class="arrival-card diaz">
+                    <div class="arrival-info">
+                        <span class="family-tag">Diaz</span>
+                        <h3>Katie & Beau</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">📅</span>
+                                <span><strong>Tue, Dec 23</strong> (maybe)</span>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">✈️</span>
+                                <span class="tbd">Flight TBD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Pickup</div>
+                        <div class="name">TBD</div>
+                    </div>
+                </div>
+
+                <!-- Matt - Dec 23 -->
+                <div class="arrival-card diaz">
+                    <div class="arrival-info">
+                        <span class="family-tag">Diaz</span>
+                        <h3>Matt</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">📅</span>
+                                <span><strong>Tue, Dec 23</strong></span>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">✈️</span>
+                                <span class="tbd">Flight TBD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Pickup</div>
+                        <div class="name">TBD</div>
+                    </div>
+                </div>
+
+                <!-- Ricky - TBD -->
+                <div class="arrival-card diaz">
+                    <div class="arrival-info">
+                        <span class="family-tag">Diaz</span>
+                        <h3>Ricardo "Ricky" Diaz</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">📅</span>
+                                <span class="tbd">Date TBD</span>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">✈️</span>
+                                <span class="tbd">Flight TBD</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Pickup</div>
+                        <div class="name">TBD</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Already in San Diego -->
+        <section>
+            <h2><span class="icon">🏠</span> Already in San Diego</h2>
+            <p style="color: var(--color-muted); margin-bottom: 1.5rem;">Local crew — no flights needed</p>
+
+            <div class="arrival-grid">
+                <!-- Adriana & Raul - HOSTS -->
+                <div class="arrival-card paredes">
+                    <div class="arrival-info">
+                        <span class="family-tag">Paredes</span>
+                        <h3>Adriana & Raul</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">🏠</span>
+                                <span>San Diego locals</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge" style="background: var(--color-green-light);">
+                        <div class="label">Status</div>
+                        <div class="name" style="color: var(--color-green);">🎄 HOSTS</div>
+                    </div>
+                </div>
+
+                <!-- Alex, Brooke, Lexi, Elliot -->
+                <div class="arrival-card paredes">
+                    <div class="arrival-info">
+                        <span class="family-tag">Paredes</span>
+                        <h3>Alex, Brooke, Lexi & Elliot</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">🏠</span>
+                                <span>San Diego locals</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Status</div>
+                        <div class="name">Local</div>
+                    </div>
+                </div>
+
+                <!-- Sean -->
+                <div class="arrival-card paredes">
+                    <div class="arrival-info">
+                        <span class="family-tag">Paredes</span>
+                        <h3>Sean</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">🏠</span>
+                                <span>San Diego local</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pickup-badge">
+                        <div class="label">Status</div>
+                        <div class="name">Local</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Departures -->
+        <section>
+            <h2><span class="icon">🛫</span> Departures</h2>
+            <p style="color: var(--color-muted); margin-bottom: 1.5rem;">Sunday, Dec 28 — VRBO checkout day</p>
+
+            <div class="arrival-grid">
+                <div class="arrival-card diaz" style="border-left-color: var(--color-muted);">
+                    <div class="arrival-info">
+                        <h3>Departure details coming soon</h3>
+                        <div class="flight-details">
+                            <div class="detail">
+                                <span class="detail-icon">🏠</span>
+                                <span>VRBO checkout time TBD</span>
+                            </div>
+                            <div class="detail">
+                                <span class="detail-icon">✈️</span>
+                                <span class="tbd">Individual flight times will be added</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>🎄 A Very Mexican Xmas · December 2025</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem;">Made with ❤️ by Andre</p>
+        </footer>
+    </div>
+</body>
+</html>

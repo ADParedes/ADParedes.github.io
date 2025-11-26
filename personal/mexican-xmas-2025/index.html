@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Very Mexican Xmas 2025 | Jesse's 60th Birthday</title>
+    <style>
+        :root {
+            --color-bg: #fef7f0;
+            --color-card: #ffffff;
+            --color-text: #1e293b;
+            --color-muted: #64748b;
+            --color-red: #dc2626;
+            --color-red-light: #fef2f2;
+            --color-green: #16a34a;
+            --color-green-light: #f0fdf4;
+            --color-gold: #ca8a04;
+            --color-gold-light: #fefce8;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--color-red);
+            z-index: 100;
+            padding: 0.75rem 1rem;
+        }
+
+        .sticky-nav-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .sticky-nav-title {
+            font-weight: 700;
+            color: var(--color-red);
+            font-size: 0.95rem;
+        }
+
+        .sticky-nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .sticky-nav-links a {
+            color: var(--color-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .sticky-nav-links a:hover {
+            color: var(--color-green);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            background: linear-gradient(135deg, var(--color-red-light) 0%, var(--color-green-light) 100%);
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '🎄';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        header::after {
+            content: '🎄';
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        .event-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-red) 0%, #b91c1c 100%);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-green);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--color-red);
+            font-weight: 600;
+        }
+
+        .date-range {
+            font-size: 1rem;
+            color: var(--color-muted);
+            margin-top: 0.5rem;
+        }
+
+        .location {
+            font-size: 0.95rem;
+            color: var(--color-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Quote */
+        .hero-quote {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: rgba(255,255,255,0.7);
+            border-radius: 12px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-quote p {
+            font-style: italic;
+            color: var(--color-text);
+            font-size: 1rem;
+        }
+
+        .hero-quote .signature {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--color-red);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .stat {
+            background: var(--color-card);
+            padding: 1.25rem 1rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+        }
+
+        .stat:nth-child(1) { border-color: var(--color-red-light); }
+        .stat:nth-child(2) { border-color: var(--color-green-light); }
+        .stat:nth-child(3) { border-color: var(--color-gold-light); }
+        .stat:nth-child(4) { border-color: var(--color-red-light); }
+
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-green);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--color-green-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-green);
+        }
+
+        h2 .icon { font-size: 1.5rem; }
+
+        .card {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .card p {
+            margin-bottom: 0.75rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Family Trees */
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .family-card {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-top: 4px solid;
+        }
+
+        .family-card.paredes { border-color: var(--color-red); }
+        .family-card.diaz { border-color: var(--color-green); }
+        .family-card.extended { border-color: var(--color-gold); }
+
+        .family-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .family-card.paredes h3 { color: var(--color-red); }
+        .family-card.diaz h3 { color: var(--color-green); }
+        .family-card.extended h3 { color: var(--color-gold); }
+
+        .family-member {
+            padding: 0.4rem 0;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .family-member:last-child {
+            border-bottom: none;
+        }
+
+        .family-member.indent-1 { padding-left: 1rem; color: var(--color-muted); }
+        .family-member.indent-2 { padding-left: 2rem; font-size: 0.9rem; color: var(--color-muted); }
+
+        .family-member .relation {
+            font-size: 0.75rem;
+            color: var(--color-muted);
+            font-style: italic;
+        }
+
+        /* Special Events */
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .event-card {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .event-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-card h4 {
+            font-size: 1rem;
+            color: var(--color-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .event-card .event-date {
+            font-size: 0.85rem;
+            color: var(--color-muted);
+        }
+
+        /* Teams */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .team-card {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid;
+        }
+
+        .team-card:nth-child(1) { border-color: var(--color-red); }
+        .team-card:nth-child(2) { border-color: var(--color-green); }
+        .team-card:nth-child(3) { border-color: var(--color-gold); }
+
+        .team-card h4 {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            color: var(--color-muted);
+        }
+
+        .team-members {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Rules */
+        .rules-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .rules-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rules-list li::before {
+            content: '🌶️';
+            position: absolute;
+            left: 0;
+            top: 0.75rem;
+        }
+
+        /* Supplies Grid */
+        .supplies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .supply-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: var(--color-card);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .supply-item.claimed {
+            border-left: 3px solid var(--color-green);
+        }
+
+        .supply-item.unclaimed {
+            border-left: 3px solid var(--color-gold);
+            background: var(--color-gold-light);
+        }
+
+        .supply-name {
+            font-size: 0.9rem;
+        }
+
+        .supply-owner {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            background: var(--color-green-light);
+            color: var(--color-green);
+        }
+
+        .supply-owner.tbd {
+            background: var(--color-gold-light);
+            color: var(--color-gold);
+        }
+
+        /* Quick Links */
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: var(--color-card);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--color-text);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+
+        .quick-link:hover {
+            border-color: var(--color-green);
+            transform: translateY(-2px);
+        }
+
+        .quick-link-icon {
+            font-size: 1.5rem;
+        }
+
+        .quick-link-text h4 {
+            font-size: 1rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .quick-link-text p {
+            font-size: 0.8rem;
+            color: var(--color-muted);
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--color-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+
+        footer .credit {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 { font-size: 1.75rem; }
+            .sticky-nav-links { gap: 1rem; }
+            .sticky-nav-links a { font-size: 0.75rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <div class="sticky-nav-inner">
+            <span class="sticky-nav-title">🎄 Mexican Xmas 2025</span>
+            <div class="sticky-nav-links">
+                <a href="index.html">Home</a>
+                <a href="family.html">Family</a>
+                <a href="arrivals.html">Arrivals</a>
+                <a href="schedule.html">Schedule</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header id="a-very-mexican-xmas">
+            <div class="event-badge">Jesse's 60th Birthday</div>
+            <h1>A Very Mexican Xmas</h1>
+            <p class="subtitle">Christmas Eve 2025</p>
+            <p class="date-range">December 21 – 28, 2025</p>
+            <p class="location">📍 San Diego, California</p>
+
+            <div class="hero-quote">
+                <p>"Message from Jesse coming soon..."</p>
+                <div class="signature">— Uncle Jesse</div>
+            </div>
+
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-muted); max-width: 600px; margin-left: auto; margin-right: auto;"><strong>Jesse Diaz turns 60 on Christmas Eve.</strong> Two families. One VRBO. A week of food, games, and memories in San Diego.</p>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">60</div>
+                <div class="stat-label">Years Young</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">17</div>
+                <div class="stat-label">Family Members</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">8</div>
+                <div class="stat-label">Days Together</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">4</div>
+                <div class="stat-label">Generations</div>
+            </div>
+        </div>
+
+        <!-- Message from Andre -->
+        <section id="message">
+            <div class="card" style="background: linear-gradient(135deg, var(--color-red-light) 0%, var(--color-gold-light) 100%); border: 2px solid var(--color-red); text-align: center; padding: 2rem;">
+                <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-red); margin-bottom: 0.75rem;">A Message from Andre</p>
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">"Look, we all know I'm the favorite. That's not up for debate. I didn't make the rules, I just happen to benefit from them enormously.</p>
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">But this week isn't about me — it's about Uncle Jesse turning 60. Thank Jesus. Literally. That's what Abi called him.</p>
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">You're welcome for this website."</p>
+                <p style="font-weight: 600; color: var(--color-red);">— Andre, PhD (in being the favorite)</p>
+            </div>
+        </section>
+
+        <!-- Meet the Family CTA -->
+        <a href="family.html" class="quick-link" style="max-width: 350px; margin: 0 auto 2rem; display: flex;">
+            <span class="quick-link-icon">🎄</span>
+            <div class="quick-link-text">
+                <h4>Meet the Family</h4>
+                <p>4 generations, 17 people</p>
+            </div>
+        </a>
+
+        <!-- Special Events Preview -->
+        <section id="highlights">
+            <h2><span class="icon">⭐</span> Week Highlights</h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-icon">🎄</div>
+                    <h4>Tree Decorating</h4>
+                    <p class="event-date">Dec 24</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">🍳</div>
+                    <h4>Cooking Competition</h4>
+                    <p class="event-date">Dec 24</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">🎰</div>
+                    <h4>Loteria Night</h4>
+                    <p class="event-date">Dec 24</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">💃</div>
+                    <h4>Mexican Hat Dance</h4>
+                    <p class="event-date">Dec 24</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">🎁</div>
+                    <h4>Secret Santa</h4>
+                    <p class="event-date">Dec 25</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">🍷</div>
+                    <h4>Wine Tour</h4>
+                    <p class="event-date">Dec 27</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cooking Competition -->
+        <section id="competition">
+            <h2><span class="icon">🏆</span> The Cooking Competition</h2>
+            <div class="card">
+                <p><strong>The cousins battle it out!</strong> Each team must prepare a Mexican side dish or appetizer. Jesse will be shopping for ingredients on December 22nd—be VERY specific about what you need.</p>
+                <ul class="rules-list">
+                    <li>Has to be <strong>made</strong>, not bought</li>
+                    <li>Has to be <strong>Mexican</strong></li>
+                    <li>Can be an appetizer or side dish <em>(is there really a difference?)</em></li>
+                    <li>Ingredients requested by Dec 22 shopping day</li>
+                    <li>Start planning with your team!</li>
+                </ul>
+            </div>
+
+            <h3 style="font-size: 1rem; margin: 1.5rem 0 1rem; color: var(--color-muted);">The Teams</h3>
+            <div class="teams-grid">
+                <div class="team-card">
+                    <h4>Team 1</h4>
+                    <div class="team-members">
+                        Jackie<br>
+                        Katie<br>
+                        Tia<br>
+                        Brooke
+                    </div>
+                </div>
+                <div class="team-card">
+                    <h4>Team 2</h4>
+                    <div class="team-members">
+                        Alex<br>
+                        Matt<br>
+                        Nicholas
+                    </div>
+                </div>
+                <div class="team-card">
+                    <h4>Team 3</h4>
+                    <div class="team-members">
+                        Andre<br>
+                        Ricky<br>
+                        Sean
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What to Bring -->
+        <section id="supplies">
+            <h2><span class="icon">📦</span> What to Bring</h2>
+            <p style="color: var(--color-muted); margin-bottom: 1rem; font-size: 0.9rem;">Claimed items in green, unclaimed in gold — grab one if you can!</p>
+            <div class="supplies-grid">
+                <div class="supply-item claimed">
+                    <span class="supply-name">Keurig</span>
+                    <span class="supply-owner">Adriana</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Tree stand</span>
+                    <span class="supply-owner">Adriana</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Ornament making supplies</span>
+                    <span class="supply-owner">Trisha</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Tree lights</span>
+                    <span class="supply-owner">Adriana</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Extension cord</span>
+                    <span class="supply-owner">Brooke</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Big ice cube maker</span>
+                    <span class="supply-owner">Brooke</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Mexican Train game</span>
+                    <span class="supply-owner">Brooke</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Brisca cards</span>
+                    <span class="supply-owner">Adriana</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Loteria + pinto beans</span>
+                    <span class="supply-owner">Brooke</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Meat thermometer</span>
+                    <span class="supply-owner">Jesse</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Cigars</span>
+                    <span class="supply-owner">Ricky</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Firewood</span>
+                    <span class="supply-owner">Jesse</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Secret Santa emails</span>
+                    <span class="supply-owner">Alex</span>
+                </div>
+                <div class="supply-item claimed">
+                    <span class="supply-name">Bluetooth speaker</span>
+                    <span class="supply-owner">Brooke</span>
+                </div>
+                <div class="supply-item unclaimed">
+                    <span class="supply-name">Martini shaker</span>
+                    <span class="supply-owner tbd">TBD</span>
+                </div>
+                <div class="supply-item unclaimed">
+                    <span class="supply-name">Lime press</span>
+                    <span class="supply-owner tbd">TBD</span>
+                </div>
+                <div class="supply-item unclaimed">
+                    <span class="supply-name">Margarita pitchers (2)</span>
+                    <span class="supply-owner tbd">TBD</span>
+                </div>
+                <div class="supply-item unclaimed">
+                    <span class="supply-name">Mexican hat</span>
+                    <span class="supply-owner tbd">TBD</span>
+                </div>
+                <div class="supply-item unclaimed">
+                    <span class="supply-name">Extra table & chairs</span>
+                    <span class="supply-owner tbd">TBD</span>
+                </div>
+                <div class="supply-item unclaimed">
+                    <span class="supply-name">Wine decanter</span>
+                    <span class="supply-owner tbd">TBD</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section id="navigation">
+            <h2><span class="icon">🔗</span> Quick Links</h2>
+            <div class="quick-links">
+                <a href="family.html" class="quick-link">
+                    <span class="quick-link-icon">🎄</span>
+                    <div class="quick-link-text">
+                        <h4>Family Tree</h4>
+                        <p>Meet everyone</p>
+                    </div>
+                </a>
+                <a href="arrivals.html" class="quick-link">
+                    <span class="quick-link-icon">✈️</span>
+                    <div class="quick-link-text">
+                        <h4>Arrivals</h4>
+                        <p>Flight times & pickups</p>
+                    </div>
+                </a>
+                <a href="schedule.html" class="quick-link">
+                    <span class="quick-link-icon">📅</span>
+                    <div class="quick-link-text">
+                        <h4>Schedule</h4>
+                        <p>Daily activities</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <p>🎄 A Very Mexican Xmas · December 2025</p>
+            <p class="credit">Made with ❤️ by Andre</p>
+        </footer>
+    </div>
+</body>
+</html>
