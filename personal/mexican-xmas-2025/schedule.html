@@ -338,11 +338,39 @@
             margin-top: 3rem;
         }
 
+        /* Mobile day selector dropdown */
+        .day-select-wrapper {
+            display: none;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .day-select {
+            padding: 0.6rem 2rem 0.6rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 2px solid var(--color-green);
+            border-radius: 20px;
+            background: white;
+            color: var(--color-green);
+            appearance: none;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2316a34a' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+        }
+
+        .day-select:focus {
+            outline: none;
+            border-color: var(--color-red);
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             body { padding-top: 100px; }
             .day-nav { top: 48px; }
-            .day-link { padding: 0.4rem 0.75rem; font-size: 0.75rem; }
+            .day-nav-inner { display: none; }
+            .day-select-wrapper { display: flex; }
             .day-section { scroll-margin-top: 110px; }
         }
     </style>
@@ -372,6 +400,19 @@
             <a href="#dec-26" class="day-link">Fri 26</a>
             <a href="#dec-27" class="day-link">Sat 27 🍷</a>
             <a href="#dec-28" class="day-link">Sun 28</a>
+        </div>
+        <!-- Mobile dropdown -->
+        <div class="day-select-wrapper">
+            <select class="day-select" onchange="location.hash = this.value">
+                <option value="#dec-21">Sun 21 — Early Arrivals</option>
+                <option value="#dec-22">Mon 22 — Shopping Day</option>
+                <option value="#dec-23">Tue 23 — More Arrivals</option>
+                <option value="#dec-24">Wed 24 — Christmas Eve 🎂</option>
+                <option value="#dec-25">Thu 25 — Christmas Day 🎄</option>
+                <option value="#dec-26">Fri 26 — Recovery Day</option>
+                <option value="#dec-27">Sat 27 — Wine Tour 🍷</option>
+                <option value="#dec-28">Sun 28 — Departure Day</option>
+            </select>
         </div>
     </nav>
 
