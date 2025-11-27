@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey | Learning</title>
+    <meta name="description" content="Numbering our days to gain a heart of wisdom - A timeline of growth and reflection.">
+
+    <link rel="stylesheet" href="learning.css">
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/learning/" class="nav-logo">Learning</a>
+            <div class="nav-links">
+                <a href="/learning/">Home</a>
+                <a href="/learning/morning.html">Win the Morning</a>
+                <a href="/learning/framework.html">Framework</a>
+                <a href="/learning/journey.html" class="active">Journey</a>
+                <a href="/learning/wisdom.html">Wisdom</a>
+                <a href="/">Main Site</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1>Journey</h1>
+            <p class="verse">"Teach us to number our days, that we may gain a heart of wisdom."</p>
+            <p class="reference">Psalm 90:12</p>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--learning-text-muted);">
+                <em>Personal journey by</em> <strong style="color: var(--learning-accent-dark);">Andre D Paredes, PhD</strong>
+            </p>
+        </div>
+
+        <div class="counter-display">
+            <h2>Days I've Lived</h2>
+            <div style="text-align: center; margin: 2rem 0;">
+                <span class="counter-number" id="totalDays" style="font-size: 4rem;">0</span>
+                <p class="counter-label" style="font-size: 1.1rem; margin-top: 1rem;">Total Days</p>
+            </div>
+            <p class="counter-birth">Since October 14</p>
+            <p style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--learning-border);">
+                <a href="/days-alive-calculator.html" style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--learning-accent); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; font-size: 0.95rem;">Calculate Your Days Alive →</a>
+            </p>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-year">2025</div>
+                <div class="timeline-theme">"Increase social intelligence, give God each moment"</div>
+                <div class="timeline-description">Not just the year, month, or day—but each moment belongs to Him. He drives. Cultivating social intelligence while surrendering every breath to divine guidance.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2024</div>
+                <div class="timeline-theme">"Be a leader"</div>
+                <div class="timeline-description">A year of humbling. Despite hard work and promises, promotion didn't come. Instead, God taught surrender—reconnecting to a power greater than myself, learning that true leadership begins with following Him.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2023</div>
+                <div class="timeline-theme">"Be a subject matter expert, know the fundamentals"</div>
+                <div class="timeline-description">Following layoffs, returning to foundations. Mastery isn't about complexity but depth—knowing the fundamentals so thoroughly they become second nature.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2022</div>
+                <div class="timeline-theme">"Target success, be results oriented, be success conscious"</div>
+                <div class="timeline-description">Shifting focus from activity to outcomes. Learning to measure what matters, aim deliberately, and maintain awareness of what success truly means.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2021</div>
+                <div class="timeline-theme">"Be productive and effective"</div>
+                <div class="timeline-description">Distinguishing between busyness and impact. Not just doing more, but doing what matters—effectiveness over mere productivity.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <div class="timeline-theme">"Increase knowledge & be more confident through competence"</div>
+                <div class="timeline-description">True confidence emerges from genuine competence. Deepening knowledge not for pride, but for the assurance that comes from actual capability.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2019</div>
+                <div class="timeline-theme">"Concerted effort in self improvement"</div>
+                <div class="timeline-description">Intentional growth. Not waiting for change to happen, but actively pursuing it with focus and discipline.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2018</div>
+                <div class="timeline-theme">"Seek peace and seek meaning in peace"</div>
+                <div class="timeline-description">After upheaval, learning that peace isn't merely the absence of conflict but the presence of purpose. Finding meaning in stillness.</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-year">2017</div>
+                <div class="timeline-theme">"Survival"</div>
+                <div class="timeline-description">The year everything broke open. Pain became the teacher that forced me to listen to my authentic voice, to follow my heart. Sometimes survival is the beginning of truly living.</div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p style="margin-bottom: 0.5rem;">Personal reflections and learnings by <strong>Andre D Paredes, PhD</strong></p>
+        <p>&copy; 2025 | <a href="/learning/">Learning Home</a> | <a href="/">Main Site</a></p>
+    </footer>
+
+    <script>
+        // Birthday: October 14, 1987
+        const birthday = new Date(1987, 9, 14); // Month is 0-indexed (9 = October)
+
+        function updateCounter() {
+            const now = new Date();
+            const diff = now - birthday;
+
+            // Calculate total days lived
+            const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+
+            // Update DOM
+            document.getElementById('totalDays').textContent = totalDays.toLocaleString();
+        }
+
+        // Update immediately and then every minute
+        updateCounter();
+        setInterval(updateCounter, 60000);
+    </script>
+</body>
+</html>

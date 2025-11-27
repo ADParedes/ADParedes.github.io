@@ -437,6 +437,16 @@ section li {
     color: var(--color-accent);
 }
 
+/* LinkedIn CTA Button */
+.about a[href*="linkedin"] {
+    transition: background 0.2s, transform 0.1s;
+}
+
+.about a[href*="linkedin"]:hover {
+    background: var(--color-accent-dark) !important;
+    transform: translateY(-1px);
+}
+
 /* Footer */
 .footer {
     border-top: 1px solid var(--color-border);
