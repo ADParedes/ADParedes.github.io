@@ -249,7 +249,25 @@
 
         .member-card.kids {
             width: 110px;
-            padding: 0.75rem;
+            padding: 0.5rem 0.75rem;
+        }
+
+        .member-card.kids.paredes {
+            background: linear-gradient(135deg, #fecaca 0%, #fca5a5 100%);
+            border: 2px solid #f87171;
+        }
+
+        .member-card.kids.paredes .member-name {
+            color: #991b1b;
+        }
+
+        .member-card.kids.diaz {
+            background: linear-gradient(135deg, #bbf7d0 0%, #86efac 100%);
+            border: 2px solid #4ade80;
+        }
+
+        .member-card.kids.diaz .member-name {
+            color: #166534;
         }
 
         /* Photo placeholder */
@@ -577,12 +595,12 @@
         <section id="tree" class="tree-container">
             <div class="tree-bg"></div>
 
-            <!-- THE STARS: Abi & Epifanio -->
-            <div class="tree-row star">
-                <div class="member-card star-card">
+            <!-- THE STARS: Abi & Epifanio (stacked) -->
+            <div class="tree-row star" style="flex-direction: column; gap: 1rem;">
+                <div class="member-card star-card memorial">
                     <div class="member-photo"><img src="assets/abi.PNG" alt="Abi"></div>
                     <div class="member-name">Abi</div>
-                    <div class="member-relation">Cristina Diaz</div>
+                    <div class="member-relation">In Loving Memory</div>
                 </div>
                 <div class="member-card star-card memorial">
                     <div class="member-photo"><img src="assets/epifanio.jpg" alt="Epifanio"></div>
@@ -734,7 +752,7 @@
                     <div class="bio-photo"><img src="assets/epifanio.jpg" alt="Epifanio"></div>
                     <div class="bio-info">
                         <div class="bio-name">Epifanio Diaz</div>
-                        <div class="bio-title">Abi's Husband</div>
+                        <div class="bio-title">In Loving Memory</div>
                         <div class="bio-superlative">Forever in our hearts</div>
                     </div>
                 </div>
