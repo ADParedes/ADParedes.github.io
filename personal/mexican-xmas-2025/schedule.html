@@ -236,6 +236,23 @@
         .time-block.evening .time-label { color: var(--color-red); }
         .time-block.all-day .time-label { color: var(--color-muted); }
 
+        /* Christmas Lights Animation */
+        @keyframes christmas-lights {
+            0% { color: #ff0000; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+            16% { color: #00ff00; text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; }
+            33% { color: #ffd700; text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700; }
+            50% { color: #0066ff; text-shadow: 0 0 10px #0066ff, 0 0 20px #0066ff; }
+            66% { color: #ff00ff; text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
+            83% { color: #00ffff; text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff; }
+            100% { color: #ff0000; text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; }
+        }
+
+        .christmas-flash {
+            animation: christmas-lights 1.5s infinite;
+            font-weight: 800;
+            font-size: 0.85rem !important;
+        }
+
         .activity-list {
             list-style: none;
         }
@@ -577,7 +594,7 @@
 
             <div class="time-blocks">
                 <div class="time-block morning">
-                    <div class="time-label">Morning (7 AM Rise & Shine!)</div>
+                    <div class="time-label">Morning <span class="christmas-flash">(7 AM Rise & Shine!)</span></div>
                     <ul class="activity-list">
                         <li>
                             <span class="activity-icon">🎄</span>
