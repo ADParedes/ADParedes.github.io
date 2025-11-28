@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Very Mexican Xmas 2025 | Jesse's 60th Birthday</title>
-    <meta name="description" content="Jesse Diaz turns 60 on Christmas Eve. The Paredes-Diaz families. One VRBO. A week of food, games, and memories in San Diego.">
+    <title>A Very Mexican Xmas 2025 | Uncle Jesse's 60th Birthday</title>
+    <meta name="description" content="Uncle Jesse Diaz turns 60 on Christmas Eve. The Paredes-Diaz families. One VRBO. A week of food, games, and memories in San Diego.">
 
     <!-- Open Graph -->
     <meta property="og:title" content="A Very Mexican Xmas 2025">
-    <meta property="og:description" content="Jesse Diaz turns 60 on Christmas Eve. The Paredes-Diaz families. One VRBO. A week of food, games, and memories in San Diego.">
+    <meta property="og:description" content="Uncle Jesse Diaz turns 60 on Christmas Eve. The Paredes-Diaz families. One VRBO. A week of food, games, and memories in San Diego.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://adparedes.github.io/personal/mexican-xmas-2025/assets/og-image.png">
+    <meta property="og:image" content="https://adparedes.github.io/personal/mexican-xmas-2025/assets/uncle_jess_bday.jpg">
 
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎄</text></svg>">
     <style>
@@ -215,6 +215,7 @@
         /* Sections */
         section {
             margin-bottom: 2.5rem;
+            scroll-margin-top: 130px;
         }
 
         h2 {
@@ -489,12 +490,119 @@
             font-size: 0.8rem;
         }
 
+        /* Section Navigation - Sticky Tabs */
+        .section-nav {
+            position: sticky;
+            top: 60px;
+            z-index: 99;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-bottom: 2px solid var(--color-green);
+        }
+
+        .section-nav a {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--color-muted);
+            background: var(--color-bg);
+            transition: all 0.2s;
+        }
+
+        .section-nav a:hover {
+            background: var(--color-green-light);
+            color: var(--color-green);
+        }
+
+        /* Uncle Jesse Message */
+        .jesse-message-card {
+            background: linear-gradient(135deg, var(--color-green-light) 0%, var(--color-gold-light) 100%);
+            border: 2px solid var(--color-green);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .jesse-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 4px solid var(--color-green);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .jesse-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .jesse-content {
+            flex: 1;
+        }
+
+        .jesse-content h3 {
+            color: var(--color-green);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .jesse-scroll {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .jesse-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .jesse-scroll::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 3px;
+        }
+
+        .jesse-scroll::-webkit-scrollbar-thumb {
+            background: var(--color-green);
+            border-radius: 3px;
+        }
+
+        .jesse-signature {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--color-green);
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             h1 { font-size: 1.75rem; }
             .sticky-nav-links { gap: 1rem; }
             .sticky-nav-links a { font-size: 0.75rem; }
             .stats { grid-template-columns: repeat(2, 1fr); }
+            .jesse-message-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .jesse-photo {
+                width: 100px;
+                height: 100px;
+            }
+            .section-nav { gap: 0.35rem; }
+            .section-nav a { font-size: 0.7rem; padding: 0.4rem 0.75rem; }
         }
     </style>
 </head>
@@ -514,19 +622,24 @@
     <div class="container">
         <!-- Hero Section -->
         <header id="a-very-mexican-xmas">
-            <div class="event-badge">Jesse's 60th Birthday</div>
+            <div class="event-badge">Uncle Jesse's 60th Birthday</div>
             <h1>A Very Mexican Xmas</h1>
             <p class="subtitle">Christmas Eve 2025</p>
             <p class="date-range">December 21 – 28, 2025</p>
             <p class="location">📍 San Diego, California</p>
 
-            <div class="hero-quote">
-                <p>"Message from Jesse coming soon..."</p>
-                <div class="signature">— Uncle Jesse</div>
-            </div>
-
-            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-muted); max-width: 600px; margin-left: auto; margin-right: auto;"><strong>Jesse Diaz turns 60 on Christmas Eve.</strong> The Paredes-Diaz families. One VRBO. A week of food, games, and memories in San Diego.</p>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--color-muted); max-width: 600px; margin-left: auto; margin-right: auto;"><strong>Uncle Jesse Diaz turns 60 on Christmas Eve.</strong> The Paredes-Diaz families. One VRBO. A week of food, games, and memories in San Diego.</p>
         </header>
+
+        <!-- Section Navigation -->
+        <nav class="section-nav" id="section-tabs">
+            <a href="#jesse-message">Message from Jesse</a>
+            <a href="#message">Message from Andre</a>
+            <a href="#highlights">Highlights</a>
+            <a href="#competition">Cooking Competition</a>
+            <a href="#supplies">What to Bring</a>
+            <a href="#navigation">Quick Links</a>
+        </nav>
 
         <!-- Stats -->
         <div class="stats">
@@ -548,10 +661,38 @@
             </div>
         </div>
 
+        <!-- Message from Uncle Jesse -->
+        <section id="jesse-message">
+            <h2>Message from Uncle Jesse</h2>
+            <div class="jesse-message-card">
+                <div class="jesse-photo">
+                    <img src="assets/uncle_jess_bday.jpg" alt="Uncle Jesse">
+                </div>
+                <div class="jesse-content">
+                    <h3>A Very Mexican Christmas Awaits!</h3>
+                    <div class="jesse-scroll">
+                        <p>Family,</p>
+                        <p style="margin-top: 0.75rem;">This December 24th is a big one—I'm turning 60! And I'm so grateful that we'll all be together in San Diego to celebrate not only my birthday and Christmas, but also the Mexican culture that has shaped so much of who I am.</p>
+                        <p style="margin-top: 0.75rem;">So get ready, because we're having a Very Mexican Christmas this year!</p>
+                        <p style="margin-top: 0.75rem;">We'll have tamales steaming, ceviche chilling, and green mole simmering—plus enough tequila to keep the singing loud and the stories even louder. We'll break out the Mexican Lotería cards, and Mexican train dominos and Sis start practicing the Mexican hat dance.</p>
+                        <p style="margin-top: 0.75rem;">I requested a Mexican Santa to make a special trip from Mexico to surprise us.</p>
+                        <p style="margin-top: 0.75rem;">And of course, we'll keep one of our most beloved traditions: gathering together on Christmas Eve to watch It's a Wonderful Life, and yes, due to popular demand I will add my narration.</p>
+                        <p style="margin-top: 0.75rem;">I am especially looking forward to the delicious side dishes the cousins will create and smoking a cigar by the fire at night.</p>
+                        <p style="margin-top: 0.75rem;">With my Irish half cheering from the sidelines and all of you bringing your own sparkle, I know this will be a celebration full of love, laughter, and memories we'll talk about for years.</p>
+                        <p style="margin-top: 0.75rem;">Can't wait to see you all for our Muy Mexicana Navidad!</p>
+                    </div>
+                    <div class="jesse-signature">Con mucho cariño, Uncle Jesse</div>
+                </div>
+            </div>
+        </section>
+
         <!-- Message from Andre -->
         <section id="message">
             <div class="card" style="background: linear-gradient(135deg, var(--color-red-light) 0%, var(--color-gold-light) 100%); border: 2px solid var(--color-red); text-align: center; padding: 2rem;">
                 <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-red); margin-bottom: 0.75rem;">A Message from Andre</p>
+                <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; border: 4px solid var(--color-red); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                    <img src="assets/message_from_andre.jpg" alt="Andre" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
                 <p style="font-size: 1.1rem; margin-bottom: 1rem;">"Look, we all know I'm the favorite. That's not up for debate. I didn't make the rules, I just happen to benefit from them enormously.</p>
                 <p style="font-size: 1.1rem; margin-bottom: 1rem;">But this week isn't about me — it's about Uncle Jesse turning 60. Thank Jesus. Literally. That's what Abi called him."</p>
                 <p style="font-weight: 600; color: var(--color-red);">— Andre, PhD (in being the favorite)</p>
@@ -592,6 +733,21 @@
                     <p class="event-date">Dec 24</p>
                 </div>
                 <div class="event-card">
+                    <div class="event-icon">🎬</div>
+                    <h4>It's a Wonderful Life</h4>
+                    <p class="event-date">Dec 24</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">🎅</div>
+                    <h4>Mexican Santa</h4>
+                    <p class="event-date">Dec 24</p>
+                </div>
+                <div class="event-card">
+                    <div class="event-icon">📸</div>
+                    <h4>Family Picture</h4>
+                    <p class="event-date">Dec 24 (bring santa hats!)</p>
+                </div>
+                <div class="event-card">
                     <div class="event-icon">🎁</div>
                     <h4>Secret Santa</h4>
                     <p class="event-date">Dec 25</p>
@@ -608,7 +764,7 @@
         <section id="competition">
             <h2>The Cooking Competition</h2>
             <div class="card">
-                <p><strong>The cousins battle it out!</strong> Each team must prepare a Mexican side dish or appetizer. Jesse will be shopping for ingredients on December 22nd—be VERY specific about what you need.</p>
+                <p><strong>The cousins battle it out!</strong> Each team must prepare a Mexican side dish or appetizer. Uncle Jesse will be shopping for ingredients on December 22nd—be VERY specific about what you need.</p>
                 <ul class="rules-list">
                     <li>Has to be <strong>made</strong>, not bought</li>
                     <li>Has to be <strong>Mexican</strong></li>
@@ -655,19 +811,19 @@
             <div class="supplies-grid">
                 <div class="supply-item claimed">
                     <span class="supply-name">Keurig</span>
-                    <span class="supply-owner">Adriana</span>
+                    <span class="supply-owner">Auntie Adriana</span>
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Tree stand</span>
-                    <span class="supply-owner">Adriana</span>
+                    <span class="supply-owner">Auntie Adriana</span>
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Ornament making supplies</span>
-                    <span class="supply-owner">Trisha</span>
+                    <span class="supply-owner">Aunt Trish</span>
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Tree lights</span>
-                    <span class="supply-owner">Adriana</span>
+                    <span class="supply-owner">Auntie Adriana</span>
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Extension cord</span>
@@ -683,7 +839,7 @@
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Brisca cards</span>
-                    <span class="supply-owner">Adriana</span>
+                    <span class="supply-owner">Auntie Adriana</span>
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Loteria + pinto beans</span>
@@ -691,7 +847,7 @@
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Meat thermometer</span>
-                    <span class="supply-owner">Jesse</span>
+                    <span class="supply-owner">Uncle Jesse</span>
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Cigars</span>
@@ -699,7 +855,7 @@
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Firewood</span>
-                    <span class="supply-owner">Jesse</span>
+                    <span class="supply-owner">Uncle Jesse</span>
                 </div>
                 <div class="supply-item claimed">
                     <span class="supply-name">Secret Santa emails</span>
@@ -732,6 +888,10 @@
                 <div class="supply-item unclaimed">
                     <span class="supply-name">Wine decanter</span>
                     <span class="supply-owner tbd">TBD</span>
+                </div>
+                <div class="supply-item unclaimed" style="background: var(--color-red-light); border-left-color: var(--color-red);">
+                    <span class="supply-name">🎅 Santa Hats (everyone bring one!)</span>
+                    <span class="supply-owner tbd" style="background: var(--color-red-light); color: var(--color-red);">ALL</span>
                 </div>
             </div>
         </section>

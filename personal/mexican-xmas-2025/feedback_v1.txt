@@ -1,0 +1,61 @@
+### update across mexican-xmas-2025
+update the open graph to be the /assets/uncle_jess.bday.jpg
+
+
+###  Home Page
+
+Update
+Section: Message from Uncle Jesse
+use content from message from uncle_jess.txt as is. Please format it. 
+its log so maybe allow scrolling of it.  
+Also this page add tabs at the top with sticky navigation so people can jump from section to section. 
+Also with message to jesse please add a picture of Uncle Jess in asset as expeted
+
+Section: Week Highlight
+add - viewing of "It's a Wonderful Life"  - Dec 24
+add - Mexican Santa - Dec 24  (look at assets for icon)
+add - family picture - Dec 24 (everyone please bring a santa hat)
+
+Update what to bring 
+add - everyone bring santa hats
+
+
+
+### Family
+
+updated bio-superlative as the following
+
+
+### Arrivals
+
+update structure.  Remove cards per person.  Table with Rows per person.  Arrival Day,  Arrival Time, Plane.  
+for paredes people that are already there no need to have information.  
+
+
+
+updated content
+Jackie, Matt, and Tia all ariving same flight: Dec 23, 11:30AM UA 660 
+Katie & Beau flight information:  Dec 23, 6:41PM  UA 2417
+Uncle Jess & Auth Trish  Dec 19, 11:30 AM UA 660
+Nick Dec 23, around 10 PM
+
+
+### Shedule
+update Note - Uncle Jess, Aunt Trish, Adriana, Raul, going to bahamar 19 to the 21st
+update 21 - personal day. 
+
+update 23 - buy ugly tree is on 24. 
+update 24th 
+-Morning:  Rise and shine 7 am to get festivities started. Loteria and Mexican Dominos, Decorate tree.Leave the rest here
+-Afternoon add :  Family Portrat (update so consistent across site semantics),  Add link from Cooking Competition to home page instructions. 
+-Evening add: Mexican Santa Arrival, Tequila Sipping.  
+
+update 26th:
+- Add: Matthew hiking by himself, goodluck, welcome to adulthood. 
+
+Update 27 
+- update transformation to limo. 
+
+Update 28th
+- update farewells with send Andre your photos to update website. 
+

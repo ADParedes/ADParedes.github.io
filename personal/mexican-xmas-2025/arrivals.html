@@ -142,88 +142,97 @@
             color: var(--color-green);
         }
 
-        /* Arrival Cards */
-        .arrival-grid {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .arrival-card {
+        /* Arrivals Table */
+        .arrivals-table {
+            width: 100%;
             background: var(--color-card);
             border-radius: 12px;
-            padding: 1.25rem;
+            overflow: hidden;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 1rem;
-            align-items: center;
         }
 
-        .arrival-card.paredes { border-left: 4px solid var(--color-red); }
-        .arrival-card.diaz { border-left: 4px solid var(--color-green); }
-        .arrival-card.extended { border-left: 4px solid var(--color-gold); }
-
-        .arrival-info h3 {
-            font-size: 1rem;
-            margin-bottom: 0.25rem;
+        .arrivals-table thead {
+            background: var(--color-green);
+            color: white;
         }
 
-        .arrival-info .family-tag {
-            font-size: 0.7rem;
+        .arrivals-table th {
+            padding: 1rem;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .arrivals-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.95rem;
+        }
+
+        .arrivals-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .arrivals-table tr:hover {
+            background: var(--color-bg);
+        }
+
+        .arrivals-table .name-cell {
+            font-weight: 600;
+        }
+
+        .arrivals-table .flight-cell {
+            font-family: monospace;
+            background: var(--color-bg);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .family-tag {
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 0.05em;
             padding: 0.2rem 0.5rem;
             border-radius: 10px;
             display: inline-block;
-            margin-bottom: 0.5rem;
+            margin-left: 0.5rem;
         }
 
-        .arrival-card.paredes .family-tag { background: var(--color-red-light); color: var(--color-red); }
-        .arrival-card.diaz .family-tag { background: var(--color-green-light); color: var(--color-green); }
-        .arrival-card.extended .family-tag { background: var(--color-gold-light); color: var(--color-gold); }
+        .family-tag.diaz { background: var(--color-green-light); color: var(--color-green); }
+        .family-tag.paredes { background: var(--color-red-light); color: var(--color-red); }
 
-        .flight-details {
+        /* Local Crew Section */
+        .local-grid {
             display: grid;
-            gap: 0.35rem;
-            font-size: 0.9rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
         }
 
-        .flight-details .detail {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--color-muted);
-        }
-
-        .flight-details .detail-icon {
-            width: 20px;
+        .local-card {
+            background: var(--color-card);
+            border-radius: 12px;
+            padding: 1rem;
             text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--color-red);
         }
 
-        .flight-details .tbd {
-            color: var(--color-muted);
-            font-style: italic;
-        }
-
-        .pickup-badge {
-            background: var(--color-bg);
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            text-align: center;
-            min-width: 100px;
-        }
-
-        .pickup-badge .label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--color-muted);
+        .local-card h4 {
+            font-size: 0.95rem;
             margin-bottom: 0.25rem;
         }
 
-        .pickup-badge .name {
-            font-weight: 600;
-            font-size: 0.9rem;
+        .local-card p {
+            font-size: 0.8rem;
+            color: var(--color-muted);
+        }
+
+        .local-card.host {
+            background: var(--color-green-light);
+            border-left-color: var(--color-green);
         }
 
         /* Summary Stats */
@@ -295,11 +304,15 @@
 
         /* Responsive */
         @media (max-width: 600px) {
-            .arrival-card {
-                grid-template-columns: 1fr;
+            .arrivals-table {
+                font-size: 0.85rem;
             }
-            .pickup-badge {
-                justify-self: start;
+            .arrivals-table th,
+            .arrivals-table td {
+                padding: 0.75rem 0.5rem;
+            }
+            .family-tag {
+                display: none;
             }
         }
     </style>
@@ -351,161 +364,54 @@
             <h2><span class="icon">✈️</span> Arrivals</h2>
             <p style="color: var(--color-muted); margin-bottom: 1.5rem;">Ordered by arrival date</p>
 
-            <div class="arrival-grid">
-                <!-- Andre - Dec 18 -->
-                <div class="arrival-card paredes">
-                    <div class="arrival-info">
-                        <span class="family-tag">Paredes</span>
-                        <h3>Andre</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">📅</span>
-                                <span><strong>Thu, Dec 18</strong> @ 11:00 PM</span>
-                            </div>
-                            <div class="detail">
-                                <span class="detail-icon">✈️</span>
-                                <span>WN1859 from Chicago</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Pickup</div>
-                        <div class="name">TBD</div>
-                    </div>
-                </div>
-
-                <!-- Jesse & Trisha - Dec 19 -->
-                <div class="arrival-card diaz">
-                    <div class="arrival-info">
-                        <span class="family-tag">Diaz</span>
-                        <h3>Jesse & Trisha</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">📅</span>
-                                <span><strong>Fri, Dec 19</strong> @ 11:30 AM</span>
-                            </div>
-                            <div class="detail">
-                                <span class="detail-icon">📍</span>
-                                <span>Bahamar for the weekend</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Status</div>
-                        <div class="name">🎂 Birthday Boy</div>
-                    </div>
-                </div>
-
-                <!-- Jackie - Dec 23 -->
-                <div class="arrival-card diaz">
-                    <div class="arrival-info">
-                        <span class="family-tag">Diaz</span>
-                        <h3>Jackie</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">📅</span>
-                                <span><strong>Tue, Dec 23</strong></span>
-                            </div>
-                            <div class="detail">
-                                <span class="detail-icon">✈️</span>
-                                <span class="tbd">Flight TBD</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Pickup</div>
-                        <div class="name">TBD</div>
-                    </div>
-                </div>
-
-                <!-- Tia & Nicholas - Dec 23 -->
-                <div class="arrival-card diaz">
-                    <div class="arrival-info">
-                        <span class="family-tag">Diaz</span>
-                        <h3>Tia & Nicholas</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">📅</span>
-                                <span><strong>Tue, Dec 23</strong></span>
-                            </div>
-                            <div class="detail">
-                                <span class="detail-icon">✈️</span>
-                                <span class="tbd">Flight TBD</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Pickup</div>
-                        <div class="name">TBD</div>
-                    </div>
-                </div>
-
-                <!-- Katie & Beau - Dec 23 -->
-                <div class="arrival-card diaz">
-                    <div class="arrival-info">
-                        <span class="family-tag">Diaz</span>
-                        <h3>Katie & Beau</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">📅</span>
-                                <span><strong>Tue, Dec 23</strong> (maybe)</span>
-                            </div>
-                            <div class="detail">
-                                <span class="detail-icon">✈️</span>
-                                <span class="tbd">Flight TBD</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Pickup</div>
-                        <div class="name">TBD</div>
-                    </div>
-                </div>
-
-                <!-- Matt - Dec 23 -->
-                <div class="arrival-card diaz">
-                    <div class="arrival-info">
-                        <span class="family-tag">Diaz</span>
-                        <h3>Matt</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">📅</span>
-                                <span><strong>Tue, Dec 23</strong></span>
-                            </div>
-                            <div class="detail">
-                                <span class="detail-icon">✈️</span>
-                                <span class="tbd">Flight TBD</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Pickup</div>
-                        <div class="name">TBD</div>
-                    </div>
-                </div>
-
-                <!-- Ricky - TBD -->
-                <div class="arrival-card diaz">
-                    <div class="arrival-info">
-                        <span class="family-tag">Diaz</span>
-                        <h3>Ricardo "Ricky" Diaz</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">📅</span>
-                                <span class="tbd">Date TBD</span>
-                            </div>
-                            <div class="detail">
-                                <span class="detail-icon">✈️</span>
-                                <span class="tbd">Flight TBD</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Pickup</div>
-                        <div class="name">TBD</div>
-                    </div>
-                </div>
-            </div>
+            <table class="arrivals-table">
+                <thead>
+                    <tr>
+                        <th>Who</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Flight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="name-cell">Andre <span class="family-tag paredes">Paredes</span></td>
+                        <td>Thu, Dec 18</td>
+                        <td>11:00 PM</td>
+                        <td><span class="flight-cell">WN1859</span></td>
+                    </tr>
+                    <tr>
+                        <td class="name-cell">Uncle Jesse & Aunt Trish <span class="family-tag diaz">Diaz</span> 🎂</td>
+                        <td>Fri, Dec 19</td>
+                        <td>11:30 AM</td>
+                        <td><span class="flight-cell">UA 660</span></td>
+                    </tr>
+                    <tr>
+                        <td class="name-cell">Jackie, Matt & Tia <span class="family-tag diaz">Diaz</span></td>
+                        <td>Tue, Dec 23</td>
+                        <td>11:30 AM</td>
+                        <td><span class="flight-cell">UA 660</span></td>
+                    </tr>
+                    <tr>
+                        <td class="name-cell">Katie & Beau <span class="family-tag diaz">Diaz</span></td>
+                        <td>Tue, Dec 23</td>
+                        <td>6:41 PM</td>
+                        <td><span class="flight-cell">UA 2417</span></td>
+                    </tr>
+                    <tr>
+                        <td class="name-cell">Nicholas <span class="family-tag diaz">Diaz</span></td>
+                        <td>Tue, Dec 23</td>
+                        <td>~10:00 PM</td>
+                        <td><span class="flight-cell">TBD</span></td>
+                    </tr>
+                    <tr>
+                        <td class="name-cell">Ricky <span class="family-tag diaz">Diaz</span></td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td><span class="flight-cell">TBD</span></td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- Already in San Diego -->
@@ -513,59 +419,18 @@
             <h2><span class="icon">🏠</span> Already in San Diego</h2>
             <p style="color: var(--color-muted); margin-bottom: 1.5rem;">Local crew — no flights needed</p>
 
-            <div class="arrival-grid">
-                <!-- Adriana & Raul - HOSTS -->
-                <div class="arrival-card paredes">
-                    <div class="arrival-info">
-                        <span class="family-tag">Paredes</span>
-                        <h3>Adriana & Raul</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">🏠</span>
-                                <span>San Diego locals</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge" style="background: var(--color-green-light);">
-                        <div class="label">Status</div>
-                        <div class="name" style="color: var(--color-green);">🎄 HOSTS</div>
-                    </div>
+            <div class="local-grid">
+                <div class="local-card host">
+                    <h4>🎄 Auntie Adriana & Uncle Raul</h4>
+                    <p>Hosts</p>
                 </div>
-
-                <!-- Alex, Brooke, Lexi, Elliot -->
-                <div class="arrival-card paredes">
-                    <div class="arrival-info">
-                        <span class="family-tag">Paredes</span>
-                        <h3>Alex, Brooke, Lexi & Elliot</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">🏠</span>
-                                <span>San Diego locals</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Status</div>
-                        <div class="name">Local</div>
-                    </div>
+                <div class="local-card">
+                    <h4>Alex, Brooke, Lexi & Elliot</h4>
+                    <p>Local</p>
                 </div>
-
-                <!-- Sean -->
-                <div class="arrival-card paredes">
-                    <div class="arrival-info">
-                        <span class="family-tag">Paredes</span>
-                        <h3>Sean</h3>
-                        <div class="flight-details">
-                            <div class="detail">
-                                <span class="detail-icon">🏠</span>
-                                <span>San Diego local</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="pickup-badge">
-                        <div class="label">Status</div>
-                        <div class="name">Local</div>
-                    </div>
+                <div class="local-card">
+                    <h4>Sean</h4>
+                    <p>Local</p>
                 </div>
             </div>
         </section>

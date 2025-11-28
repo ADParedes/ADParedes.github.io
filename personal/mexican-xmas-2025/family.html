@@ -353,48 +353,64 @@
 
         .directory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.25rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .directory-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .directory-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .bio-card {
             background: var(--color-card);
-            border-radius: 16px;
+            border-radius: 20px;
             padding: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             display: flex;
-            gap: 1rem;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             transition: transform 0.2s;
         }
 
         .bio-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
 
         .bio-card.paredes {
-            border-left: 4px solid var(--color-red);
+            border-top: 4px solid var(--color-red);
         }
 
         .bio-card.diaz {
-            border-left: 4px solid var(--color-green);
+            border-top: 4px solid var(--color-green);
         }
 
         .bio-card.extended {
-            border-left: 4px solid var(--color-gold);
+            border-top: 4px solid var(--color-gold);
         }
 
         .bio-photo {
-            width: 60px;
-            height: 60px;
+            width: 240px;
+            height: 240px;
             border-radius: 50%;
             background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 5rem;
             overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
         }
 
         .bio-photo img {
@@ -404,7 +420,7 @@
         }
 
         .bio-info {
-            flex: 1;
+            margin-top: 1rem;
         }
 
         .bio-name {
@@ -506,7 +522,26 @@
             .sticky-nav-links { gap: 1rem; }
             .sticky-nav-links a { font-size: 0.75rem; }
             .directory-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .bio-card {
+                padding: 1rem;
+            }
+            .bio-photo {
+                width: 140px;
+                height: 140px;
+                font-size: 3rem;
+            }
+            .bio-name {
+                font-size: 0.9rem;
+            }
+            .bio-title {
+                font-size: 0.7rem;
+            }
+            .bio-superlative {
+                font-size: 0.75rem;
+                padding: 0.35rem;
             }
             .tree-bg {
                 display: none;
@@ -545,7 +580,7 @@
             <!-- THE STAR: Abi (Cristina Diaz) -->
             <div class="tree-row star">
                 <div class="member-card star-card">
-                    <div class="member-photo">👵</div>
+                    <div class="member-photo"><img src="assets/abi.PNG" alt="Abi"></div>
                     <div class="member-name">Abi</div>
                     <div class="member-relation">Cristina Diaz</div>
                 </div>
@@ -559,7 +594,7 @@
 
                     <div class="member-card couple paredes">
                         <div class="member-photo">👫</div>
-                        <div class="member-name">Adriana & Raul</div>
+                        <div class="member-name">Auntie Adriana & Uncle Raul</div>
                         <div class="member-relation">Parents</div>
                     </div>
 
@@ -584,7 +619,7 @@
                         </div>
 
                         <div class="member-card paredes">
-                            <div class="member-photo">👨</div>
+                            <div class="member-photo"><img src="assets/andre.jpg" alt="Andre"></div>
                             <div class="member-name">Andre</div>
                             <div class="member-relation">Son</div>
                         </div>
@@ -602,8 +637,8 @@
                     <div class="branch-label diaz"><span>Diaz Family</span></div>
 
                     <div class="member-card couple diaz">
-                        <div class="member-photo">👫</div>
-                        <div class="member-name">Jesse & Trisha</div>
+                        <div class="member-photo"><img src="assets/uncle_jess_and_aunt_trish.JPG" alt="Uncle Jesse & Aunt Trish"></div>
+                        <div class="member-name">Uncle Jesse & Aunt Trish</div>
                         <div class="member-relation">🎂 Birthday Boy!</div>
                     </div>
 
@@ -615,7 +650,7 @@
                         </div>
 
                         <div class="member-card memorial">
-                            <div class="member-photo">🕊️</div>
+                            <div class="member-photo"><img src="assets/dani.jpg" alt="Dani"></div>
                             <div class="member-name">Dani</div>
                             <div class="member-relation">In Loving Memory</div>
                         </div>
@@ -657,8 +692,8 @@
                     <div class="branch-label diaz"><span>Diaz Family</span></div>
 
                     <div class="member-card diaz">
-                        <div class="member-photo">👨</div>
-                        <div class="member-name">Ringo</div>
+                        <div class="member-photo"><img src="assets/uncle_ringo.jpeg" alt="Uncle Ringo"></div>
+                        <div class="member-name">Uncle Ringo</div>
                         <div class="member-relation">Ricardo Diaz</div>
                     </div>
 
@@ -681,198 +716,198 @@
             <div class="directory-grid">
                 <!-- Abi -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👵</div>
+                    <div class="bio-photo"><img src="assets/abi.PNG" alt="Abi"></div>
                     <div class="bio-info">
                         <div class="bio-name">Abi (Cristina Diaz)</div>
-                        <div class="bio-title">Jesse's Mother</div>
+                        <div class="bio-title">Uncle Jesse's Mother</div>
                         <div class="bio-superlative">The reason we're all here</div>
                     </div>
                 </div>
 
-                <!-- Jesse -->
+                <!-- Uncle Jesse -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><img src="assets/uncle_jesse.JPG" alt="Uncle Jesse"></div>
                     <div class="bio-info">
-                        <div class="bio-name">Jesse <span class="badge birthday">🎂 60!</span></div>
+                        <div class="bio-name">Uncle Jesse <span class="badge birthday">🎂 60!</span></div>
                         <div class="bio-title">The Birthday Boy</div>
                         <div class="bio-superlative">Funny in a cool youngest sibling way</div>
                     </div>
                 </div>
 
-                <!-- Trisha -->
+                <!-- Aunt Trish -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👩</div>
+                    <div class="bio-photo"><img src="assets/aunt_trish.jpeg" alt="Aunt Trish"></div>
                     <div class="bio-info">
-                        <div class="bio-name">Trisha</div>
-                        <div class="bio-title">Jesse's Wife</div>
-                        <div class="bio-superlative">Heart of gold · The one keeping Jesse in line</div>
+                        <div class="bio-name">Aunt Trish</div>
+                        <div class="bio-title">Uncle Jesse's Wife</div>
+                        <div class="bio-superlative">Heart of gold · The one keeping Uncle Jesse in line</div>
                     </div>
                 </div>
 
-                <!-- Adriana -->
+                <!-- Auntie Adriana -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo">👩</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/adriana.jpg" alt="Auntie Adriana"> -->👩</div>
                     <div class="bio-info">
-                        <div class="bio-name">Adriana</div>
-                        <div class="bio-title">Jesse's Sister</div>
+                        <div class="bio-name">Auntie Adriana</div>
+                        <div class="bio-title">Uncle Jesse's Sister</div>
                         <div class="bio-superlative">Mexican Hat Dance instructor</div>
                     </div>
                 </div>
 
-                <!-- Raul -->
+                <!-- Uncle Raul -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/raul.jpg" alt="Uncle Raul"> -->👨</div>
                     <div class="bio-info">
-                        <div class="bio-name">Raul</div>
-                        <div class="bio-title">Jesse's Brother-in-Law</div>
+                        <div class="bio-name">Uncle Raul</div>
+                        <div class="bio-title">Uncle Jesse's Brother-in-Law</div>
                         <div class="bio-superlative">The Elder · Mexican Hat Dance Instructor</div>
                     </div>
                 </div>
 
-                <!-- Ringo -->
+                <!-- Uncle Ringo -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><img src="assets/uncle_ringo.jpeg" alt="Uncle Ringo"></div>
                     <div class="bio-info">
-                        <div class="bio-name">Ricardo "Ringo" Diaz</div>
-                        <div class="bio-title">Jesse's Brother</div>
+                        <div class="bio-name">Uncle Ringo (Ricardo Diaz)</div>
+                        <div class="bio-title">Uncle Jesse's Brother</div>
                         <div class="bio-superlative">The Wild One</div>
                     </div>
                 </div>
 
                 <!-- Jackie -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👩</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/jackie.jpg" alt="Jackie"> -->👩</div>
                     <div class="bio-info">
                         <div class="bio-name">Jackie</div>
-                        <div class="bio-title">Jesse's Daughter</div>
+                        <div class="bio-title">Uncle Jesse's Daughter</div>
                         <div class="bio-superlative">Will win any argument (she's a lawyer)</div>
                     </div>
                 </div>
 
                 <!-- Dani - In Loving Memory -->
                 <div class="bio-card memorial">
-                    <div class="bio-photo">🕊️</div>
+                    <div class="bio-photo"><img src="assets/dani.jpg" alt="Dani"></div>
                     <div class="bio-info">
                         <div class="bio-name">Danielle "Dani" Diaz</div>
-                        <div class="bio-title">Jesse's Daughter</div>
+                        <div class="bio-title">Uncle Jesse's Daughter</div>
                         <div class="bio-superlative">Forever in our hearts</div>
                     </div>
                 </div>
 
                 <!-- Tia -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👩</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/tia.jpg" alt="Tia"> -->👩</div>
                     <div class="bio-info">
                         <div class="bio-name">Tia</div>
-                        <div class="bio-title">Jesse's Daughter</div>
+                        <div class="bio-title">Uncle Jesse's Daughter</div>
                         <div class="bio-superlative">Soon to be Mrs. Nicholas!</div>
                     </div>
                 </div>
 
                 <!-- Nicholas -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/nicholas.jpg" alt="Nicholas"> -->👨</div>
                     <div class="bio-info">
                         <div class="bio-name">Nicholas</div>
-                        <div class="bio-title">Jesse's Future Son-in-Law</div>
+                        <div class="bio-title">Uncle Jesse's Future Son-in-Law</div>
                         <div class="bio-superlative">Most likely to judge your flossing (he's a dentist)</div>
                     </div>
                 </div>
 
                 <!-- Katie -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👩</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/katie.jpg" alt="Katie"> -->👩</div>
                     <div class="bio-info">
                         <div class="bio-name">Katie</div>
-                        <div class="bio-title">Jesse's Daughter</div>
+                        <div class="bio-title">Uncle Jesse's Daughter</div>
                         <div class="bio-superlative">Could sell the VRBO back to the owner</div>
                     </div>
                 </div>
 
                 <!-- Matt -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/matt.jpg" alt="Matt"> -->👨</div>
                     <div class="bio-info">
                         <div class="bio-name">Matt</div>
-                        <div class="bio-title">Jesse's Son</div>
+                        <div class="bio-title">Uncle Jesse's Son</div>
                         <div class="bio-superlative">The chill one</div>
                     </div>
                 </div>
 
                 <!-- Alex -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/alex.jpg" alt="Alex"> -->👨</div>
                     <div class="bio-info">
                         <div class="bio-name">Alex</div>
-                        <div class="bio-title">Jesse's Nephew</div>
+                        <div class="bio-title">Uncle Jesse's Nephew</div>
                         <div class="bio-superlative">Already calculating the per-person cost</div>
                     </div>
                 </div>
 
                 <!-- Brooke -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo">👩</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/brooke.jpg" alt="Brooke"> -->👩</div>
                     <div class="bio-info">
                         <div class="bio-name">Brooke</div>
-                        <div class="bio-title">Jesse's Niece-in-Law</div>
+                        <div class="bio-title">Uncle Jesse's Niece-in-Law</div>
                         <div class="bio-superlative">Power couple with Alex: double the spreadsheets</div>
                     </div>
                 </div>
 
                 <!-- Andre -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><img src="assets/andre.jpg" alt="Andre"></div>
                     <div class="bio-info">
                         <div class="bio-name">Andre</div>
-                        <div class="bio-title">Jesse's Nephew</div>
-                        <div class="bio-superlative">El Consentido · Built this website (you're welcome)</div>
+                        <div class="bio-title">Uncle Jesse's Nephew</div>
+                        <div class="bio-superlative">El Consentido · Built this website</div>
                     </div>
                 </div>
 
                 <!-- Sean -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/sean.jpg" alt="Sean"> -->👨</div>
                     <div class="bio-info">
                         <div class="bio-name">Sean</div>
-                        <div class="bio-title">Jesse's Nephew</div>
+                        <div class="bio-title">Uncle Jesse's Nephew</div>
                         <div class="bio-superlative">The Funny Man · Family Favorite™</div>
                     </div>
                 </div>
 
                 <!-- Ricky -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👨</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/ricky.jpg" alt="Ricky"> -->👨</div>
                     <div class="bio-info">
                         <div class="bio-name">Ricardo "Ricky" Diaz</div>
-                        <div class="bio-title">Jesse's Nephew</div>
+                        <div class="bio-title">Uncle Jesse's Nephew</div>
                         <div class="bio-superlative">Most likely to own a mansion · Once held a fork over a candle for 10 minutes and branded Andre. The scar remains. The cousin-ship? Also remains. For now.</div>
                     </div>
                 </div>
 
                 <!-- THE GRANDKIDS -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo">👧</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/lexi.jpg" alt="Lexi"> -->👧</div>
                     <div class="bio-info">
                         <div class="bio-name">Lexi</div>
-                        <div class="bio-title">Jesse's Grand-Niece</div>
+                        <div class="bio-title">Uncle Jesse's Grand-Niece</div>
                         <div class="bio-superlative">Gets to open a present on Christmas Eve!</div>
                     </div>
                 </div>
 
                 <div class="bio-card paredes">
-                    <div class="bio-photo">👦</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/elliot.jpg" alt="Elliot"> -->👦</div>
                     <div class="bio-info">
                         <div class="bio-name">Elliot</div>
-                        <div class="bio-title">Jesse's Grand-Nephew</div>
+                        <div class="bio-title">Uncle Jesse's Grand-Nephew</div>
                         <div class="bio-superlative">Gets to open a present on Christmas Eve!</div>
                     </div>
                 </div>
 
                 <div class="bio-card diaz">
-                    <div class="bio-photo">👦</div>
+                    <div class="bio-photo"><!-- <img src="assets/photos/beau.jpg" alt="Beau"> -->👦</div>
                     <div class="bio-info">
                         <div class="bio-name">Beau</div>
-                        <div class="bio-title">Jesse's Grandson</div>
+                        <div class="bio-title">Uncle Jesse's Grandson</div>
                         <div class="bio-superlative">Gets to open a present on Christmas Eve!</div>
                     </div>
                 </div>
