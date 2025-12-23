@@ -496,6 +496,34 @@
             background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
         }
 
+        /* Dotted connection for biological family */
+        .dotted-connection {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .dotted-line {
+            width: 40px;
+            height: 2px;
+            border-top: 2px dashed #a78bfa;
+            opacity: 0.6;
+        }
+
+        .member-card.biological {
+            border-top: 4px solid #a78bfa;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            opacity: 0.85;
+            width: 160px;
+            transform: scale(0.9);
+        }
+
+        .member-card.biological .member-photo {
+            width: 100px;
+            height: 100px;
+        }
+
         .bio-card.memorial {
             border-left: 4px solid #a78bfa;
             background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
@@ -595,12 +623,20 @@
         <section id="tree" class="tree-container">
             <div class="tree-bg"></div>
 
-            <!-- THE STARS: Abi & Epifanio (stacked) -->
+            <!-- THE STARS: Abi & Epifanio (stacked), with Javier connected via dotted line -->
             <div class="tree-row star" style="flex-direction: column; align-items: center; gap: 1rem;">
-                <div class="member-card star-card">
-                    <div class="member-photo"><img src="assets/abi.PNG" alt="Abi"></div>
-                    <div class="member-name">Abi</div>
-                    <div class="member-relation">Cristina Diaz</div>
+                <div class="dotted-connection">
+                    <div class="member-card star-card">
+                        <div class="member-photo"><img src="assets/abi.PNG" alt="Abi"></div>
+                        <div class="member-name">Abi</div>
+                        <div class="member-relation">Cristina Diaz</div>
+                    </div>
+                    <div class="dotted-line"></div>
+                    <div class="member-card biological memorial">
+                        <div class="member-photo"><img src="assets/javier.jpg" alt="Javier"></div>
+                        <div class="member-name">Javier</div>
+                        <div class="member-relation">In Loving Memory</div>
+                    </div>
                 </div>
                 <div class="member-card star-card memorial">
                     <div class="member-photo"><img src="assets/epifanio.jpg" alt="Epifanio"></div>
@@ -616,7 +652,7 @@
                     <div class="branch-label paredes"><span>Paredes Family</span></div>
 
                     <div class="member-card couple paredes">
-                        <div class="member-photo">👫</div>
+                        <div class="member-photo"><img src="assets/raul_and_adriana.jpg" alt="Auntie Adriana & Uncle Raul" style="object-position: top;"></div>
                         <div class="member-name">Auntie Adriana & Uncle Raul</div>
                         <div class="member-relation">Parents</div>
                     </div>
@@ -625,17 +661,17 @@
                         <!-- Alex's family -->
                         <div class="branch-group">
                             <div class="member-card paredes">
-                                <div class="member-photo">👫</div>
+                                <div class="member-photo"><img src="assets/alex_and_brooke.jpeg" alt="Alex & Brooke"></div>
                                 <div class="member-name">Alex & Brooke</div>
                                 <div class="member-relation">Married</div>
                             </div>
                             <div class="branch-children">
                                 <div class="member-card kids paredes">
-                                    <div class="member-photo">👧</div>
+                                    <div class="member-photo"><img src="assets/lexi.jpeg" alt="Lexi"></div>
                                     <div class="member-name">Lexi</div>
                                 </div>
                                 <div class="member-card kids paredes">
-                                    <div class="member-photo">👦</div>
+                                    <div class="member-photo"><img src="assets/elliot.jpeg" alt="Elliot"></div>
                                     <div class="member-name">Elliot</div>
                                 </div>
                             </div>
@@ -648,7 +684,7 @@
                         </div>
 
                         <div class="member-card paredes">
-                            <div class="member-photo">👨</div>
+                            <div class="member-photo"><img src="assets/sean.jpg" alt="Sean"></div>
                             <div class="member-name">Sean</div>
                             <div class="member-relation">Son</div>
                         </div>
@@ -722,7 +758,7 @@
 
                     <div class="branch-children">
                         <div class="member-card diaz">
-                            <div class="member-photo">👨</div>
+                            <div class="member-photo"><img src="assets/ricky.jpeg" alt="Ricky"></div>
                             <div class="member-name">Ricky</div>
                             <div class="member-relation">Ricardo Diaz Jr.</div>
                         </div>
@@ -744,6 +780,16 @@
                         <div class="bio-name">Abi (Cristina Diaz)</div>
                         <div class="bio-title">In Loving Memory</div>
                         <div class="bio-superlative">The reason we're all here</div>
+                    </div>
+                </div>
+
+                <!-- Javier - Biological Father -->
+                <div class="bio-card memorial">
+                    <div class="bio-photo"><img src="assets/javier.jpg" alt="Javier"></div>
+                    <div class="bio-info">
+                        <div class="bio-name">Javier</div>
+                        <div class="bio-title">Biological Father / Grandfather</div>
+                        <div class="bio-superlative">The one who knocked up my grandma — not just once, but twice</div>
                     </div>
                 </div>
 
@@ -779,7 +825,7 @@
 
                 <!-- Auntie Adriana -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo"><!-- <img src="assets/photos/adriana.jpg" alt="Auntie Adriana"> -->👩</div>
+                    <div class="bio-photo"><img src="assets/adriana.jpg" alt="Auntie Adriana"></div>
                     <div class="bio-info">
                         <div class="bio-name">Auntie Adriana</div>
                         <div class="bio-title">Uncle Jesse's Sister</div>
@@ -789,7 +835,7 @@
 
                 <!-- Uncle Raul -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo"><!-- <img src="assets/photos/raul.jpg" alt="Uncle Raul"> -->👨</div>
+                    <div class="bio-photo"><img src="assets/raul.jpg" alt="Uncle Raul"></div>
                     <div class="bio-info">
                         <div class="bio-name">Uncle Raul</div>
                         <div class="bio-title">Uncle Jesse's Brother-in-Law</div>
@@ -869,7 +915,7 @@
 
                 <!-- Alex -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo"><!-- <img src="assets/photos/alex.jpg" alt="Alex"> -->👨</div>
+                    <div class="bio-photo"><img src="assets/alex.jpeg" alt="Alex"></div>
                     <div class="bio-info">
                         <div class="bio-name">Alex</div>
                         <div class="bio-title">Uncle Jesse's Nephew</div>
@@ -879,7 +925,7 @@
 
                 <!-- Brooke -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo"><!-- <img src="assets/photos/brooke.jpg" alt="Brooke"> -->👩</div>
+                    <div class="bio-photo"><img src="assets/brooke.jpeg" alt="Brooke"></div>
                     <div class="bio-info">
                         <div class="bio-name">Brooke</div>
                         <div class="bio-title">Uncle Jesse's Niece-in-Law</div>
@@ -899,7 +945,7 @@
 
                 <!-- Sean -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo"><!-- <img src="assets/photos/sean.jpg" alt="Sean"> -->👨</div>
+                    <div class="bio-photo"><img src="assets/sean.jpg" alt="Sean"></div>
                     <div class="bio-info">
                         <div class="bio-name">Sean</div>
                         <div class="bio-title">Uncle Jesse's Nephew</div>
@@ -909,7 +955,7 @@
 
                 <!-- Ricky -->
                 <div class="bio-card diaz">
-                    <div class="bio-photo"><!-- <img src="assets/photos/ricky.jpg" alt="Ricky"> -->👨</div>
+                    <div class="bio-photo"><img src="assets/ricky.jpeg" alt="Ricky"></div>
                     <div class="bio-info">
                         <div class="bio-name">Ricardo "Ricky" Diaz</div>
                         <div class="bio-title">Uncle Jesse's Nephew</div>
@@ -919,7 +965,7 @@
 
                 <!-- THE GRANDKIDS -->
                 <div class="bio-card paredes">
-                    <div class="bio-photo"><!-- <img src="assets/photos/lexi.jpg" alt="Lexi"> -->👧</div>
+                    <div class="bio-photo"><img src="assets/lexi.jpeg" alt="Lexi"></div>
                     <div class="bio-info">
                         <div class="bio-name">Lexi</div>
                         <div class="bio-title">Uncle Jesse's Grand-Niece</div>
@@ -928,7 +974,7 @@
                 </div>
 
                 <div class="bio-card paredes">
-                    <div class="bio-photo"><!-- <img src="assets/photos/elliot.jpg" alt="Elliot"> -->👦</div>
+                    <div class="bio-photo"><img src="assets/elliot.jpeg" alt="Elliot"></div>
                     <div class="bio-info">
                         <div class="bio-name">Elliot</div>
                         <div class="bio-title">Uncle Jesse's Grand-Nephew</div>
@@ -944,6 +990,7 @@
                         <div class="bio-superlative">Future all-star · Always bumps Andre's fist when he asks for a fist bump</div>
                     </div>
                 </div>
+
             </div>
         </section>
 
