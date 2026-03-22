@@ -47,7 +47,7 @@ body {
     top: 0;
     z-index: 100;
     border-bottom: 1px solid var(--learning-border);
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     background: rgba(248, 247, 245, 0.95);
     backdrop-filter: blur(10px);
 }
@@ -55,12 +55,12 @@ body {
 .nav-container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .nav-logo {
@@ -123,7 +123,7 @@ body {
 .hero {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 4rem 1.5rem;
+    padding: 2.5rem 1.25rem;
     position: relative;
     z-index: 1;
     text-align: center;
@@ -131,43 +131,44 @@ body {
 
 .hero h1 {
     font-family: var(--font-serif);
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
     color: var(--learning-text);
+    line-height: 1.25;
 }
 
 .hero-verse {
     font-family: var(--font-serif);
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     font-style: italic;
     color: var(--learning-accent-dark);
     margin-bottom: 0.5rem;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .hero-reference {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     color: var(--learning-text-muted);
     font-weight: 500;
 }
 
 .hero-tagline {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     color: var(--learning-text-muted);
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
 /* Main Container */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 3rem 1.5rem;
+    padding: 2rem 1.25rem;
     flex: 1;
 }
 
@@ -175,14 +176,14 @@ body {
 .section-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .section-card {
     background: var(--learning-card-bg);
-    padding: 2rem;
-    border-radius: 12px;
+    padding: 1.5rem;
+    border-radius: 10px;
     border: 1px solid var(--learning-border);
     text-decoration: none;
     transition: all 0.3s ease;
@@ -192,78 +193,81 @@ body {
 
 .section-card:hover {
     border-color: var(--learning-accent);
-    box-shadow: 0 8px 24px rgba(91, 124, 153, 0.12);
+    box-shadow: 0 6px 20px rgba(91, 124, 153, 0.12);
     transform: translateY(-2px);
 }
 
 .section-card-icon {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
     opacity: 0.8;
 }
 
 .section-card h2 {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--learning-accent-dark);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
 }
 
 .section-card p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--learning-text-muted);
-    line-height: 1.6;
+    line-height: 1.5;
     margin-bottom: 0;
 }
 
 /* Page Header */
 .page-header {
     text-align: center;
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--learning-border);
 }
 
 .page-header h1 {
     font-family: var(--font-serif);
-    font-size: 2.25rem;
+    font-size: 1.9rem;
     font-weight: 600;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
     color: var(--learning-text);
+    line-height: 1.3;
 }
 
 .page-header .verse {
     font-family: var(--font-serif);
-    font-size: 1.15rem;
+    font-size: 1rem;
     font-style: italic;
     color: var(--learning-accent-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
 }
 
 .page-header .reference {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--learning-text-muted);
     font-weight: 500;
 }
 
 /* Tabs */
 .tabs-container {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 .tabs {
     display: flex;
     gap: 0.5rem;
     border-bottom: 2px solid var(--learning-border);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     flex-wrap: wrap;
 }
 
 .tab-button {
     background: none;
     border: none;
-    padding: 1rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--learning-text-muted);
     cursor: pointer;
@@ -299,47 +303,48 @@ body {
 
 .tab-content h2 {
     font-family: var(--font-serif);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: var(--learning-accent-dark);
     margin-bottom: 0.5rem;
+    line-height: 1.3;
 }
 
 .tab-content .subtitle {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     color: var(--learning-secondary);
     font-style: italic;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .tab-content .virtue {
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     background: rgba(91, 124, 153, 0.1);
     color: var(--learning-accent-dark);
-    padding: 0.4rem 0.8rem;
+    padding: 0.35rem 0.7rem;
     border-radius: 6px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .tab-content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: var(--learning-text);
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .tab-content ul {
     margin-left: 1.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .tab-content li {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.6rem;
     color: var(--learning-text);
 }
 
@@ -347,24 +352,25 @@ body {
 .counter-display {
     background: var(--learning-card-bg);
     border: 2px solid var(--learning-accent);
-    border-radius: 12px;
-    padding: 3rem 2rem;
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .counter-display h2 {
     font-family: var(--font-serif);
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--learning-accent-dark);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
 }
 
 .counter-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
 }
 
 .counter-item {
@@ -372,32 +378,33 @@ body {
 }
 
 .counter-number {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     font-weight: 700;
     color: var(--learning-accent);
     display: block;
     font-variant-numeric: tabular-nums;
+    line-height: 1;
 }
 
 .counter-label {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--learning-text-muted);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 600;
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
 }
 
 .counter-birth {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--learning-text-muted);
-    margin-top: 1rem;
+    margin-top: 0.75rem;
 }
 
 /* Timeline */
 .timeline {
     position: relative;
-    padding-left: 2rem;
+    padding-left: 1.75rem;
 }
 
 .timeline::before {
@@ -412,17 +419,17 @@ body {
 
 .timeline-item {
     position: relative;
-    margin-bottom: 2.5rem;
-    padding-left: 2rem;
+    margin-bottom: 2rem;
+    padding-left: 1.75rem;
 }
 
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -2.5rem;
-    top: 0.25rem;
-    width: 14px;
-    height: 14px;
+    left: -2.4rem;
+    top: 0.2rem;
+    width: 12px;
+    height: 12px;
     background: var(--learning-accent);
     border: 3px solid var(--learning-bg);
     border-radius: 50%;
@@ -430,58 +437,61 @@ body {
 }
 
 .timeline-year {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: var(--learning-accent);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.2;
 }
 
 .timeline-theme {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-style: italic;
     color: var(--learning-accent-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
 }
 
 .timeline-description {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     color: var(--learning-text-muted);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* Quote Sections */
 .quote-section {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .quote-section h2 {
-    font-size: 1.35rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--learning-accent-dark);
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.6rem;
     border-bottom: 2px solid var(--learning-border);
+    line-height: 1.3;
 }
 
 .quote-block {
     background: var(--learning-card-bg);
     border-left: 4px solid var(--learning-accent);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
     border-radius: 0 8px 8px 0;
 }
 
 .quote-text {
     font-family: var(--font-serif);
-    font-size: 1.15rem;
-    line-height: 1.8;
+    font-size: 1rem;
+    line-height: 1.6;
     color: var(--learning-text);
     font-style: italic;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
 }
 
 .quote-reference {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--learning-text-muted);
     font-weight: 500;
     font-style: normal;
@@ -492,13 +502,13 @@ body {
         rgba(91, 124, 153, 0.05) 0%,
         rgba(107, 93, 143, 0.05) 100%);
     border: 2px solid var(--learning-accent-light);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .prayer-block .quote-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: var(--learning-accent-dark);
 }
 
@@ -506,35 +516,36 @@ body {
 .library-category {
     background: var(--learning-card-bg);
     border: 1px solid var(--learning-border);
-    border-radius: 12px;
-    padding: 2rem;
-    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .library-category h2 {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: var(--learning-accent-dark);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
 }
 
 .library-category p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--learning-text-muted);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 .coming-soon {
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     background: rgba(139, 115, 85, 0.1);
     color: var(--learning-secondary);
-    padding: 0.4rem 0.8rem;
+    padding: 0.35rem 0.7rem;
     border-radius: 6px;
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
 }
 
 /* Featured CTA Button Hover */
