@@ -1,14 +1,18 @@
 /* Fulgencio Fest - Modern Family Tree Styles */
 
 :root {
-    --color-bg: #fef3c7;
-    --color-text: #1a1a1a;
-    --color-text-muted: #78350f;
-    --color-accent: #d97706;
-    --color-accent-dark: #92400e;
-    --color-card-bg: #ffffff;
-    --color-border: #fbbf24;
-    --color-memorial: #7c2d12;
+    --color-bg: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    --color-bg-solid: #1a1a1a;
+    --color-text: #e5e5e5;
+    --color-text-muted: #a3a3a3;
+    --color-accent: #14b8a6;
+    --color-accent-dark: #0d9488;
+    --color-accent-light: #2dd4bf;
+    --color-card-bg: #262626;
+    --color-card-border: #404040;
+    --color-border: #525252;
+    --color-memorial: #14b8a6;
+    --color-steel: #71717a;
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -25,7 +29,9 @@ html {
 
 body {
     font-family: var(--font-sans);
-    background: var(--color-bg);
+    background: var(--color-bg-solid);
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    background-attachment: fixed;
     color: var(--color-text);
     min-height: 100vh;
     display: flex;
@@ -37,10 +43,11 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 2px solid var(--color-accent);
+    border-bottom: 3px solid var(--color-accent);
     padding: 1rem 0;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(26, 26, 26, 0.95);
     backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -58,6 +65,7 @@ body {
     color: var(--color-accent);
     text-decoration: none;
     letter-spacing: -0.02em;
+    text-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
 }
 
 .nav-links {
@@ -80,24 +88,28 @@ body {
 
 /* Hero */
 .hero {
-    background: linear-gradient(135deg, rgba(217, 119, 6, 0.1) 0%, rgba(251, 191, 36, 0.15) 100%);
-    border-bottom: 2px solid var(--color-border);
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.15) 0%, rgba(13, 148, 136, 0.1) 100%);
+    border-bottom: 3px solid var(--color-accent);
     padding: 3rem 1.5rem;
     text-align: center;
+    box-shadow: inset 0 -2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .hero h1 {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--color-accent);
+    color: var(--color-accent-light);
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
+    text-shadow: 0 0 30px rgba(20, 184, 166, 0.6);
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
-    color: var(--color-text-muted);
+    color: var(--color-text);
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 /* Container */
@@ -117,27 +129,29 @@ body {
     padding: 2rem;
     background: var(--color-card-bg);
     border-radius: 12px;
-    border: 2px solid var(--color-border);
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(20, 184, 166, 0.2);
 }
 
 .memorial-photo img {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    border: 3px solid var(--color-memorial);
+    border: 4px solid var(--color-memorial);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
 }
 
 .photo-placeholder {
     width: 100%;
     aspect-ratio: 4/3;
-    background: #f3f4f6;
+    background: #3f3f46;
     border-radius: 8px;
-    border: 3px solid var(--color-memorial);
+    border: 4px solid var(--color-memorial);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.9rem;
     text-align: center;
     padding: 1rem;
@@ -150,18 +164,20 @@ body {
 
 .memorial-text h2 {
     font-size: 2rem;
-    color: var(--color-memorial);
+    color: var(--color-accent-light);
     margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
 }
 
 .memorial-text p {
     margin-bottom: 0.75rem;
     line-height: 1.6;
+    color: var(--color-text);
 }
 
 .memorial-text p strong {
     font-size: 1.2rem;
-    color: var(--color-accent-dark);
+    color: var(--color-accent);
 }
 
 /* About Section */
@@ -171,13 +187,15 @@ body {
 
 .about h2 {
     font-size: 1.5rem;
-    color: var(--color-accent);
+    color: var(--color-accent-light);
     margin-bottom: 1rem;
+    text-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
 }
 
 .about p {
     margin-bottom: 1rem;
     line-height: 1.6;
+    color: var(--color-text);
 }
 
 /* Personal Note Section */
@@ -185,8 +203,9 @@ body {
     margin-bottom: 3rem;
     background: var(--color-card-bg);
     border-radius: 12px;
-    border: 2px solid var(--color-accent);
+    border: 3px solid var(--color-accent);
     padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(20, 184, 166, 0.2);
 }
 
 .note-content {
@@ -201,20 +220,21 @@ body {
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--color-accent);
+    border: 4px solid var(--color-accent);
+    box-shadow: 0 0 30px rgba(20, 184, 166, 0.5);
 }
 
 .note-photo .photo-placeholder {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background: #f3f4f6;
-    border: 3px solid var(--color-accent);
+    background: #3f3f46;
+    border: 4px solid var(--color-accent);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: #9ca3af;
+    color: var(--color-text-muted);
     font-size: 0.8rem;
 }
 
@@ -230,23 +250,28 @@ body {
 }
 
 .note-text p strong {
-    color: var(--color-accent-dark);
+    color: var(--color-accent-light);
 }
 
 .btn-primary {
     display: inline-block;
     padding: 0.75rem 1.5rem;
     background: var(--color-accent);
-    color: white;
+    color: #000;
     text-decoration: none;
     border-radius: 8px;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 1rem;
-    transition: background 0.2s;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .btn-primary:hover {
-    background: var(--color-accent-dark);
+    background: var(--color-accent-light);
+    box-shadow: 0 6px 20px rgba(20, 184, 166, 0.6);
+    transform: translateY(-2px);
 }
 
 /* Tree Header */
@@ -257,14 +282,17 @@ body {
 
 .tree-header h1 {
     font-size: 2.5rem;
-    color: var(--color-accent);
+    color: var(--color-accent-light);
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 30px rgba(20, 184, 166, 0.6);
 }
 
 .tree-date {
     font-size: 1.1rem;
-    color: var(--color-text-muted);
+    color: var(--color-text);
     font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
 /* Roots */
@@ -275,8 +303,10 @@ body {
     gap: 2rem;
     margin-bottom: 3rem;
     padding: 2rem;
-    background: linear-gradient(135deg, rgba(124, 45, 18, 0.1), rgba(217, 119, 6, 0.1));
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(13, 148, 136, 0.15));
     border-radius: 12px;
+    border: 3px solid var(--color-accent);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(20, 184, 166, 0.2);
 }
 
 .root-card {
@@ -286,18 +316,20 @@ body {
     border: 3px solid var(--color-memorial);
     text-align: center;
     min-width: 200px;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
 }
 
 .root-name {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-memorial);
+    color: var(--color-accent-light);
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(20, 184, 166, 0.4);
 }
 
 .root-years {
     font-size: 1rem;
-    color: var(--color-text-muted);
+    color: var(--color-text);
     font-weight: 500;
 }
 
@@ -316,8 +348,15 @@ body {
 .family-branch {
     background: var(--color-card-bg);
     border-radius: 12px;
-    border: 2px solid var(--color-border);
+    border: 2px solid var(--color-card-border);
     padding: 1.5rem;
+    transition: all 0.3s;
+}
+
+.family-branch:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 6px 16px rgba(20, 184, 166, 0.3);
+    transform: translateY(-4px);
 }
 
 .parent-row {
@@ -335,38 +374,41 @@ body {
 }
 
 .person-card {
-    background: white;
+    background: #1e1e1e;
     border-radius: 8px;
     padding: 1rem;
     text-align: center;
-    border: 2px solid var(--color-border);
-    transition: transform 0.2s, box-shadow 0.2s;
+    border: 2px solid var(--color-card-border);
+    transition: all 0.3s;
 }
 
 .person-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.2);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+    border-color: var(--color-accent);
 }
 
 .person-card.parent {
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(13, 148, 136, 0.15));
     border-color: var(--color-accent);
     font-weight: 600;
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.2);
 }
 
 .person-card.spouse {
-    background: #fef3c7;
+    background: rgba(20, 184, 166, 0.1);
+    border-color: var(--color-steel);
 }
 
 .person-card.child {
-    background: #fefce8;
-    border-color: #fbbf24;
+    background: #2a2a2a;
+    border-color: var(--color-steel);
     font-size: 0.9rem;
 }
 
 .person-card.grandchild {
-    background: #fffbeb;
-    border-color: #fed7aa;
+    background: #333333;
+    border-color: #52525b;
     font-size: 0.85rem;
 }
 
@@ -414,16 +456,18 @@ body {
 .directory {
     background: var(--color-card-bg);
     border-radius: 12px;
-    border: 2px solid var(--color-border);
+    border: 3px solid var(--color-accent);
     padding: 2rem;
     margin-top: 3rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(20, 184, 166, 0.2);
 }
 
 .directory h2 {
     font-size: 1.8rem;
-    color: var(--color-accent);
+    color: var(--color-accent-light);
     margin-bottom: 1.5rem;
     text-align: center;
+    text-shadow: 0 0 20px rgba(20, 184, 166, 0.4);
 }
 
 .directory-grid {
@@ -436,9 +480,9 @@ body {
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-accent-dark);
+    color: var(--color-accent);
     margin-bottom: 1rem;
-    border-bottom: 2px solid var(--color-border);
+    border-bottom: 2px solid var(--color-accent);
     padding-bottom: 0.5rem;
 }
 
@@ -448,7 +492,8 @@ body {
 
 .directory-section li {
     padding: 0.5rem 0;
-    border-bottom: 1px solid #fef3c7;
+    border-bottom: 1px solid var(--color-card-border);
+    color: var(--color-text);
 }
 
 .directory-section li:last-child {
@@ -456,18 +501,19 @@ body {
 }
 
 .placeholder-text {
-    color: var(--color-text-muted);
+    color: var(--color-steel);
     font-style: italic;
 }
 
 /* Footer */
 .footer {
-    border-top: 2px solid var(--color-accent);
+    border-top: 3px solid var(--color-accent);
     padding: 2rem 1.5rem;
     text-align: center;
-    background: var(--color-accent-dark);
-    color: #fef3c7;
+    background: #0a0a0a;
+    color: var(--color-text);
     font-size: 0.9rem;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .footer p {
