@@ -69,6 +69,14 @@ body {
     color: var(--learning-accent);
     text-decoration: none;
     letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    display: block;
+    height: 32px;
+    width: auto;
 }
 
 .nav-links {
