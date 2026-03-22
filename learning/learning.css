@@ -1,19 +1,19 @@
 /* Learning Section - Contemplative Design System */
 :root {
-    /* Contemplative Color Palette */
-    --learning-bg: #f8f7f5;
-    --learning-text: #2a2a2a;
-    --learning-text-muted: #5a5a5a;
-    --learning-accent: #5b7c99;
-    --learning-accent-dark: #3d5a73;
-    --learning-accent-light: #7a9ab8;
-    --learning-secondary: #8b7355;
-    --learning-tertiary: #6b5d8f;
-    --learning-border: #e0ddd9;
+    /* Contemplative Color Palette - Slate Teal + Mint */
+    --learning-bg: #f0f8f6;
+    --learning-text: #1a1a1a;
+    --learning-text-muted: #0D3D4F;
+    --learning-accent: #1D7A65;
+    --learning-accent-dark: #0D3D4F;
+    --learning-accent-light: #7CC9B5;
+    --learning-secondary: #2a9d8f;
+    --learning-tertiary: #0D3D4F;
+    --learning-border: #d1e8e4;
     --learning-card-bg: #ffffff;
-    --learning-hero-gradient-start: rgba(91, 124, 153, 0.08);
-    --learning-hero-gradient-mid: rgba(107, 93, 143, 0.06);
-    --learning-hero-gradient-end: rgba(139, 115, 85, 0.04);
+    --learning-hero-gradient-start: rgba(29, 122, 101, 0.06);
+    --learning-hero-gradient-mid: rgba(13, 61, 79, 0.04);
+    --learning-hero-gradient-end: rgba(124, 201, 181, 0.03);
 
     /* Typography */
     --font-serif: 'Crimson Text', Georgia, serif;
