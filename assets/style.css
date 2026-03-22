@@ -474,6 +474,21 @@ section li {
     background: var(--color-card-bg);
 }
 
+.footer-wordmark {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.footer-wordmark svg {
+    max-width: 300px;
+    height: auto;
+}
+
+.footer p {
+    margin: 0;
+}
+
 /* Resume Page */
 .resume-page {
     max-width: 800px;

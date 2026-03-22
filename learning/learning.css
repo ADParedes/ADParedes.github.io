@@ -558,6 +558,21 @@ a[href*="days-alive-calculator"]:hover {
     background: var(--learning-card-bg);
 }
 
+.footer-wordmark {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.footer-wordmark svg {
+    max-width: 300px;
+    height: auto;
+}
+
+.footer p {
+    margin: 0.25rem 0;
+}
+
 .footer a {
     color: var(--learning-accent);
     text-decoration: none;
