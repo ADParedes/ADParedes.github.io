@@ -466,27 +466,17 @@ section li {
 
 /* Footer */
 .footer {
-    border-top: 1px solid var(--color-border);
-    padding: 2rem 1.5rem;
+    border-top: none;
+    padding: 3rem 1.5rem 2rem;
     text-align: center;
-    color: var(--color-text-muted);
-    font-size: 0.85rem;
-    background: var(--color-card-bg);
-}
-
-.footer-wordmark {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.footer-wordmark svg {
-    max-width: 300px;
-    height: auto;
+    background: #0D3D4F;
+    color: #EAF6F4;
+    font-size: 0.9rem;
 }
 
 .footer p {
     margin: 0;
+    opacity: 0.9;
 }
 
 /* Resume Page */
