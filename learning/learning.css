@@ -98,6 +98,38 @@ body {
     color: var(--learning-accent);
 }
 
+/* Hamburger Menu */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--learning-accent);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 /* Hero Section */
 .hero-wrapper {
     background: linear-gradient(135deg,
@@ -176,46 +208,101 @@ body {
 .section-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.25rem;
     margin-top: 1.5rem;
 }
 
 .section-card {
     background: var(--learning-card-bg);
-    padding: 1.5rem;
-    border-radius: 10px;
-    border: 1px solid var(--learning-border);
+    padding: 2rem 1.75rem;
+    border-radius: 12px;
+    border: 2px solid var(--learning-border);
     text-decoration: none;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    color: inherit;
+}
+
+.section-card:visited {
+    color: inherit;
+}
+
+.section-card:visited h2,
+.section-card:visited p {
+    color: inherit;
+}
+
+.section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--learning-accent) 0%, var(--learning-accent-light) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.section-card:hover::before {
+    opacity: 1;
 }
 
 .section-card:hover {
     border-color: var(--learning-accent);
-    box-shadow: 0 6px 20px rgba(91, 124, 153, 0.12);
-    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(29, 122, 101, 0.15);
+    transform: translateY(-4px);
+    background: linear-gradient(135deg, #ffffff 0%, rgba(240, 248, 246, 0.5) 100%);
 }
 
 .section-card-icon {
-    font-size: 1.75rem;
-    margin-bottom: 0.75rem;
-    opacity: 0.8;
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    color: var(--learning-accent);
+    display: inline-block;
+    width: 56px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(29, 122, 101, 0.08) 0%, rgba(124, 201, 181, 0.12) 100%);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.section-card:hover .section-card-icon {
+    background: linear-gradient(135deg, rgba(29, 122, 101, 0.15) 0%, rgba(124, 201, 181, 0.2) 100%);
+    transform: scale(1.05);
 }
 
 .section-card h2 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--learning-accent-dark);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.65rem;
     line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.section-card:visited h2 {
+    color: var(--learning-accent-dark);
+}
+
+.section-card:hover h2 {
+    color: var(--learning-accent);
 }
 
 .section-card p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--learning-text-muted);
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 0;
+}
+
+.section-card:visited p {
+    color: var(--learning-text-muted);
 }
 
 /* Page Header */
@@ -598,6 +685,38 @@ a[href*="days-alive-calculator"]:hover {
         grid-template-columns: 1fr;
     }
 
+    /* Mobile Navigation */
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 5rem 2rem 2rem;
+        gap: 1.5rem;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 100;
+    }
+
+    .nav-links.nav-active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--learning-border);
+    }
+
     .tabs {
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
@@ -616,11 +735,6 @@ a[href*="days-alive-calculator"]:hover {
 
     .counter-number {
         font-size: 2rem;
-    }
-
-    .nav-links {
-        gap: 1rem;
-        font-size: 0.9rem;
     }
 
     .timeline {
