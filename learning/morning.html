@@ -12,95 +12,299 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <style>
-        .morning-step {
+        /* Routine Steps - single compact card */
+        .routine-card {
             background: var(--learning-card-bg);
-            border-left: 4px solid var(--learning-accent);
+            border: 1px solid var(--learning-border);
+            border-top: 2px solid var(--learning-accent);
+            border-radius: 3px;
             padding: 1.5rem;
             margin-bottom: 1.5rem;
-            border-radius: 0 8px 8px 0;
         }
-        .morning-step h3 {
-            font-size: 1.25rem;
-            color: var(--learning-accent-dark);
-            margin-bottom: 0.75rem;
+        .routine-step {
+            display: flex;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--learning-border);
         }
-        .morning-step p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            color: var(--learning-text);
-            margin-bottom: 0.5rem;
+        .routine-step:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .routine-step:first-child {
+            padding-top: 0;
         }
         .step-number {
-            display: inline-block;
-            width: 32px;
-            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
             background: var(--learning-accent);
             color: white;
             border-radius: 50%;
-            text-align: center;
-            line-height: 32px;
-            font-weight: 700;
-            margin-right: 0.75rem;
-            font-size: 0.95rem;
+            font-weight: 600;
+            font-size: 0.8rem;
         }
-        .framework-intro {
-            background: linear-gradient(135deg,
-                rgba(91, 124, 153, 0.05) 0%,
-                rgba(107, 93, 143, 0.05) 100%);
-            border: 2px solid var(--learning-accent-light);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        .framework-intro .verse {
+        .step-content h3 {
             font-family: var(--font-serif);
-            font-size: 1.2rem;
-            font-style: italic;
-            color: var(--learning-accent-dark);
-            margin-bottom: 1rem;
-        }
-        .framework-intro .attribution {
             font-size: 1rem;
-            color: var(--learning-text-muted);
-            font-style: italic;
+            font-weight: 600;
+            color: var(--learning-text);
+            margin-bottom: 0.15rem;
         }
+        .step-content p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--learning-text-muted);
+        }
+
+        /* Framework mini cards */
         .framework-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 2rem;
         }
         .framework-card {
             background: var(--learning-card-bg);
             border: 1px solid var(--learning-border);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 3px;
+            padding: 0.85rem;
+            text-align: center;
         }
         .framework-card h4 {
-            font-size: 1.15rem;
-            color: var(--learning-accent-dark);
-            margin-bottom: 0.5rem;
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            color: var(--learning-text);
+            margin-bottom: 0.15rem;
         }
         .framework-card .subtitle {
-            font-size: 0.95rem;
-            color: var(--learning-secondary);
+            font-size: 0.75rem;
+            color: var(--learning-text-muted);
             font-style: italic;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.35rem;
         }
         .framework-card .virtue-small {
             display: inline-block;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 0.6rem;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            background: rgba(91, 124, 153, 0.1);
-            color: var(--learning-accent-dark);
-            padding: 0.3rem 0.6rem;
-            border-radius: 4px;
+            letter-spacing: 0.08em;
+            background: rgba(29, 122, 101, 0.08);
+            color: var(--learning-accent);
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
         }
+        .framework-card.active-dimension {
+            border-color: var(--learning-accent);
+            border-top: 2px solid var(--learning-accent);
+        }
+
+        /* Card items (prayers & scripture) */
+        .card-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--learning-border);
+        }
+        .card-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .card-item:first-child {
+            padding-top: 0;
+        }
+        .card-text {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-style: italic;
+            line-height: 1.7;
+            color: var(--learning-text);
+        }
+        .card-ref {
+            font-size: 0.72rem;
+            color: var(--learning-text-muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+        .featured-item {
+            background: linear-gradient(135deg,
+                rgba(29, 122, 101, 0.08) 0%,
+                rgba(13, 61, 79, 0.06) 50%,
+                rgba(42, 157, 143, 0.04) 100%);
+            margin: 0 -1.5rem;
+            padding: 0.75rem 1.5rem;
+            border-bottom: 1px solid var(--learning-border);
+        }
+        .featured-item .card-text {
+            font-size: 1.05rem;
+        }
+
+        /* Scripture with note */
+        .scripture-note {
+            font-size: 0.82rem;
+            color: var(--learning-text-muted);
+            font-style: italic;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--learning-border);
+        }
+        .scripture-note a {
+            color: var(--learning-accent);
+            text-decoration: none;
+        }
+        .scripture-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Featured verse highlight */
+        .featured-verse {
+            background: linear-gradient(135deg,
+                rgba(29, 122, 101, 0.08) 0%,
+                rgba(13, 61, 79, 0.06) 50%,
+                rgba(42, 157, 143, 0.04) 100%);
+            border-left: 3px solid var(--learning-accent);
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 4px 4px 0;
+        }
+        .featured-verse .quote-text {
+            font-size: 1.1rem;
+            color: var(--learning-text);
+        }
+
+        /* Framework descriptions */
+        .framework-desc {
+            font-size: 0.72rem;
+            color: var(--learning-text-muted);
+            line-height: 1.4;
+            margin-top: 0.35rem;
+        }
+        .framework-cta {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .framework-cta a {
+            font-size: 0.82rem;
+            color: var(--learning-accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .framework-cta a:hover {
+            text-decoration: underline;
+        }
+
+        /* Two columns */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+        .column-card {
+            background: var(--learning-card-bg);
+            border: 1px solid var(--learning-border);
+            border-top: 2px solid var(--learning-accent);
+            border-radius: 3px;
+            padding: 1.25rem;
+        }
+        .column-card h3 {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--learning-text);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--learning-border);
+        }
+
+        /* Fruit list */
+        .fruit-list {
+            list-style: none;
+        }
+        .fruit-item {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid var(--learning-border);
+            font-size: 0.82rem;
+            line-height: 1.4;
+        }
+        .fruit-item:last-child {
+            border-bottom: none;
+        }
+        .fruit-item dt {
+            font-weight: 600;
+            color: var(--learning-text);
+            min-width: 85px;
+        }
+        .fruit-item dd {
+            color: var(--learning-text-muted);
+            margin: 0;
+        }
+
+        /* Mantra list */
+        .mantra-list {
+            list-style: none;
+            padding: 0;
+        }
+        .mantra-list li {
+            font-size: 0.82rem;
+            color: var(--learning-text);
+            padding: 0.3rem 0;
+            border-bottom: 1px solid var(--learning-border);
+            line-height: 1.4;
+        }
+        .mantra-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Closing meditation */
+        .closing-meditation {
+            text-align: center;
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 1rem 0 1.5rem;
+        }
+        .meditation-text {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            font-style: italic;
+            color: var(--learning-text-muted);
+            line-height: 1.65;
+            margin-bottom: 0.5rem;
+        }
+        .meditation-source {
+            font-size: 0.72rem;
+            color: var(--learning-text-muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        /* Closing note */
+        .morning-note {
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        .morning-note p {
+            font-size: 0.88rem;
+            color: var(--learning-text-muted);
+            font-style: italic;
+        }
+        .morning-closing {
+            font-family: var(--font-serif);
+            font-size: 1.2rem !important;
+            color: var(--learning-accent) !important;
+            font-weight: 600;
+            margin-top: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
         @media (max-width: 700px) {
             .framework-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .two-columns {
                 grid-template-columns: 1fr;
             }
         }
@@ -126,6 +330,11 @@
                     <text x="54" y="35" font-family="Georgia, serif" font-size="11" fill="#0D3D4F" letter-spacing="0.3">Paredes · PhD</text>
                 </svg>
             </a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
                 <a href="/learning/">Learning</a>
                 <a href="/learning/morning.html" class="active">Morning</a>
@@ -139,132 +348,266 @@
     <main class="container">
         <div class="page-header">
             <h1>Win the Morning</h1>
-            <p class="verse">"This is the day the Lord has made; let us rejoice and be glad in it."</p>
-            <p class="reference">Psalm 118:24</p>
-            <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--learning-text-muted);">
-                <em>Morning Practice by Andre</em>
-            </p>
+            <p class="verse">"Teach us to number our days, that we may gain a heart of wisdom."</p>
+            <p class="reference">Psalm 90:12</p>
+            <p style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--learning-text-muted); font-style: italic;">Try voicing aloud how many days you've been alive and reflect on that. It's powerful. <a href="/days-alive-calculator.html" style="color: var(--learning-accent); text-decoration: none;">Calculate your days →</a></p>
+            <p class="page-byline">Heart, Soul, Strength, Mind - Morning Practice by Andre</p>
         </div>
 
-        <!-- Morning Gratitude Routine -->
+        <!-- STRENGTH: Morning Gratitude Routine -->
         <div class="quote-section">
-            <h2>Morning Gratitude Routine</h2>
+            <h2>Strength - Morning Gratitude Routine</h2>
 
-            <div class="morning-step">
-                <h3><span class="step-number">1</span>Stay in the presence of God</h3>
-                <p>Begin by acknowledging His presence. Be still. Breathe. Know that He is here, now, with you.</p>
-            </div>
-
-            <div class="morning-step">
-                <h3><span class="step-number">2</span>Thank God for His love</h3>
-                <p>Express gratitude for His unfailing love, His mercy that is new every morning, His faithfulness that endures forever.</p>
-            </div>
-
-            <div class="morning-step">
-                <h3><span class="step-number">3</span>Purify intentions</h3>
-                <p>Examine your heart. Ask God to purify your motives, align your will with His, and make your intentions worthy of this sacred day.</p>
-            </div>
-
-            <div class="morning-step">
-                <h3><span class="step-number">4</span>Live as you would like to die</h3>
-                <p>Consider: if this were your last day, how would you live it? Let that vision guide your choices, your words, your love today.</p>
+            <div class="routine-card">
+                <div class="routine-step">
+                    <span class="step-number">1</span>
+                    <div class="step-content">
+                        <h3>Stay in the presence of God</h3>
+                        <p>Begin by acknowledging His presence. Be still. Breathe. Know that He is here, now, with you.</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <span class="step-number">2</span>
+                    <div class="step-content">
+                        <h3>Thank God for His love</h3>
+                        <p>Express gratitude for His unfailing love, His mercy that is new every morning, His faithfulness that endures forever.</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <span class="step-number">3</span>
+                    <div class="step-content">
+                        <h3>Purify intentions</h3>
+                        <p>Examine your heart. Ask God to purify your motives, align your will with His, and make your intentions worthy of this sacred day.</p>
+                    </div>
+                </div>
+                <div class="routine-step">
+                    <span class="step-number">4</span>
+                    <div class="step-content">
+                        <h3>Live as you would like to die</h3>
+                        <p>Consider: if this were your last day, how would you live it? Let that vision guide your choices, your words, your love today.</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Morning Prayers -->
+        <!-- HEART: Morning Prayers -->
         <div class="quote-section">
-            <h2>Morning Prayers</h2>
+            <h2>Heart - Morning Prayers</h2>
 
-            <div class="prayer-block">
-                <p class="quote-text">Thank you Jesus for giving me this day. Thank you Jesus for the opportunity to live it for you. Make me a blessing to those around me. Make my heart beat in time with yours so that I can bring your perspective to each situation that I find myself.</p>
-            </div>
-
-            <div class="prayer-block">
-                <p class="quote-text">Father, my intelligence cannot compare to yours. Please give me the wisdom to see your plan in my life and help me to follow your direction.</p>
-            </div>
-
-            <div class="prayer-block">
-                <p class="quote-text">Lord Jesus Christ, Son of God, have mercy on me a sinner.</p>
-                <p class="quote-reference">The Jesus Prayer</p>
-            </div>
-
-            <div class="prayer-block">
-                <p class="quote-text">Yes Lord, I want all that you ask and all that will please you.</p>
-            </div>
-        </div>
-
-        <!-- Framework Reflection -->
-        <div class="framework-intro">
-            <p class="verse">"Love the Lord your God with all your heart and with all your soul and with all your strength and with all your mind."</p>
-            <p class="attribution">Loving God with all of these means the following to Andre</p>
-        </div>
-
-        <div class="framework-grid">
-            <div class="framework-card">
-                <h4>Heart</h4>
-                <p class="subtitle">The Passionate Self</p>
-                <span class="virtue-small">Fortitude</span>
-                <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--learning-text-muted); line-height: 1.6;">Living authentically, embracing desires aligned with truth, cultivating courage to be genuine.</p>
-            </div>
-
-            <div class="framework-card">
-                <h4>Soul</h4>
-                <p class="subtitle">The Humble Self</p>
-                <span class="virtue-small">Justice</span>
-                <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--learning-text-muted); line-height: 1.6;">Surrendering to God's will, recognizing dependence on grace, seeking right relationship.</p>
-            </div>
-
-            <div class="framework-card">
-                <h4>Strength</h4>
-                <p class="subtitle">The Willful Self</p>
-                <span class="virtue-small">Temperance</span>
-                <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--learning-text-muted); line-height: 1.6;">Persevering through difficulty, balancing effort with rest, disciplined pursuit of virtue.</p>
-            </div>
-
-            <div class="framework-card">
-                <h4>Mind</h4>
-                <p class="subtitle">The Thoughtful Self</p>
-                <span class="virtue-small">Prudence</span>
-                <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--learning-text-muted); line-height: 1.6;">Seeking truth with honesty, exercising discernment, aligning thought and deed with what is good.</p>
+            <div class="routine-card">
+                <div class="card-item">
+                    <p class="card-text">Thank you Jesus for giving me this day. Thank you Jesus for the opportunity to live it for you. Make me a blessing to those around me. Make my heart beat in time with yours so that I can bring your perspective to each situation that I find myself.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Father, my intelligence cannot compare to yours. Please give me the wisdom to see your plan in my life and help me to follow your direction.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">God, you are worthy of all my praise, and You created me to praise You! So please show me how to worship you in all that I do! When people look back on my life, I want them to give You glory. So please teach me how to make my life an act of worship. In Jesus' name, Amen.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Lord Jesus Christ, Son of God, have mercy on me a sinner.</p>
+                    <p class="card-ref">The Jesus Prayer</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Yes Lord, I want all that you ask and all that will please you.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Lord, into your hands I abandon my past, my present, and my future.</p>
+                </div>
             </div>
         </div>
 
-        <div class="quote-section" style="margin-top: 3rem;">
-            <div class="quote-block">
-                <p class="quote-text">The opposite of this framework is emptiness. And emptiness is in everything sought apart from Him. This is how I seek Him in everything.</p>
-            </div>
-        </div>
-
-        <!-- Additional Meditations -->
+        <!-- SOUL: Scripture -->
         <div class="quote-section">
-            <h2>Silence & Stillness</h2>
+            <h2>Soul - Scripture</h2>
 
-            <div class="quote-block">
-                <p class="quote-text">Only someone who is silent is listening.</p>
-            </div>
-
-            <div class="quote-block">
-                <p class="quote-text">Disappear and let God be all.</p>
-            </div>
-
-            <div class="quote-block">
-                <p class="quote-text">Silent your desires.</p>
-            </div>
-
-            <div class="quote-block">
-                <p class="quote-text">To reach satisfaction in all, desire its possession in nothing.</p>
-            </div>
-
-            <div class="quote-block">
-                <p class="quote-text">If calmness is needed for thinking, silence is needed for love.</p>
+            <div class="routine-card">
+                <div class="card-item">
+                    <p class="card-text">Weeping may stay for the night, but rejoicing comes in the morning.</p>
+                    <p class="card-ref">Psalm 30:5</p>
+                </div>
+                <div class="card-item featured-item">
+                    <p class="card-text">Teach us to number our days, that we may gain a heart of wisdom.</p>
+                    <p class="card-ref">Psalm 90:12</p>
+                    <p class="scripture-note">Try voicing aloud how many days you've been alive and reflect on that, it's powerful. <a href="/days-alive-calculator.html">Calculate your days →</a></p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">And he answered and said, You shall love the Lord your God with your whole heart, and with your whole soul, and with your whole strength, and with your whole mind, and your neighbor as yourself.</p>
+                    <p class="card-ref">Luke 10:27</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Rejoice always, pray continually, give thanks in all circumstances. For this is God's will for you in Christ Jesus.</p>
+                    <p class="card-ref">1 Thessalonians 5:16–18</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Do not be conformed to this age but be transformed by the renewing of your mind, so that you can prove what the will of God is, that which is good, well pleasing and perfect.</p>
+                    <p class="card-ref">Romans 12:2</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Humble yourselves before the Lord, and he will lift you up.</p>
+                    <p class="card-ref">James 4:10</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid.</p>
+                    <p class="card-ref">John 14:27</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">You will seek me and find me when you seek me with all your heart.</p>
+                    <p class="card-ref">Jeremiah 29:13</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Call to me and I will answer you and tell you great and unsearchable things you do not know.</p>
+                    <p class="card-ref">Jeremiah 33:3</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">I have come that they may have life, and have it to the full.</p>
+                    <p class="card-ref">John 10:10</p>
+                </div>
             </div>
         </div>
+
+        <!-- MIND: Contemplation & Wisdom -->
+        <div class="quote-section">
+            <h2>Mind - Thought & Contemplation</h2>
+
+            <!-- Framework cards -->
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h4>Heart</h4>
+                    <p class="subtitle">The Compassionate Self</p>
+                    <span class="virtue-small">Fortitude</span>
+                    <p class="framework-desc">Surrenders what I want.</p>
+                </div>
+                <div class="framework-card">
+                    <h4>Soul</h4>
+                    <p class="subtitle">The Humble Self</p>
+                    <span class="virtue-small">Justice</span>
+                    <p class="framework-desc">Surrenders who I think I am.</p>
+                </div>
+                <div class="framework-card active-dimension">
+                    <h4>Strength</h4>
+                    <p class="subtitle">The Willful Self</p>
+                    <span class="virtue-small">Temperance</span>
+                    <p class="framework-desc">Surrenders what I avoid.</p>
+                </div>
+                <div class="framework-card">
+                    <h4>Mind</h4>
+                    <p class="subtitle">The Thoughtful Self</p>
+                    <span class="virtue-small">Prudence</span>
+                    <p class="framework-desc">Surrenders what I think I know.</p>
+                </div>
+            </div>
+
+            <p class="framework-cta"><a href="/learning/framework.html">Explore the full framework →</a></p>
+
+            <!-- Silence & Stillness -->
+            <p class="card-ref" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; margin-bottom: 0.5rem; color: var(--learning-text-muted);">Silence & Stillness</p>
+            <div class="routine-card" style="margin-bottom: 1.25rem;">
+                <div class="card-item">
+                    <p class="card-text">Only someone who is silent is listening.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Disappear and let God be all.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">To reach satisfaction in all, desire its possession in nothing.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">If calmness is needed for thinking, silence is needed for love.</p>
+                </div>
+            </div>
+
+            <!-- Contemplative Truths -->
+            <p class="card-ref" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; margin-bottom: 0.5rem; color: var(--learning-text-muted);">Contemplative Truths</p>
+            <div class="routine-card" style="margin-bottom: 1.25rem;">
+                <div class="card-item">
+                    <p class="card-text">We must seek a contemplative quality of life.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Simplifying my life does not mean I'm living my life any less profoundly.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Union with God demands departure of self.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Our love has to face its own poverty as an awakening to our need in God in Christ.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">With an intimate and developing one-on-one relationship, God reveals himself more.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">God is God and we are not.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">I am exactly where I need to be.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Everything is today.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">The answer to fear is faith.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Jesus lived as we did, so we could live as he did.</p>
+                </div>
+            </div>
+
+            <!-- Wisdom -->
+            <p class="card-ref" style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.7rem; margin-bottom: 0.5rem; color: var(--learning-text-muted);">Wisdom</p>
+            <div class="routine-card">
+                <div class="card-item">
+                    <p class="card-text" style="font-style: normal;">Wisdom is knowing and having discernment, so that we can apply the truth of the Word of God at the right time, in the right way, and with the right motive.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">Wisdom is the power of the soul to know truth. The rational mind can prohibit comprehending truth; through the heart we can perceive and understand the deepest truths.</p>
+                </div>
+                <div class="card-item">
+                    <p class="card-text">My purpose is what I choose it to be when I am conducting it in accordance to my whole heart, my whole soul, my whole strength and my whole mind, and loving my neighbor as myself.</p>
+                </div>
+                <div class="card-item featured-item">
+                    <p class="card-text" style="font-style: normal; font-size: 1rem;">Recite my morning mantras.</p>
+                    <p class="card-ref" style="margin-top: 0.25rem;"><a href="/learning/wisdom.html#fruits-and-mantras" style="color: var(--learning-accent); text-decoration: none;">View mantras, fruits of the spirit & full collection →</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="morning-note">
+            <p>I commit 15 minutes each morning to this practice with intention. Any extra time, I try to sit in silence.</p>
+            <p class="morning-closing">God's language is silence.</p>
+        </div>
+
+        <div class="closing-meditation">
+            <p class="meditation-text">"To desire what is good for oneself and to seek prosperity or happiness is part of man's nature, and it is not a sin or vice. But we need to know, here on earth true and perfect happiness and prosperity will never be. For all of prosperity and happiness is only in God."</p>
+            <p class="meditation-source">Saint Innocent of Alaska, <em>Indication of the Way into the Kingdom of Heaven</em></p>
+        </div>
+
     </main>
 
+    <hr class="section-divider">
     <footer class="footer">
-        <p style="margin-bottom: 0.5rem;">Made with ❤️ by <strong>Andre</strong></p>
-        <p><a href="/" style="color: #5DCAA5; text-decoration: none; font-weight: 500;">Main Site</a> | <a href="/learning/" style="color: #5DCAA5; text-decoration: none; font-weight: 500;">Learning</a></p>
-        <p style="margin-top: 1rem; opacity: 0.7;">© 2025</p>
+        <p>Made with ♥ by Andre</p>
+        <p><a href="/">Main Site</a> · <a href="/learning/">Learning</a></p>
+        <div class="footer-copyright">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="-16 -22 34 44" class="footer-logo"><path d="M-13.6,-19.2 L-13.6,19.2 Q15.2,19.2 15.2,0 Q15.2,-19.2 -13.6,-19.2 Z" fill="#5DCAA5"/><path d="M-8.8,-14.4 L-8.8,14.4 Q10.4,14.4 10.4,0 Q10.4,-14.4 -8.8,-14.4 Z" fill="#0D3D4F"/><rect x="-13.6" y="-19.2" width="4.8" height="38.4" fill="#5DCAA5"/><polygon points="0.8,-17.6 -9.6,19.2 -5.2,19.2 0.8,-4 6.8,19.2 11.2,19.2" fill="#7CC9B5"/><rect x="-4" y="4" width="10.4" height="4" rx="1.2" fill="#7CC9B5"/></svg>
+            <span>© 2025</span>
+        </div>
     </footer>
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('nav-active');
+                navToggle.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('nav-active');
+                    navToggle.classList.remove('active');
+                });
+            });
+        }
+    </script>
 </body>
 </html>
