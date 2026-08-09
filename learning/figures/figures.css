@@ -1,0 +1,245 @@
+/* Figures Library - extends /learning/learning.css design tokens.
+   Load learning.css first; this file only adds figures-specific components.
+   Self-contained (doesn't import history.css or theology.css) per the site's
+   one-small-engine-per-section pattern — a few duplicated class names is
+   cheaper than cross-directory coupling between sections. */
+
+/* Hub grid */
+.figures-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.figures-card {
+    display: block;
+    background: var(--learning-card-bg);
+    border: 1px solid var(--learning-border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.figures-card:hover {
+    border-color: var(--learning-accent);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.figures-card h2 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--learning-text);
+    margin-bottom: 0.5rem;
+}
+
+.figures-card p {
+    font-size: 0.85rem;
+    color: var(--learning-text-muted);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Sub-navigation */
+.figures-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.figures-subnav a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--learning-text-muted);
+    text-decoration: none;
+}
+
+.figures-subnav a:hover,
+.figures-subnav a.active {
+    color: var(--learning-accent);
+}
+
+/* One person's profile block within a study */
+.figure-profile {
+    margin-bottom: 2.5rem;
+    scroll-margin-top: 5rem;
+}
+
+.figure-name {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--learning-text);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--learning-border);
+}
+
+.figure-dates {
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--learning-text-muted);
+}
+
+.figure-subhead {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--learning-accent-dark);
+    margin: 1.25rem 0 0.75rem;
+}
+
+.figure-divider {
+    border: none;
+    border-top: 1px dashed var(--learning-border);
+    margin: 2.5rem 0;
+}
+
+/* Flat date/event timeline */
+.flat-timeline {
+    position: relative;
+}
+
+.flat-entry {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--learning-border);
+}
+
+.flat-entry:first-child {
+    border-top: 1px solid var(--learning-border);
+}
+
+.flat-date {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: var(--learning-accent-dark);
+    font-size: 0.82rem;
+}
+
+.flat-event {
+    font-size: 0.86rem;
+    color: var(--learning-text);
+    line-height: 1.55;
+}
+
+/* Term/definition list (theological principles) */
+.term-entry {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--learning-border);
+}
+
+.term-entry:first-of-type {
+    border-top: 1px solid var(--learning-border);
+}
+
+.term-name {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: var(--learning-text);
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.term-def {
+    font-size: 0.86rem;
+    color: var(--learning-text-muted);
+    line-height: 1.6;
+}
+
+.figure-note {
+    font-size: 0.82rem;
+    color: var(--learning-text-muted);
+    font-style: italic;
+    margin-top: 0.75rem;
+}
+
+/* Plain bullet list (impact statements) */
+.fig-list {
+    list-style: disc;
+    padding-left: 1.25rem;
+}
+
+.fig-list li {
+    font-size: 0.88rem;
+    color: var(--learning-text);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+}
+
+/* Comparison table */
+.table-wrap {
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}
+
+.fig-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.fig-table th,
+.fig-table td {
+    text-align: left;
+    padding: 0.65rem 0.85rem;
+    border-bottom: 1px solid var(--learning-border);
+    vertical-align: top;
+}
+
+.fig-table th {
+    font-size: 0.66rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--learning-text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.fig-table td {
+    color: var(--learning-text);
+    line-height: 1.55;
+}
+
+.fig-table tr:hover td {
+    background: rgba(29, 122, 101, 0.03);
+}
+
+/* Callout for the closing "arc" synthesis paragraph */
+.figure-callout {
+    background: rgba(29, 122, 101, 0.05);
+    border-left: 3px solid var(--learning-accent);
+    padding: 1.1rem 1.25rem;
+    margin: 1.5rem 0;
+    font-size: 0.92rem;
+    line-height: 1.75;
+    color: var(--learning-text);
+}
+
+/* Draft/skeleton notice */
+.fig-skeleton-note {
+    background: rgba(29, 122, 101, 0.05);
+    border: 1px dashed var(--learning-border);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    font-size: 0.82rem;
+    color: var(--learning-text-muted);
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 600px) {
+    .flat-entry {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+    }
+}
