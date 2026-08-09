@@ -1,0 +1,299 @@
+/* History Library - extends /learning/learning.css design tokens.
+   Load learning.css first; this file only adds history-specific components. */
+
+/* Sub-navigation between the five history pages (hub / OT / WP / NT / people) */
+.history-subnav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.history-subnav a {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--learning-text-muted);
+    text-decoration: none;
+}
+
+.history-subnav a:hover,
+.history-subnav a.active {
+    color: var(--learning-accent);
+}
+
+/* Hub grid (index.html) */
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.history-card {
+    display: block;
+    background: var(--learning-card-bg);
+    border: 1px solid var(--learning-border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: all 0.15s ease;
+}
+
+.history-card:hover {
+    border-color: var(--learning-accent);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.history-card h2 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--learning-text);
+    margin-bottom: 0.5rem;
+}
+
+.history-card p {
+    font-size: 0.85rem;
+    color: var(--learning-text-muted);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+}
+
+.history-card .coming-soon {
+    margin-top: 0;
+}
+
+/* Era track — groups entries under a period heading within a timeline */
+.era-track {
+    margin-bottom: 2.5rem;
+}
+
+.era-label {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--learning-accent);
+    background: rgba(29, 122, 101, 0.08);
+    padding: 0.3rem 0.7rem;
+    border-radius: 3px;
+    margin-bottom: 1.25rem;
+}
+
+/* Timeline entry — engine-rendered, mirrors .timeline-item from learning.css */
+.hx-timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.hx-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--learning-border);
+}
+
+.hx-entry {
+    position: relative;
+    margin-bottom: 2.25rem;
+    padding-left: 1.75rem;
+}
+
+.hx-entry::before {
+    content: '';
+    position: absolute;
+    left: -2.35rem;
+    top: 0.35rem;
+    width: 8px;
+    height: 8px;
+    background: var(--learning-accent);
+    border-radius: 50%;
+}
+
+.hx-date {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--learning-text);
+    margin-bottom: 0.15rem;
+    line-height: 1.2;
+}
+
+.hx-date .hx-uncertain {
+    font-size: 0.68rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--learning-text-muted);
+    opacity: 0.7;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.hx-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--learning-text-muted);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+}
+
+.hx-desc {
+    font-size: 0.88rem;
+    color: var(--learning-text);
+    line-height: 1.65;
+    margin-bottom: 0.6rem;
+}
+
+/* Footnote-style people links, auto-rendered by timeline.js */
+.hx-people {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.hx-people a {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--learning-accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--learning-accent);
+}
+
+.hx-people a:hover {
+    color: var(--learning-accent-dark);
+    border-bottom-style: solid;
+}
+
+/* Map frame */
+.hx-map {
+    margin-top: 0.75rem;
+}
+
+.hx-map img {
+    max-width: 100%;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid var(--learning-border);
+}
+
+.hx-map figcaption {
+    font-size: 0.72rem;
+    color: var(--learning-text-muted);
+    margin-top: 0.4rem;
+    font-style: italic;
+}
+
+/* Parallel timelines — side-by-side tracks sharing a date scale (world powers vs. OT) */
+.hx-parallel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.hx-parallel-track h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--learning-text);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--learning-border);
+}
+
+@media (min-width: 900px) {
+    .hx-parallel {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* People library (footnote target page) */
+.people-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.person-entry {
+    border-bottom: 1px solid var(--learning-border);
+    padding: 1.25rem 0;
+    scroll-margin-top: 5rem;
+}
+
+.person-entry:first-of-type {
+    border-top: 1px solid var(--learning-border);
+}
+
+.person-entry:target {
+    background: rgba(29, 122, 101, 0.05);
+}
+
+.person-name {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--learning-text);
+    display: inline;
+}
+
+.person-era {
+    font-size: 0.7rem;
+    color: var(--learning-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 0.6rem;
+}
+
+.person-blurb {
+    font-size: 0.88rem;
+    color: var(--learning-text-muted);
+    line-height: 1.6;
+    margin-top: 0.35rem;
+}
+
+.person-appears {
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+}
+
+.person-appears a {
+    color: var(--learning-accent);
+    text-decoration: none;
+    margin-right: 0.75rem;
+}
+
+.person-appears a:hover {
+    text-decoration: underline;
+}
+
+/* Skeleton notice — visible only on draft/stub pages */
+.hx-skeleton-note {
+    background: rgba(29, 122, 101, 0.05);
+    border: 1px dashed var(--learning-border);
+    border-radius: 4px;
+    padding: 1rem 1.25rem;
+    font-size: 0.82rem;
+    color: var(--learning-text-muted);
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+    .hx-timeline {
+        padding-left: 1.5rem;
+    }
+
+    .hx-entry {
+        padding-left: 1.5rem;
+    }
+}
