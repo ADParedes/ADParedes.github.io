@@ -67,5 +67,15 @@ var Figures = (function () {
         mount.innerHTML = tableHtml(rows, columns);
     }
 
-    return { renderStudy: renderStudy, renderComparison: renderComparison };
+    // renderLinks(mountId, links) — plain link list, e.g. a vs/ comparison
+    // page pointing back to each person's full solo profile.
+    function renderLinks(mountId, links) {
+        var mount = document.getElementById(mountId);
+        if (!mount) return;
+        mount.innerHTML = '<div class="fig-links">' + links.map(function (l) {
+            return '<a href="' + l.href + '">' + l.label + '</a>';
+        }).join('') + '</div>';
+    }
+
+    return { renderStudy: renderStudy, renderComparison: renderComparison, renderLinks: renderLinks };
 })();

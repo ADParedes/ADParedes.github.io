@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loading… | Figures</title>
-    <meta name="description" content="A comparative breakdown of Augustine of Hippo, Francis of Assisi, and Thomas Aquinas covering timeline, theology, and impact on the Catholic Church.">
+    <meta name="description" content="A timeline and study of Saint Augustine of Hippo's life, theological principles, and impact on the Catholic Church.">
 
     <link rel="stylesheet" href="../learning.css">
     <link rel="stylesheet" href="figures.css">
@@ -52,17 +52,14 @@
             <p class="verse" id="study-subtitle"></p>
             <nav class="figures-subnav">
                 <a href="index.html">Figures Hub</a>
-                <a href="augustine-francis-aquinas.html" class="active">Augustine vs. Francis vs. Aquinas</a>
+                <a href="augustine.html" class="active">Augustine</a>
+                <a href="francis.html">Francis</a>
+                <a href="aquinas.html">Aquinas</a>
+                <a href="vs/">Vs.</a>
             </nav>
         </div>
 
         <div id="study-root"></div>
-
-        <div class="quote-section">
-            <h2>Comparative Summary</h2>
-            <div id="comparison-root"></div>
-            <div class="figure-callout" id="closing-arc-root"></div>
-        </div>
 
         <div class="quote-section" id="disambiguation-section">
             <h2 id="disambiguation-title"></h2>
@@ -80,8 +77,8 @@
         </div>
     </footer>
 
-    <!-- Topic-specific — swap this one line to build the next study page: -->
-    <script src="data/augustine-francis-aquinas.js"></script>
+    <!-- Solo profile — swap this one line to build the next person's page: -->
+    <script src="data/augustine.js"></script>
     <script src="js/figures.js"></script>
 
     <script>
@@ -90,11 +87,6 @@
         document.getElementById('study-subtitle').textContent = STUDY.subtitle;
 
         Figures.renderStudy('study-root', STUDY.people);
-
-        if (STUDY.comparisonRows) {
-            Figures.renderComparison('comparison-root', STUDY.comparisonRows, STUDY.comparisonColumns);
-            document.getElementById('closing-arc-root').textContent = STUDY.closingArc;
-        }
 
         if (STUDY.disambiguation) {
             document.getElementById('disambiguation-title').textContent = STUDY.disambiguation.title;

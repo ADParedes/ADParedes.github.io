@@ -226,6 +226,27 @@
     color: var(--learning-text);
 }
 
+/* Link list — e.g. a vs/ comparison page pointing to full solo profiles */
+.fig-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.fig-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--learning-accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--learning-accent);
+}
+
+.fig-links a:hover {
+    color: var(--learning-accent-dark);
+    border-bottom-style: solid;
+}
+
 /* Draft/skeleton notice */
 .fig-skeleton-note {
     background: rgba(29, 122, 101, 0.05);

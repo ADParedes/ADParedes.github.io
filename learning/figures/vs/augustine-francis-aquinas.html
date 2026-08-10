@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figures Library | Learning</title>
-    <meta name="description" content="Profiles and comparisons of saints, theologians, and thinkers who shaped Christian history.">
+    <title>Loading… | Figures</title>
+    <meta name="description" content="A comparative breakdown of Augustine of Hippo, Francis of Assisi, and Thomas Aquinas covering timeline, theology, and impact on the Catholic Church.">
 
-    <link rel="stylesheet" href="../learning.css">
-    <link rel="stylesheet" href="figures.css">
-    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../learning.css">
+    <link rel="stylesheet" href="../figures.css">
+    <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -48,49 +48,21 @@
 
     <main class="container">
         <div class="page-header">
-            <h1>Figures Library</h1>
-            <p class="verse">"Remember your leaders, those who spoke to you the word of God. Consider the outcome of their way of life, and imitate their faith."</p>
-            <p class="reference">Hebrews 13:7</p>
-            <p class="page-byline">Saints & Thinkers, Studied by Andre</p>
+            <h1 id="comparison-title"></h1>
+            <p class="verse" id="comparison-subtitle"></p>
             <nav class="figures-subnav">
-                <a href="index.html" class="active">Figures Hub</a>
-                <a href="augustine.html">Augustine</a>
-                <a href="francis.html">Francis</a>
-                <a href="aquinas.html">Aquinas</a>
-                <a href="vs/">Vs.</a>
+                <a href="../index.html">Figures Hub</a>
+                <a href="index.html">Vs. Hub</a>
+                <a href="augustine-francis-aquinas.html" class="active">Augustine vs. Francis vs. Aquinas</a>
             </nav>
         </div>
 
-        <div class="fig-skeleton-note">
-            Draft / working section — three profiles live so far, more to come.
-        </div>
+        <div id="links-root"></div>
 
         <div class="quote-section">
-            <h2>Individual Figures</h2>
-            <div class="figures-grid">
-                <a href="augustine.html" class="figures-card">
-                    <h2>Saint Augustine of Hippo</h2>
-                    <p>354–430 AD. Grace, original sin, the Two Cities — the theological grammar underlying most of what follows him.</p>
-                </a>
-                <a href="francis.html" class="figures-card">
-                    <h2>Saint Francis of Assisi</h2>
-                    <p>1181/1182–1226 AD. Radical poverty and the imitation of Christ, lived rather than argued.</p>
-                </a>
-                <a href="aquinas.html" class="figures-card">
-                    <h2>Saint Thomas Aquinas</h2>
-                    <p>1225–1274 AD. The synthesis of faith and reason, natural law, and the Five Ways.</p>
-                </a>
-            </div>
-        </div>
-
-        <div class="quote-section">
-            <h2>Comparisons</h2>
-            <div class="figures-grid">
-                <a href="vs/" class="figures-card">
-                    <h2>Vs.</h2>
-                    <p>Anything that puts two or more figures side by side — starting with Augustine vs. Francis vs. Aquinas.</p>
-                </a>
-            </div>
+            <h2>Comparative Summary</h2>
+            <div id="comparison-root"></div>
+            <div class="figure-callout" id="closing-arc-root"></div>
         </div>
     </main>
 
@@ -103,7 +75,20 @@
             <span>© 2025</span>
         </div>
     </footer>
+
+    <!-- Comparison-specific — swap this one line to build the next vs. page: -->
+    <script src="data/augustine-francis-aquinas.js"></script>
+    <script src="../js/figures.js"></script>
+
     <script>
+        document.title = COMPARISON.title + " | Figures";
+        document.getElementById('comparison-title').textContent = COMPARISON.title;
+        document.getElementById('comparison-subtitle').textContent = COMPARISON.subtitle;
+
+        Figures.renderLinks('links-root', COMPARISON.links);
+        Figures.renderComparison('comparison-root', COMPARISON.comparisonRows, COMPARISON.comparisonColumns);
+        document.getElementById('closing-arc-root').textContent = COMPARISON.closingArc;
+
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
         if (navToggle) {

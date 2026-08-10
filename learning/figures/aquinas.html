@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figures Library | Learning</title>
-    <meta name="description" content="Profiles and comparisons of saints, theologians, and thinkers who shaped Christian history.">
+    <title>Loading… | Figures</title>
+    <meta name="description" content="A timeline and study of Saint Thomas Aquinas's life, philosophy, and impact on the Catholic Church.">
 
     <link rel="stylesheet" href="../learning.css">
     <link rel="stylesheet" href="figures.css">
@@ -48,49 +48,22 @@
 
     <main class="container">
         <div class="page-header">
-            <h1>Figures Library</h1>
-            <p class="verse">"Remember your leaders, those who spoke to you the word of God. Consider the outcome of their way of life, and imitate their faith."</p>
-            <p class="reference">Hebrews 13:7</p>
-            <p class="page-byline">Saints & Thinkers, Studied by Andre</p>
+            <h1 id="study-title"></h1>
+            <p class="verse" id="study-subtitle"></p>
             <nav class="figures-subnav">
-                <a href="index.html" class="active">Figures Hub</a>
+                <a href="index.html">Figures Hub</a>
                 <a href="augustine.html">Augustine</a>
                 <a href="francis.html">Francis</a>
-                <a href="aquinas.html">Aquinas</a>
+                <a href="aquinas.html" class="active">Aquinas</a>
                 <a href="vs/">Vs.</a>
             </nav>
         </div>
 
-        <div class="fig-skeleton-note">
-            Draft / working section — three profiles live so far, more to come.
-        </div>
+        <div id="study-root"></div>
 
-        <div class="quote-section">
-            <h2>Individual Figures</h2>
-            <div class="figures-grid">
-                <a href="augustine.html" class="figures-card">
-                    <h2>Saint Augustine of Hippo</h2>
-                    <p>354–430 AD. Grace, original sin, the Two Cities — the theological grammar underlying most of what follows him.</p>
-                </a>
-                <a href="francis.html" class="figures-card">
-                    <h2>Saint Francis of Assisi</h2>
-                    <p>1181/1182–1226 AD. Radical poverty and the imitation of Christ, lived rather than argued.</p>
-                </a>
-                <a href="aquinas.html" class="figures-card">
-                    <h2>Saint Thomas Aquinas</h2>
-                    <p>1225–1274 AD. The synthesis of faith and reason, natural law, and the Five Ways.</p>
-                </a>
-            </div>
-        </div>
-
-        <div class="quote-section">
-            <h2>Comparisons</h2>
-            <div class="figures-grid">
-                <a href="vs/" class="figures-card">
-                    <h2>Vs.</h2>
-                    <p>Anything that puts two or more figures side by side — starting with Augustine vs. Francis vs. Aquinas.</p>
-                </a>
-            </div>
+        <div class="quote-section" id="disambiguation-section">
+            <h2 id="disambiguation-title"></h2>
+            <p id="disambiguation-text" style="font-size:0.9rem; line-height:1.7; color:var(--learning-text-muted);"></p>
         </div>
     </main>
 
@@ -103,7 +76,25 @@
             <span>© 2025</span>
         </div>
     </footer>
+
+    <!-- Solo profile — swap this one line to build the next person's page: -->
+    <script src="data/aquinas.js"></script>
+    <script src="js/figures.js"></script>
+
     <script>
+        document.title = STUDY.title + " | Figures";
+        document.getElementById('study-title').textContent = STUDY.title;
+        document.getElementById('study-subtitle').textContent = STUDY.subtitle;
+
+        Figures.renderStudy('study-root', STUDY.people);
+
+        if (STUDY.disambiguation) {
+            document.getElementById('disambiguation-title').textContent = STUDY.disambiguation.title;
+            document.getElementById('disambiguation-text').textContent = STUDY.disambiguation.text;
+        } else {
+            document.getElementById('disambiguation-section').style.display = 'none';
+        }
+
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
         if (navToggle) {
