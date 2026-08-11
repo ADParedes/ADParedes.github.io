@@ -1,4 +1,4 @@
-/* New Testament timeline — high-level skeleton, meant to be expanded with more
+/* New Testament timeline: high-level skeleton, meant to be expanded with more
    entries (ministry details, individual epistles, church councils, etc.) later. */
 
 var NEW_TESTAMENT = [
@@ -8,7 +8,7 @@ var NEW_TESTAMENT = [
             {
                 id: "incarnation", date: "c. 4 BC", uncertain: true,
                 title: "Birth of Christ",
-                desc: "Jesus is born in Bethlehem during the reign of Augustus, under the peace and infrastructure of the Roman Empire — the world set up in the World Powers timeline.",
+                desc: "Jesus is born in Bethlehem during the reign of Augustus, under the peace and infrastructure of the Roman Empire, the world set up in the World Powers timeline.",
                 people: ["jesus", "augustus"]
             }
         ]
@@ -19,7 +19,7 @@ var NEW_TESTAMENT = [
             {
                 id: "ministry", date: "c. 27–30 AD", uncertain: true,
                 title: "Ministry, Teaching & Miracles",
-                desc: "Jesus' public ministry in Galilee and Judea — teaching, healing, and gathering the Twelve. Skeleton entry, to be expanded.",
+                desc: "Jesus' public ministry in Galilee and Judea: teaching, healing, and gathering the Twelve. Skeleton entry, to be expanded.",
                 people: ["jesus"]
             }
         ]
@@ -63,7 +63,7 @@ var NEW_TESTAMENT = [
             {
                 id: "70ad", date: "70 AD", uncertain: false,
                 title: "Destruction of the Second Temple",
-                desc: "Rome destroys Jerusalem and the Temple, ending Second Temple Judaism and reshaping both Judaism and the young church. Skeleton entry, to be expanded — includes eventual formation of the New Testament canon.",
+                desc: "Rome destroys Jerusalem and the Temple, ending Second Temple Judaism and reshaping both Judaism and the young church. Skeleton entry, to be expanded, includes eventual formation of the New Testament canon.",
                 people: []
             }
         ]

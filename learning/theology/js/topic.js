@@ -1,10 +1,10 @@
 /* Theology topic rendering engine. Plain global script, no build step.
    One function per content block; every theology topic page reuses all four.
-   Edit content in a data file — never here. */
+   Edit content in a data file, never here. */
 
 var Theology = (function () {
 
-    // Generic table renderer — used for the document-type glossary, the
+    // Generic table renderer, used for the document-type glossary, the
     // version-history table, and the key-people table. `columns` is
     // [{ key, label }]; `rows` is an array of plain objects.
     function renderTable(mountId, rows, columns) {
@@ -22,7 +22,7 @@ var Theology = (function () {
             '</thead><tbody>' + tbody + '</tbody></table></div>';
     }
 
-    // Flat date/event timeline — a dense reference list, not the narrative
+    // Flat date/event timeline, a dense reference list, not the narrative
     // era-grouped style used by /learning/history/.
     function renderTimeline(mountId, entries) {
         var mount = document.getElementById(mountId);

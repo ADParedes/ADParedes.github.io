@@ -1,5 +1,5 @@
 /* History Library rendering engine.
-   Plain global script (no build step, no modules) — matches the rest of the site.
+   Plain global script (no build step, no modules), matches the rest of the site.
    Data files (data/*.js) define plain objects/arrays; this file turns them into DOM.
    Edit content by editing a data file. Never edit markup here to change a timeline's content. */
 
@@ -41,7 +41,7 @@ var HistoryTimeline = (function () {
         return '<div class="era-track">' + label + '<div class="hx-timeline">' + entries + '</div></div>';
     }
 
-    // render(mountId, groups, opts) — groups: [{ era, entries: [...] }], opts.people: PEOPLE object
+    // render(mountId, groups, opts), groups: [{ era, entries: [...] }], opts.people: PEOPLE object
     function render(mountId, groups, opts) {
         opts = opts || {};
         var mount = document.getElementById(mountId);
@@ -49,7 +49,7 @@ var HistoryTimeline = (function () {
         mount.innerHTML = groups.map(function (g) { return renderGroup(g, opts.people || {}); }).join('');
     }
 
-    // renderParallel(mountId, tracks, opts) — tracks: [{ label, groups }], side-by-side comparison view
+    // renderParallel(mountId, tracks, opts), tracks: [{ label, groups }], side-by-side comparison view
     function renderParallel(mountId, tracks, opts) {
         opts = opts || {};
         var mount = document.getElementById(mountId);
@@ -61,7 +61,7 @@ var HistoryTimeline = (function () {
         }).join('');
     }
 
-    // renderPeople(mountId, people) — builds the shared figures library page from data/people.js
+    // renderPeople(mountId, people), builds the shared figures library page from data/people.js
     function renderPeople(mountId, people) {
         var mount = document.getElementById(mountId);
         if (!mount) return;

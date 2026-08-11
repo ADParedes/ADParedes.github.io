@@ -1,7 +1,7 @@
 /* Figures Library - extends /learning/learning.css design tokens.
    Load learning.css first; this file only adds figures-specific components.
    Self-contained (doesn't import history.css or theology.css) per the site's
-   one-small-engine-per-section pattern — a few duplicated class names is
+   one-small-engine-per-section pattern, a few duplicated class names is
    cheaper than cross-directory coupling between sections. */
 
 /* Hub grid */
@@ -226,7 +226,7 @@
     color: var(--learning-text);
 }
 
-/* Link list — e.g. a vs/ comparison page pointing to full solo profiles */
+/* Link list, e.g. a vs/ comparison page pointing to full solo profiles */
 .fig-links {
     display: flex;
     flex-wrap: wrap;

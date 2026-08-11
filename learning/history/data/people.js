@@ -90,7 +90,7 @@ var PEOPLE = {
     },
     jesus: {
         name: "Jesus of Nazareth", order: 16, era: "c. 4 BC–30 AD",
-        blurb: "Central figure of the New Testament — born in Bethlehem, ministered, taught, was crucified, and, in Christian belief, rose from the dead.",
+        blurb: "Central figure of the New Testament: born in Bethlehem, ministered, taught, was crucified, and, in Christian belief, rose from the dead.",
         timelines: [{ href: "new-testament.html#incarnation", label: "New Testament" }]
     },
     peter: {

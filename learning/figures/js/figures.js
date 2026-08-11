@@ -1,5 +1,5 @@
 /* Figures Library rendering engine. Plain global script, no build step.
-   Works for a study of 1 person or many — renderStudy just maps over
+   Works for a study of 1 person or many, renderStudy just maps over
    whatever `people` array a data file provides. Edit content in a data
    file; never here. */
 
@@ -51,7 +51,7 @@ var Figures = (function () {
             '</div>';
     }
 
-    // renderStudy(mountId, people) — one or more person profiles, each with
+    // renderStudy(mountId, people), one or more person profiles, each with
     // its own timeline, principles, and impact sections.
     function renderStudy(mountId, people) {
         var mount = document.getElementById(mountId);
@@ -59,7 +59,7 @@ var Figures = (function () {
         mount.innerHTML = people.map(profileHtml).join('<hr class="figure-divider">');
     }
 
-    // renderComparison(mountId, rows, columns) — cross-person summary table,
+    // renderComparison(mountId, rows, columns), cross-person summary table,
     // only used when a study compares more than one figure.
     function renderComparison(mountId, rows, columns) {
         var mount = document.getElementById(mountId);
@@ -67,7 +67,7 @@ var Figures = (function () {
         mount.innerHTML = tableHtml(rows, columns);
     }
 
-    // renderLinks(mountId, links) — plain link list, e.g. a vs/ comparison
+    // renderLinks(mountId, links), plain link list, e.g. a vs/ comparison
     // page pointing back to each person's full solo profile.
     function renderLinks(mountId, links) {
         var mount = document.getElementById(mountId);

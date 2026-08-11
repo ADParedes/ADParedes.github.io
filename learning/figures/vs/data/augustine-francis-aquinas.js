@@ -1,7 +1,7 @@
 /* Comparison-only page. Every vs/ page reads a global `COMPARISON` object:
    title/subtitle, a comparison table, a closing synthesis paragraph, and
    links back to the full solo profiles (never duplicate a person's
-   timeline/principles/impact here — those live once, on their own page). */
+   timeline/principles/impact here, those live once, on their own page). */
 
 var COMPARISON = {
 
@@ -34,5 +34,5 @@ var COMPARISON = {
         { dimension: `Style`, augustine: `Intellectual, introspective (Confessions is arguably the first Western autobiography)`, francis: `Simple, poetic, embodied (Canticle of the Sun)`, aquinas: `Rigorous, systematic, scholastic (Summa Theologiae)` }
     ],
 
-    closingArc: `A useful way to see the arc: Augustine (4th–5th c.) establishes the theological grammar of grace, sin, and the two cities. Francis (12th–13th c.) reacts against a wealthy, institutionalized Church by re-embodying the Gospel in radical poverty and lived simplicity. Aquinas (13th c., overlapping with Francis) takes the opposite tack from Francis — not embodiment but intellectual synthesis — fusing newly rediscovered Aristotelian philosophy with Augustinian theology to produce the Church's most comprehensive systematic framework. Notably, Aquinas was himself a Dominican, a mendicant order founded in direct competition/parallel with the Franciscans, so he and Francis's spiritual heirs were contemporaries shaping the 13th-century Church from different angles — one through poverty and preaching, the other through the university and systematic reason.`
+    closingArc: `A useful way to see the arc: Augustine (4th–5th c.) establishes the theological grammar of grace, sin, and the two cities. Francis (12th–13th c.) reacts against a wealthy, institutionalized Church by re-embodying the Gospel in radical poverty and lived simplicity. Aquinas (13th c., overlapping with Francis) takes the opposite tack from Francis, not embodiment but intellectual synthesis, fusing newly rediscovered Aristotelian philosophy with Augustinian theology to produce the Church's most comprehensive systematic framework. Notably, Aquinas was himself a Dominican, a mendicant order founded in direct competition/parallel with the Franciscans, so he and Francis's spiritual heirs were contemporaries shaping the 13th-century Church from different angles: one through poverty and preaching, the other through the university and systematic reason.`
 };

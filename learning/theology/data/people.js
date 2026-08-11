@@ -1,4 +1,4 @@
-/* Shared theology figures library — Church Fathers, popes, councils, and
+/* Shared theology figures library: Church Fathers, popes, councils, and
    theologians referenced across theology topics. Separate from
    /learning/history/data/people.js (that one is scoped to biblical figures).
    Reference a person from any topic's `keyPeopleSlugs` array by the object key. */
@@ -31,7 +31,7 @@ var THEOLOGY_PEOPLE = {
     },
     feeney: {
         name: `Fr. Leonard Feeney`, order: 7, era: `20th century`,
-        contribution: `Negative case study — excommunicated for rejecting invincible ignorance outright, prompting the Holy Office to clarify the actual doctrine`
+        contribution: `Negative case study: excommunicated for rejecting invincible ignorance outright, prompting the Holy Office to clarify the actual doctrine`
     },
     "vatican-ii-popes": {
         name: `Pope John XXIII / Pope Paul VI`, order: 8, era: `20th century`,
@@ -47,11 +47,11 @@ var THEOLOGY_PEOPLE = {
     },
     "john-paul-ii": {
         name: `Pope John Paul II`, order: 11, era: `20th century`,
-        contribution: `Redemptoris Missio — reaffirmed missionary urgency`
+        contribution: `Redemptoris Missio, reaffirmed missionary urgency`
     },
     ratzinger: {
         name: `Cardinal Joseph Ratzinger (Pope Benedict XVI)`, order: 12, era: `20th–21st century`,
-        contribution: `Dominus Iesus — doctrinal guardrails against relativism`
+        contribution: `Dominus Iesus, doctrinal guardrails against relativism`
     },
     francis: {
         name: `Pope Francis`, order: 13, era: `21st century`,

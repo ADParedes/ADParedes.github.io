@@ -30,22 +30,22 @@ var STUDY = {
                 { date: `1879`, event: `Pope Leo XIII's encyclical Aeterni Patris names Thomistic philosophy the official framework for Catholic theological education` }
             ],
             principles: [
-                { name: `Faith and Reason in Harmony`, def: `His central project was showing that reason (especially Aristotelian philosophy) and Christian revelation are not in conflict but complementary — reason can prove some truths (God's existence, natural law) while others (Trinity, Incarnation) require revelation.` },
-                { name: `The Five Ways`, def: `Offered five philosophical arguments for God's existence (from motion, causation, contingency, gradation, and design/final causes) in the Summa Theologiae — still taught in philosophy of religion today.` },
-                { name: `Natural Law`, def: `Developed a systematic natural law theory — that moral truths are accessible to human reason through the created order, not only through revelation. This became foundational to Catholic moral theology and later influenced secular legal and ethical thought.` },
-                { name: `Synthesis with Aristotle`, def: `Where Augustine worked largely through a Platonic/Neoplatonic lens, Aquinas reworked Christian theology through Aristotelian categories (substance, form/matter, act/potency, causation) — a major methodological shift in Western theology.` },
-                { name: `Analogy of Being (Analogia Entis)`, def: `Argued human language about God is neither purely literal nor purely metaphorical but analogical — we can speak truly but imperfectly about God.` },
+                { name: `Faith and Reason in Harmony`, def: `His central project was showing that reason (especially Aristotelian philosophy) and Christian revelation are not in conflict but complementary: reason can prove some truths (God's existence, natural law) while others (Trinity, Incarnation) require revelation.` },
+                { name: `The Five Ways`, def: `Offered five philosophical arguments for God's existence (from motion, causation, contingency, gradation, and design/final causes) in the Summa Theologiae, still taught in philosophy of religion today.` },
+                { name: `Natural Law`, def: `Developed a systematic natural law theory: that moral truths are accessible to human reason through the created order, not only through revelation. This became foundational to Catholic moral theology and later influenced secular legal and ethical thought.` },
+                { name: `Synthesis with Aristotle`, def: `Where Augustine worked largely through a Platonic/Neoplatonic lens, Aquinas reworked Christian theology through Aristotelian categories (substance, form/matter, act/potency, causation), a major methodological shift in Western theology.` },
+                { name: `Analogy of Being (Analogia Entis)`, def: `Argued human language about God is neither purely literal nor purely metaphorical but analogical: we can speak truly but imperfectly about God.` },
                 { name: `Virtue and the Human Good`, def: `Integrated Aristotelian virtue ethics with the theological virtues (faith, hope, charity), producing a comprehensive moral framework balancing habituated virtue with grace.` },
-                { name: `Transubstantiation`, def: `Gave the Eucharist its precise philosophical formulation using Aristotelian substance/accident language — this became the Church's official explanation, affirmed at the Council of Trent.` }
+                { name: `Transubstantiation`, def: `Gave the Eucharist its precise philosophical formulation using Aristotelian substance/accident language, this became the Church's official explanation, affirmed at the Council of Trent.` }
             ],
             impact: [
-                `Named a Doctor of the Church (the "Angelic Doctor") and is arguably the most authoritative theologian in Catholic history — his Summa Theologiae remains a core text of Catholic seminary education.`,
+                `Named a Doctor of the Church (the "Angelic Doctor") and is arguably the most authoritative theologian in Catholic history: his Summa Theologiae remains a core text of Catholic seminary education.`,
                 `Thomism became, and largely remains, the Catholic Church's semi-official theological and philosophical framework, cemented by Leo XIII's 1879 encyclical Aeterni Patris.`,
                 `Central to the Church's positions on natural law, which underlies Catholic teaching on ethics, bioethics, and social doctrine to this day.`,
                 `His Eucharistic theology (transubstantiation via Aristotelian metaphysics) was formally adopted at the Council of Trent (16th century) as the Church's official explanation of the Real Presence.`,
                 `Provided the intellectual toolkit later used at the Second Vatican Council and in modern Catholic natural law arguments (e.g., in debates on just war, sexual ethics, and human dignity).`,
                 `Unlike Augustine, whose authority is also strongly claimed by Protestants, Aquinas's influence is comparatively more concentrated within Catholicism and Eastern rite Catholic thought, though Anglican and some Protestant scholastic traditions also engage him.`,
-                `His harmonization of faith and reason shaped the Church's long-term posture toward science and philosophy — the idea that truth cannot ultimately contradict truth, whether reached by reason or revelation.`
+                `His harmonization of faith and reason shaped the Church's long-term posture toward science and philosophy: the idea that truth cannot ultimately contradict truth, whether reached by reason or revelation.`
             ]
         }
     ]

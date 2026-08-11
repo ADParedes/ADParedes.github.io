@@ -1,4 +1,4 @@
-/* Old Testament timeline. Grouped by era — each group renders under an era-label heading.
+/* Old Testament timeline. Grouped by era, each group renders under an era-label heading.
    To add/edit an event: add/edit an object in the relevant group's `entries` array.
    To add a new era: push a new { era, entries } group. No HTML/CSS changes needed. */
 
@@ -21,12 +21,12 @@ var OLD_TESTAMENT = [
         ]
     },
     {
-        era: "The Patriarchs — c. 2100–1900 BC",
+        era: "The Patriarchs (c. 2100–1900 BC)",
         entries: [
             {
                 id: "abraham", date: "c. 2091 BC", uncertain: true,
                 title: "Abraham Called from Ur",
-                desc: "God calls Abraham out of Ur of the Chaldeans to Canaan, promising land, descendants, and blessing — the founding covenant of the Old Testament.",
+                desc: "God calls Abraham out of Ur of the Chaldeans to Canaan, promising land, descendants, and blessing, the founding covenant of the Old Testament.",
                 people: ["abraham"]
             },
             {
@@ -38,13 +38,13 @@ var OLD_TESTAMENT = [
             {
                 id: "joseph", date: "c. 1898 BC", uncertain: true,
                 title: "Joseph Sold into Egypt",
-                desc: "Jacob's son Joseph is sold into slavery by his brothers, taken to Egypt, and rises to become second only to Pharaoh — positioning his family to survive famine.",
+                desc: "Jacob's son Joseph is sold into slavery by his brothers, taken to Egypt, and rises to become second only to Pharaoh, positioning his family to survive famine.",
                 people: ["joseph"]
             }
         ]
     },
     {
-        era: "Egyptian Bondage — c. 1876–1446 BC",
+        era: "Egyptian Bondage (c. 1876–1446 BC)",
         entries: [
             {
                 id: "bondage", date: "c. 1876–1446 BC", uncertain: true,
@@ -55,7 +55,7 @@ var OLD_TESTAMENT = [
         ]
     },
     {
-        era: "Exodus & Wilderness — c. 1446–1406 BC",
+        era: "Exodus & Wilderness (c. 1446–1406 BC)",
         entries: [
             {
                 id: "exodus", date: "c. 1446 BC", uncertain: true,
@@ -72,7 +72,7 @@ var OLD_TESTAMENT = [
         ]
     },
     {
-        era: "Conquest & Judges — c. 1406–1050 BC",
+        era: "Conquest & Judges (c. 1406–1050 BC)",
         entries: [
             {
                 id: "conquest", date: "c. 1406 BC", uncertain: true,
@@ -89,18 +89,18 @@ var OLD_TESTAMENT = [
         ]
     },
     {
-        era: "United Monarchy — c. 1050–931 BC",
+        era: "United Monarchy (c. 1050–931 BC)",
         entries: [
             {
                 id: "monarchy", date: "c. 1050–931 BC", uncertain: true,
-                title: "Saul, David & Solomon — One Nation",
+                title: "Saul, David & Solomon: One Nation",
                 desc: "Israel demands a king. Saul reigns first, then David unites the twelve tribes and establishes Jerusalem as capital, and Solomon builds the First Temple before the kingdom splits after his death.",
                 people: ["saul", "david", "solomon"]
             }
         ]
     },
     {
-        era: "Divided Kingdom — c. 931–586 BC",
+        era: "Divided Kingdom (c. 931–586 BC)",
         entries: [
             {
                 id: "divided", date: "c. 931–586 BC", uncertain: true,
@@ -111,7 +111,7 @@ var OLD_TESTAMENT = [
         ]
     },
     {
-        era: "Babylonian Captivity & Return — 605–445 BC",
+        era: "Babylonian Captivity & Return (605–445 BC)",
         entries: [
             {
                 id: "exile", date: "586 BC", uncertain: false,

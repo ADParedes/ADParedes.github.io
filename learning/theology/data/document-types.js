@@ -1,4 +1,4 @@
-/* Shared glossary of Church document types — reusable across every theology
+/* Shared glossary of Church document types, reusable across every theology
    topic page, not specific to any one topic. Add a row once here. */
 
 var DOCUMENT_TYPES = [
@@ -11,7 +11,7 @@ var DOCUMENT_TYPES = [
     {
         type: `Dogmatic Constitution`,
         what: `An Ecumenical Council's most authoritative teaching document, defining core doctrine`,
-        weight: `Very high — conciliar and doctrinal`,
+        weight: `Very high, conciliar and doctrinal`,
         example: `Lumen Gentium (Vatican II, on the Church)`
     },
     {
@@ -23,7 +23,7 @@ var DOCUMENT_TYPES = [
     {
         type: `Encyclical`,
         what: `A formal papal letter addressed to the whole Church (sometimes "to all people of good will"), teaching on doctrine, morals, or discipline`,
-        weight: `High — authoritative but generally not defining new dogma unless stated as such`,
+        weight: `High, authoritative but generally not defining new dogma unless stated as such`,
         example: `Redemptoris Missio (John Paul II, 1990)`
     },
     {
@@ -52,8 +52,8 @@ var DOCUMENT_TYPES = [
     },
     {
         type: `Epistle`,
-        what: `Refers to the New Testament letters (Paul, Peter, James, John, etc.) — Scripture itself, not a Church-issued teaching document. Not to be confused with an "Apostolic Letter."`,
-        weight: `Scriptural — foundational, not a Magisterial document type`,
+        what: `Refers to the New Testament letters (Paul, Peter, James, John, etc.), Scripture itself, not a Church-issued teaching document. Not to be confused with an "Apostolic Letter."`,
+        weight: `Scriptural, foundational, not a Magisterial document type`,
         example: `Paul's Epistle to the Romans`
     },
     {
@@ -65,12 +65,12 @@ var DOCUMENT_TYPES = [
     {
         type: `Council Canons / Conciliar Documents`,
         what: `Formal statements and rulings from an Ecumenical Council (a gathering of the world's bishops with the Pope)`,
-        weight: `Very high — the fullest expression of the Magisterium alongside the Pope`,
+        weight: `Very high, the fullest expression of the Magisterium alongside the Pope`,
         example: `Council of Trent, Council of Florence, Vatican I, Vatican II`
     },
     {
         type: `CDF Document (now DDF)`,
-        what: `Statements from the Congregation (now Dicastery) for the Doctrine of the Faith — the Vatican's doctrinal office`,
+        what: `Statements from the Congregation (now Dicastery) for the Doctrine of the Faith, the Vatican's doctrinal office`,
         weight: `Authoritative on doctrinal clarification, approved by the Pope`,
         example: `Dominus Iesus (2000)`
     }

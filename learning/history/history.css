@@ -67,7 +67,7 @@
     margin-top: 0;
 }
 
-/* Era track — groups entries under a period heading within a timeline */
+/* Era track, groups entries under a period heading within a timeline */
 .era-track {
     margin-bottom: 2.5rem;
 }
@@ -85,7 +85,7 @@
     margin-bottom: 1.25rem;
 }
 
-/* Timeline entry — engine-rendered, mirrors .timeline-item from learning.css */
+/* Timeline entry, engine-rendered, mirrors .timeline-item from learning.css */
 .hx-timeline {
     position: relative;
     padding-left: 2rem;
@@ -196,7 +196,7 @@
     font-style: italic;
 }
 
-/* Parallel timelines — side-by-side tracks sharing a date scale (world powers vs. OT) */
+/* Parallel timelines, side-by-side tracks sharing a date scale (world powers vs. OT) */
 .hx-parallel {
     display: grid;
     grid-template-columns: 1fr;
@@ -277,7 +277,7 @@
     text-decoration: underline;
 }
 
-/* Skeleton notice — visible only on draft/stub pages */
+/* Skeleton notice, visible only on draft/stub pages */
 .hx-skeleton-note {
     background: rgba(29, 122, 101, 0.05);
     border: 1px dashed var(--learning-border);

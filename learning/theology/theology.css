@@ -1,7 +1,7 @@
 /* Theology Library - extends /learning/learning.css design tokens.
    Load learning.css first; this file only adds theology-specific components. */
 
-/* Hub grid (index.html) — matches history-grid pattern */
+/* Hub grid (index.html), matches history-grid pattern */
 .theology-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -63,7 +63,7 @@
     color: var(--learning-accent);
 }
 
-/* Data tables — shared by the glossary, version-history, and key-people renders */
+/* Data tables, shared by the glossary, version-history, and key-people renders */
 .table-wrap {
     overflow-x: auto;
     margin-bottom: 1rem;
@@ -125,7 +125,7 @@
     line-height: 1.6;
 }
 
-/* Callout — used for the "one clean phrase" summary */
+/* Callout, used for the "one clean phrase" summary */
 .theo-callout {
     background: rgba(29, 122, 101, 0.05);
     border-left: 3px solid var(--learning-accent);
@@ -138,7 +138,7 @@
     color: var(--learning-text);
 }
 
-/* Flat date/event timeline — distinct from history's era-grouped timeline;
+/* Flat date/event timeline, distinct from history's era-grouped timeline;
    this one is a dense reference list, not a narrative one. */
 .flat-timeline {
     position: relative;
