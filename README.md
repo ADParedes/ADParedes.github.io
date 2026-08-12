@@ -40,13 +40,20 @@ I believe professional excellence and personal curiosity aren't separate lives t
 ```
 .
 ├── index.html              # Professional portfolio
-├── resume.html             # Full CV
-├── blog/                   # Writing and reflections
-├── personal/               # Family projects, learning docs
+├── professional.html       # Full professional background
+├── blog/                   # Clinical AI / professional writing
+├── learning/                # Personal contemplative practice + History/Theology/Figures reference libraries
+├── personal/               # Family projects
+├── family/                 # Family landing page
+├── days-alive-calculator.html
 └── assets/                 # Styles and resources
 ```
 
 *Note: This structure evolves as interests and projects develop.*
+
+### Versioning
+
+`/learning/` versions independently from the rest of the site, since it grows on its own schedule. Its changelog lives at [`learning/CHANGELOG.md`](learning/CHANGELOG.md), the current version is shown in the page byline on `/learning/`, and releases are tagged in git as `learning-v#.#` (e.g. `learning-v2.0`). No other section of the site is versioned this way yet.
 
 ## Contact
 
