@@ -715,10 +715,12 @@ a[href*="days-alive-calculator"]:hover {
         flex-direction: column;
         justify-content: flex-start;
         padding: 5rem 2rem 2rem;
-        gap: 1.5rem;
+        gap: 1rem;
         box-shadow: -4px 0 20px rgba(0, 0, 0, 0.08);
         transition: right 0.3s ease;
         z-index: 100;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links.nav-active {
@@ -728,6 +730,7 @@ a[href*="days-alive-calculator"]:hover {
     .nav-links a {
         font-size: 0.85rem;
         padding: 0.5rem 0;
+        flex-shrink: 0;
         border-bottom: 1px solid var(--learning-border);
     }
 
