@@ -77,21 +77,7 @@
     <script src="js/timeline.js"></script>
     <script>
         HistoryTimeline.renderPeople('people-root', PEOPLE);
-
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('nav-active');
-                navToggle.classList.toggle('active');
-            });
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('nav-active');
-                    navToggle.classList.remove('active');
-                });
-            });
-        }
     </script>
+    <script src="../nav.js"></script>
 </body>
 </html>
