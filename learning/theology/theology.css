@@ -11,18 +11,38 @@
 
 .theology-card {
     display: block;
+    position: relative;
+    overflow: hidden;
     background: var(--learning-card-bg);
     border: 1px solid var(--learning-border);
-    border-radius: 4px;
+    border-radius: var(--radius-card);
     padding: 1.5rem;
     text-decoration: none;
-    transition: all 0.15s ease;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.theology-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--learning-accent), var(--learning-warm));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
 }
 
 .theology-card:hover {
-    border-color: var(--learning-accent);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.theology-card:hover::before {
+    transform: scaleX(1);
 }
 
 .theology-card h2 {
@@ -63,23 +83,26 @@
     color: var(--learning-accent);
 }
 
-/* Data tables, shared by the glossary, version-history, and key-people renders */
+/* Data tables, shared by the glossary, version-history, and key-people renders.
+   Rounded card frame with a tinted header row instead of a bare bordered grid. */
 .table-wrap {
     overflow-x: auto;
     margin-bottom: 1rem;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
 }
 
 .doc-table {
     width: 100%;
     border-collapse: collapse;
     font-size: 0.82rem;
+    background: var(--learning-card-bg);
 }
 
 .doc-table th,
 .doc-table td {
     text-align: left;
-    padding: 0.65rem 0.85rem;
-    border-bottom: 1px solid var(--learning-border);
+    padding: 0.75rem 1rem;
     vertical-align: top;
 }
 
@@ -87,34 +110,45 @@
     font-size: 0.66rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--learning-text-muted);
-    font-weight: 600;
+    color: var(--learning-accent-dark);
+    font-weight: 700;
     white-space: nowrap;
+    background: var(--learning-accent-light);
 }
 
 .doc-table td {
     color: var(--learning-text);
     line-height: 1.55;
-}
-
-.doc-table tr:hover td {
-    background: rgba(29, 122, 101, 0.03);
-}
-
-/* Terms / definitions */
-.term-entry {
-    padding: 0.85rem 0;
     border-bottom: 1px solid var(--learning-border);
 }
 
-.term-entry:first-of-type {
-    border-top: 1px solid var(--learning-border);
+.doc-table tr:last-child td {
+    border-bottom: none;
+}
+
+.doc-table tr:hover td {
+    background: var(--learning-warm-light);
+}
+
+/* Terms / definitions, styled as small cards rather than a bordered list */
+.term-entry {
+    background: var(--learning-card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.85rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.term-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .term-name {
     font-family: var(--font-serif);
     font-weight: 600;
-    color: var(--learning-text);
+    color: var(--learning-accent-dark);
     display: block;
     margin-bottom: 0.25rem;
 }
@@ -125,35 +159,57 @@
     line-height: 1.6;
 }
 
-/* Callout, used for the "one clean phrase" summary */
+/* Callout, used for the "one clean phrase" summary, styled as a large pull-quote */
 .theo-callout {
-    background: rgba(29, 122, 101, 0.05);
-    border-left: 3px solid var(--learning-accent);
-    padding: 1rem 1.25rem;
+    position: relative;
+    background: var(--learning-warm-light);
+    border-radius: var(--radius-card);
+    padding: 1.5rem 1.75rem 1.5rem 3rem;
     margin: 1.5rem 0;
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--learning-text);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--learning-warm-dark);
+}
+
+.theo-callout::before {
+    content: '\201C';
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    font-family: var(--font-serif);
+    font-style: normal;
+    font-size: 2.5rem;
+    line-height: 1;
+    color: var(--learning-warm);
+    opacity: 0.6;
 }
 
 /* Flat date/event timeline, distinct from history's era-grouped timeline;
-   this one is a dense reference list, not a narrative one. */
+   this one is a dense reference list, styled with zebra striping and a
+   hover highlight rather than card-per-row (too many rows for that). */
 .flat-timeline {
     position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
 }
 
 .flat-entry {
     display: grid;
     grid-template-columns: 140px 1fr;
     gap: 1rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--learning-border);
+    align-items: baseline;
+    padding: 0.7rem 1rem;
+    transition: background 0.15s ease;
 }
 
-.flat-entry:first-child {
-    border-top: 1px solid var(--learning-border);
+.flat-entry:nth-child(odd) {
+    background: rgba(29, 122, 101, 0.04);
+}
+
+.flat-entry:hover {
+    background: var(--learning-warm-light);
 }
 
 .flat-date {
@@ -171,8 +227,8 @@
 
 /* References */
 .ref-list {
-    list-style: disc;
-    padding-left: 1.25rem;
+    list-style: none;
+    padding-left: 0;
 }
 
 .ref-list li {
@@ -180,6 +236,8 @@
     color: var(--learning-text-muted);
     line-height: 1.65;
     margin-bottom: 0.55rem;
+    padding-left: 1.1rem;
+    border-left: 2px solid var(--learning-accent-light);
 }
 
 .ref-note {
@@ -189,6 +247,17 @@
     margin-top: 0.75rem;
     padding-top: 0.75rem;
     border-top: 1px dashed var(--learning-border);
+}
+
+/* Skeleton notice, visible only on draft/stub pages */
+.theology-skeleton-note {
+    background: var(--learning-warm-light);
+    border: 1px dashed var(--learning-warm);
+    border-radius: var(--radius-card);
+    padding: 1rem 1.25rem;
+    font-size: 0.82rem;
+    color: var(--learning-warm-dark);
+    margin-bottom: 2rem;
 }
 
 @media (max-width: 600px) {

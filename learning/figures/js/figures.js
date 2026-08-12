@@ -14,20 +14,20 @@ var Figures = (function () {
                 return '<td>' + (row[c.key] || '') + '</td>';
             }).join('') + '</tr>';
         }).join('');
-        return '<div class="table-wrap"><table class="fig-table"><thead>' + thead +
+        return '<div class="table-wrap" data-reveal><table class="fig-table"><thead>' + thead +
             '</thead><tbody>' + tbody + '</tbody></table></div>';
     }
 
     function timelineHtml(entries) {
         return '<div class="flat-timeline">' + entries.map(function (e) {
-            return '<div class="flat-entry"><div class="flat-date">' + e.date + '</div>' +
+            return '<div class="flat-entry" data-reveal><div class="flat-date">' + e.date + '</div>' +
                 '<div class="flat-event">' + e.event + '</div></div>';
         }).join('') + '</div>';
     }
 
     function termListHtml(terms) {
         return terms.map(function (t) {
-            return '<div class="term-entry"><span class="term-name">' + t.name + '</span>' +
+            return '<div class="term-entry" data-reveal><span class="term-name">' + t.name + '</span>' +
                 '<span class="term-def">' + t.def + '</span></div>';
         }).join('');
     }

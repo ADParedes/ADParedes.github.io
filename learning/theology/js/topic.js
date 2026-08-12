@@ -18,17 +18,18 @@ var Theology = (function () {
                 return '<td>' + (row[c.key] || '') + '</td>';
             }).join('') + '</tr>';
         }).join('');
-        mount.innerHTML = '<div class="table-wrap"><table class="doc-table"><thead>' + thead +
+        mount.innerHTML = '<div class="table-wrap" data-reveal><table class="doc-table"><thead>' + thead +
             '</thead><tbody>' + tbody + '</tbody></table></div>';
     }
 
     // Flat date/event timeline, a dense reference list, not the narrative
-    // era-grouped style used by /learning/history/.
+    // era-grouped style used by /learning/history/. Each row reveals as it
+    // scrolls into view rather than the whole list at once.
     function renderTimeline(mountId, entries) {
         var mount = document.getElementById(mountId);
         if (!mount) return;
         mount.innerHTML = '<div class="flat-timeline">' + entries.map(function (e) {
-            return '<div class="flat-entry"><div class="flat-date">' + e.date + '</div>' +
+            return '<div class="flat-entry" data-reveal><div class="flat-date">' + e.date + '</div>' +
                 '<div class="flat-event">' + e.event + '</div></div>';
         }).join('') + '</div>';
     }
@@ -38,7 +39,7 @@ var Theology = (function () {
         var mount = document.getElementById(mountId);
         if (!mount) return;
         mount.innerHTML = terms.map(function (t) {
-            return '<div class="term-entry"><span class="term-name">' + t.name + '</span>' +
+            return '<div class="term-entry" data-reveal><span class="term-name">' + t.name + '</span>' +
                 '<span class="term-def">' + t.def + '</span></div>';
         }).join('');
     }

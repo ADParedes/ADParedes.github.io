@@ -34,18 +34,38 @@
 
 .history-card {
     display: block;
+    position: relative;
+    overflow: hidden;
     background: var(--learning-card-bg);
     border: 1px solid var(--learning-border);
-    border-radius: 4px;
+    border-radius: var(--radius-card);
     padding: 1.5rem;
     text-decoration: none;
-    transition: all 0.15s ease;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.history-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--learning-accent), var(--learning-warm));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
 }
 
 .history-card:hover {
-    border-color: var(--learning-accent);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+.history-card:hover::before {
+    transform: scaleX(1);
 }
 
 .history-card h2 {
@@ -67,7 +87,8 @@
     margin-top: 0;
 }
 
-/* Era track, groups entries under a period heading within a timeline */
+/* Era track, groups entries under a period heading within a timeline.
+   Alternates accent color between eras for visual rhythm. */
 .era-track {
     margin-bottom: 2.5rem;
 }
@@ -79,43 +100,62 @@
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: var(--learning-accent);
-    background: rgba(29, 122, 101, 0.08);
-    padding: 0.3rem 0.7rem;
-    border-radius: 3px;
+    background: rgba(29, 122, 101, 0.1);
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
     margin-bottom: 1.25rem;
 }
 
-/* Timeline entry, engine-rendered, mirrors .timeline-item from learning.css */
+.era-track:nth-of-type(2n) .era-label {
+    color: var(--learning-warm-dark);
+    background: var(--learning-warm-light);
+}
+
+/* Timeline entry, engine-rendered. Each entry is now a card floating
+   beside a gradient rail, rather than a bare line-and-dot list item. */
 .hx-timeline {
     position: relative;
-    padding-left: 2rem;
+    padding-left: 2.25rem;
 }
 
 .hx-timeline::before {
     content: '';
     position: absolute;
-    left: 0;
+    left: 0.4rem;
     top: 0;
     bottom: 0;
-    width: 1px;
-    background: var(--learning-border);
+    width: 3px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--learning-accent), var(--learning-warm));
+    opacity: 0.55;
 }
 
 .hx-entry {
     position: relative;
-    margin-bottom: 2.25rem;
-    padding-left: 1.75rem;
+    margin-bottom: 1.5rem;
+    background: var(--learning-card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.25rem 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hx-entry:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .hx-entry::before {
     content: '';
     position: absolute;
-    left: -2.35rem;
-    top: 0.35rem;
-    width: 8px;
-    height: 8px;
-    background: var(--learning-accent);
+    left: -1.85rem;
+    top: 1.55rem;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
+    background: var(--learning-warm);
+    border: 3px solid var(--learning-bg);
+    box-shadow: 0 0 0 2px var(--learning-warm);
 }
 
 .hx-date {
@@ -154,7 +194,8 @@
     margin-bottom: 0.6rem;
 }
 
-/* Footnote-style people links, auto-rendered by timeline.js */
+/* Footnote-style people links, auto-rendered by timeline.js, styled as
+   small pill chips rather than underlined text. */
 .hx-people {
     display: flex;
     flex-wrap: wrap;
@@ -163,18 +204,21 @@
 }
 
 .hx-people a {
-    font-size: 0.7rem;
-    font-weight: 500;
+    font-size: 0.68rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--learning-accent);
+    letter-spacing: 0.03em;
+    color: var(--learning-accent-dark);
+    background: var(--learning-accent-light);
     text-decoration: none;
-    border-bottom: 1px dotted var(--learning-accent);
+    padding: 0.22rem 0.65rem;
+    border-radius: 999px;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .hx-people a:hover {
-    color: var(--learning-accent-dark);
-    border-bottom-style: solid;
+    background: var(--learning-warm);
+    color: #fff;
 }
 
 /* Map frame */
@@ -185,8 +229,9 @@
 .hx-map img {
     max-width: 100%;
     display: block;
-    border-radius: 4px;
+    border-radius: 10px;
     border: 1px solid var(--learning-border);
+    box-shadow: var(--shadow-card);
 }
 
 .hx-map figcaption {
@@ -210,7 +255,7 @@
     color: var(--learning-text);
     margin-bottom: 1.25rem;
     padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--learning-border);
+    border-bottom: 2px solid var(--learning-warm);
 }
 
 @media (min-width: 900px) {
@@ -219,24 +264,29 @@
     }
 }
 
-/* People library (footnote target page) */
+/* People library (footnote target page), each figure as its own card */
 .people-list {
     display: flex;
     flex-direction: column;
 }
 
 .person-entry {
-    border-bottom: 1px solid var(--learning-border);
-    padding: 1.25rem 0;
+    background: var(--learning-card-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
     scroll-margin-top: 5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.person-entry:first-of-type {
-    border-top: 1px solid var(--learning-border);
+.person-entry:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
 }
 
 .person-entry:target {
-    background: rgba(29, 122, 101, 0.05);
+    box-shadow: 0 0 0 2px var(--learning-warm), var(--shadow-card-hover);
 }
 
 .person-name {
@@ -263,28 +313,35 @@
 }
 
 .person-appears {
-    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.65rem;
     font-size: 0.72rem;
 }
 
 .person-appears a {
-    color: var(--learning-accent);
+    color: var(--learning-accent-dark);
+    background: var(--learning-accent-light);
     text-decoration: none;
-    margin-right: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    transition: background 0.15s ease, color 0.15s ease;
 }
 
 .person-appears a:hover {
-    text-decoration: underline;
+    background: var(--learning-warm);
+    color: #fff;
 }
 
 /* Skeleton notice, visible only on draft/stub pages */
 .hx-skeleton-note {
-    background: rgba(29, 122, 101, 0.05);
-    border: 1px dashed var(--learning-border);
-    border-radius: 4px;
+    background: var(--learning-warm-light);
+    border: 1px dashed var(--learning-warm);
+    border-radius: var(--radius-card);
     padding: 1rem 1.25rem;
     font-size: 0.82rem;
-    color: var(--learning-text-muted);
+    color: var(--learning-warm-dark);
     margin-bottom: 2rem;
 }
 
@@ -293,7 +350,18 @@
         padding-left: 1.5rem;
     }
 
+    .hx-timeline::before {
+        left: 0.3rem;
+    }
+
     .hx-entry {
-        padding-left: 1.5rem;
+        padding: 1.1rem 1.15rem;
+    }
+
+    .hx-entry::before {
+        left: -1.2rem;
+        top: 1.35rem;
+        width: 10px;
+        height: 10px;
     }
 }

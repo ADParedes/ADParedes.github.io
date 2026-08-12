@@ -26,7 +26,7 @@ var HistoryTimeline = (function () {
                 '</figure>';
         }
         return '' +
-            '<div class="hx-entry" id="' + (entry.id || '') + '">' +
+            '<div class="hx-entry" data-reveal id="' + (entry.id || '') + '">' +
             '<div class="hx-date">' + entry.date + uncertainTag + '</div>' +
             '<div class="hx-title">' + entry.title + '</div>' +
             '<div class="hx-desc">' + entry.desc + '</div>' +
@@ -74,7 +74,7 @@ var HistoryTimeline = (function () {
                 .map(function (t) { return '<a href="' + t.href + '">' + t.label + '</a>'; })
                 .join('');
             return '' +
-                '<div class="person-entry" id="' + slug + '">' +
+                '<div class="person-entry" data-reveal id="' + slug + '">' +
                 '<span class="person-name">' + p.name + '</span>' +
                 '<span class="person-era">' + (p.era || '') + '</span>' +
                 '<div class="person-blurb">' + p.blurb + '</div>' +
